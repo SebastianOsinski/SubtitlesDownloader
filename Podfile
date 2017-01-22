@@ -6,5 +6,5 @@ target 'SubtitlesDownloader' do
   use_frameworks!
 
   # Pods for SubtitlesDownloader
-
+  pod 'FileProvider'
 end

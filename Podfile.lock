@@ -1,0 +1,12 @@
+PODS:
+  - FileProvider (0.6.1)
+
+DEPENDENCIES:
+  - FileProvider
+
+SPEC CHECKSUMS:
+  FileProvider: ecc5828d87ca148bcbd2ea15e53e636bacf182b0
+
+PODFILE CHECKSUM: fde7d9406886ea1c598de3baa920f34e51998409
+
+COCOAPODS: 1.1.1
