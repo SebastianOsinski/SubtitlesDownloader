@@ -6,9 +6,20 @@
 //  Copyright © 2017 Sebastian Osiński. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class FilesListConnector {
 
-    
+    private let fileGateway: FileGateway
+
+    init(fileGateway: FileGateway) {
+        self.fileGateway = fileGateway
+    }
+
+    func filesListViewController() -> UIViewController {
+        let presenter = FilesListPresenter()
+        let viewController = FilesListViewController(presenter: presenter, connector: self)
+
+        return viewController
+    }
 }

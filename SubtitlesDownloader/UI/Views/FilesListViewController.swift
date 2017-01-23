@@ -10,8 +10,18 @@ import UIKit
 
 class FilesListViewController: UITableViewController {
 
-    var presenter: FilesListPresenter!
-    var connector: FilesListConnector!
+    let presenter: FilesListPresenter
+    let connector: FilesListConnector
+
+    init(presenter: FilesListPresenter, connector: FilesListConnector) {
+        self.presenter = presenter
+        self.connector = connector
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
