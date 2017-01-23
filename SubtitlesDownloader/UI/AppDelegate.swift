@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fileGateway = InMemoryFileGateway()
         rootConnector = FilesListConnector(fileGateway: fileGateway)
 
-        let rootViewControlller = rootConnector.filesListViewController()
-        configureWindow(with: rootViewControlller)
+        let rootViewController = rootConnector.filesListViewController()
+        configureWindow(with: rootViewController)
 
         return true
     }
