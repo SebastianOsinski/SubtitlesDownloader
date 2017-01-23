@@ -13,8 +13,11 @@
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
 		91C874041E369BBE004A3EB6 /* FileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874031E369BBE004A3EB6 /* FileGateway.swift */; };
 		91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874051E369C5E004A3EB6 /* OperationHandle.swift */; };
-		91C874081E369CA0004A3EB6 /* FileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874071E369CA0004A3EB6 /* FileEntity.swift */; };
+		91C874081E369CA0004A3EB6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874071E369CA0004A3EB6 /* File.swift */; };
 		91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874091E369CC2004A3EB6 /* Result.swift */; };
+		91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874121E369FB2004A3EB6 /* FilesListViewController.swift */; };
+		91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874151E36A018004A3EB6 /* FilesListPresenter.swift */; };
+		91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874171E36A05B004A3EB6 /* FilesListConnector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +30,11 @@
 		91C873E61E35487D004A3EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91C874031E369BBE004A3EB6 /* FileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGateway.swift; sourceTree = "<group>"; };
 		91C874051E369C5E004A3EB6 /* OperationHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationHandle.swift; sourceTree = "<group>"; };
-		91C874071E369CA0004A3EB6 /* FileEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileEntity.swift; sourceTree = "<group>"; };
+		91C874071E369CA0004A3EB6 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		91C874091E369CC2004A3EB6 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		91C874121E369FB2004A3EB6 /* FilesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListViewController.swift; sourceTree = "<group>"; };
+		91C874151E36A018004A3EB6 /* FilesListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListPresenter.swift; sourceTree = "<group>"; };
+		91C874171E36A05B004A3EB6 /* FilesListConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListConnector.swift; sourceTree = "<group>"; };
 		D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +102,7 @@
 		91C874021E369B6D004A3EB6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				91C874071E369CA0004A3EB6 /* FileEntity.swift */,
+				91C874071E369CA0004A3EB6 /* File.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -111,6 +117,7 @@
 		91C8740C1E369D33004A3EB6 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				91C874141E369FEC004A3EB6 /* Presenters */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -137,6 +144,7 @@
 		91C874101E369DD1004A3EB6 /* Connectors */ = {
 			isa = PBXGroup;
 			children = (
+				91C874171E36A05B004A3EB6 /* FilesListConnector.swift */,
 			);
 			path = Connectors;
 			sourceTree = "<group>";
@@ -144,9 +152,18 @@
 		91C874111E369DDF004A3EB6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91C874121E369FB2004A3EB6 /* FilesListViewController.swift */,
 				91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		91C874141E369FEC004A3EB6 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				91C874151E36A018004A3EB6 /* FilesListPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		F2B0E3E4B813437E545E97D2 /* Pods */ = {
@@ -281,10 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
+				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
 				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
+				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,
-				91C874081E369CA0004A3EB6 /* FileEntity.swift in Sources */,
+				91C874081E369CA0004A3EB6 /* File.swift in Sources */,
 				91C874041E369BBE004A3EB6 /* FileGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
