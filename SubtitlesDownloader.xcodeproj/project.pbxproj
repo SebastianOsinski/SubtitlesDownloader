@@ -123,7 +123,7 @@
 				TargetAttributes = {
 					91C873D61E35487D004A3EB6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = J5RVW748Z6;
+						DevelopmentTeam = GJF586P7E7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -335,10 +335,10 @@
 			baseConfigurationReference = 36EAC61DEDEF5BC95C45EBCF /* Pods-SubtitlesDownloader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J5RVW748Z6;
+				DEVELOPMENT_TEAM = GJF586P7E7;
 				INFOPLIST_FILE = SubtitlesDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubtitlesDownloader;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubsDownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -349,10 +349,10 @@
 			baseConfigurationReference = D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J5RVW748Z6;
+				DEVELOPMENT_TEAM = GJF586P7E7;
 				INFOPLIST_FILE = SubtitlesDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubtitlesDownloader;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubsDownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -377,6 +377,7 @@
 				91C873EB1E35487D004A3EB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
