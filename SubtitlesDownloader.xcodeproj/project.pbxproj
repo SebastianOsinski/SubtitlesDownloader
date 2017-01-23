@@ -13,6 +13,10 @@
 		91C873E01E35487D004A3EB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873DE1E35487D004A3EB6 /* Main.storyboard */; };
 		91C873E21E35487D004A3EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E11E35487D004A3EB6 /* Assets.xcassets */; };
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
+		91C874041E369BBE004A3EB6 /* FileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874031E369BBE004A3EB6 /* FileGateway.swift */; };
+		91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874051E369C5E004A3EB6 /* OperationHandle.swift */; };
+		91C874081E369CA0004A3EB6 /* FileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874071E369CA0004A3EB6 /* FileEntity.swift */; };
+		91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874091E369CC2004A3EB6 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		91C873E11E35487D004A3EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91C873E41E35487D004A3EB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91C873E61E35487D004A3EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91C874031E369BBE004A3EB6 /* FileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGateway.swift; sourceTree = "<group>"; };
+		91C874051E369C5E004A3EB6 /* OperationHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationHandle.swift; sourceTree = "<group>"; };
+		91C874071E369CA0004A3EB6 /* FileEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileEntity.swift; sourceTree = "<group>"; };
+		91C874091E369CC2004A3EB6 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +77,7 @@
 		91C873D91E35487D004A3EB6 /* SubtitlesDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				91C874011E369B5E004A3EB6 /* Domain */,
 				91C873DA1E35487D004A3EB6 /* AppDelegate.swift */,
 				91C873DC1E35487D004A3EB6 /* ViewController.swift */,
 				91C873DE1E35487D004A3EB6 /* Main.storyboard */,
@@ -77,6 +86,25 @@
 				91C873E61E35487D004A3EB6 /* Info.plist */,
 			);
 			path = SubtitlesDownloader;
+			sourceTree = "<group>";
+		};
+		91C874011E369B5E004A3EB6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				91C874021E369B6D004A3EB6 /* Entities */,
+				91C874031E369BBE004A3EB6 /* FileGateway.swift */,
+				91C874051E369C5E004A3EB6 /* OperationHandle.swift */,
+				91C874091E369CC2004A3EB6 /* Result.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		91C874021E369B6D004A3EB6 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				91C874071E369CA0004A3EB6 /* FileEntity.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		F2B0E3E4B813437E545E97D2 /* Pods */ = {
@@ -212,8 +240,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				91C873DD1E35487D004A3EB6 /* ViewController.swift in Sources */,
+				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,
+				91C874081E369CA0004A3EB6 /* FileEntity.swift in Sources */,
+				91C874041E369BBE004A3EB6 /* FileGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

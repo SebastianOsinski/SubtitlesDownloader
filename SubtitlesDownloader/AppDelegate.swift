@@ -22,32 +22,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-enum Result<SuccessType> {
-    case success(SuccessType)
-    case failure(Error)
-}
-
-typealias ResultCallback<T> = (Result<T>) -> Void
-
-struct FileEntity {
-
-    enum EntityType {
-        case file
-        case directory
-    }
-
-    let name: String
-    let path: String
-    let type: EntityType
-}
-
-protocol OperationHandle {
-    var progress: Float { get }
-
-    func cancel()
-}
-
-protocol FileGateway {
-    func contentsOfDirectory(path: String, completion: ResultCallback<[FileEntity]>) -> OperationHandle?
-    func contents(path: String, offset: Int64, length: Int, completion: ResultCallback<Data>) -> OperationHandle?
-}
