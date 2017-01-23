@@ -18,6 +18,7 @@
 		91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874121E369FB2004A3EB6 /* FilesListViewController.swift */; };
 		91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874151E36A018004A3EB6 /* FilesListPresenter.swift */; };
 		91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874171E36A05B004A3EB6 /* FilesListConnector.swift */; };
+		91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874191E36A530004A3EB6 /* FileCellProtocol.swift */; };
 		91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		91C874121E369FB2004A3EB6 /* FilesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListViewController.swift; sourceTree = "<group>"; };
 		91C874151E36A018004A3EB6 /* FilesListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListPresenter.swift; sourceTree = "<group>"; };
 		91C874171E36A05B004A3EB6 /* FilesListConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListConnector.swift; sourceTree = "<group>"; };
+		91C874191E36A530004A3EB6 /* FileCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCellProtocol.swift; sourceTree = "<group>"; };
 		91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFileGateway.swift; sourceTree = "<group>"; };
 		D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				91C874141E369FEC004A3EB6 /* Presenters */,
+				91C874191E36A530004A3EB6 /* FileCellProtocol.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */,
+				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
 				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
