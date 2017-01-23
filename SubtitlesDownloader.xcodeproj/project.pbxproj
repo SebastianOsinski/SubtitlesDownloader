@@ -18,6 +18,7 @@
 		91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874121E369FB2004A3EB6 /* FilesListViewController.swift */; };
 		91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874151E36A018004A3EB6 /* FilesListPresenter.swift */; };
 		91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874171E36A05B004A3EB6 /* FilesListConnector.swift */; };
+		91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		91C874121E369FB2004A3EB6 /* FilesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListViewController.swift; sourceTree = "<group>"; };
 		91C874151E36A018004A3EB6 /* FilesListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListPresenter.swift; sourceTree = "<group>"; };
 		91C874171E36A05B004A3EB6 /* FilesListConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListConnector.swift; sourceTree = "<group>"; };
+		91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFileGateway.swift; sourceTree = "<group>"; };
 		D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 		91C873D91E35487D004A3EB6 /* SubtitlesDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				91C8741B1E36A9BF004A3EB6 /* Data */,
 				91C874011E369B5E004A3EB6 /* Domain */,
 				91C8740C1E369D33004A3EB6 /* Presentation */,
 				91C8740F1E369DB8004A3EB6 /* SupportFiles */,
@@ -164,6 +167,15 @@
 				91C874151E36A018004A3EB6 /* FilesListPresenter.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		91C8741B1E36A9BF004A3EB6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */,
+			);
+			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		F2B0E3E4B813437E545E97D2 /* Pods */ = {
@@ -303,6 +315,7 @@
 				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
 				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
 				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
+				91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,
 				91C874081E369CA0004A3EB6 /* File.swift in Sources */,
 				91C874041E369BBE004A3EB6 /* FileGateway.swift in Sources */,
