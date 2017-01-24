@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		612F5BD334B89215D23EA4FB /* Pods_SubtitlesDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857E85A3A1DE53567CFBBD01 /* Pods_SubtitlesDownloader.framework */; };
+		915360B71E37D7E900E6F857 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360B61E37D7E900E6F857 /* FileTableViewCell.swift */; };
 		91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C873DA1E35487D004A3EB6 /* AppDelegate.swift */; };
 		91C873E21E35487D004A3EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E11E35487D004A3EB6 /* Assets.xcassets */; };
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		36EAC61DEDEF5BC95C45EBCF /* Pods-SubtitlesDownloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.debug.xcconfig"; sourceTree = "<group>"; };
 		857E85A3A1DE53567CFBBD01 /* Pods_SubtitlesDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubtitlesDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		915360B61E37D7E900E6F857 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		91C873D71E35487D004A3EB6 /* SubtitlesDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubtitlesDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C873DA1E35487D004A3EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C873E11E35487D004A3EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				91C874121E369FB2004A3EB6 /* FilesListViewController.swift */,
 				91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */,
+				915360B61E37D7E900E6F857 /* FileTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915360B71E37D7E900E6F857 /* FileTableViewCell.swift in Sources */,
 				91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
 				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
