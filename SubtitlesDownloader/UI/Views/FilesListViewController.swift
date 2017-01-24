@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FilesListViewProtocol: class {
+    func refresh()
+}
+
 class FilesListViewController: UITableViewController {
 
     let presenter: FilesListPresenter
@@ -25,6 +29,28 @@ class FilesListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
         presenter.viewReady()
+    }
+
+    private func setupTableView() {
+        tableView.register(FileTableViewCell.self)
+        tableView.estimatedRowHeight = 40.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: FileTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        presenter.configureCell(cell, at: indexPath.row)
+
+        return cell
+    }
+}
+
+
+extension FilesListViewController: FilesListViewProtocol {
+
+    func refresh() {
+        tableView.reloadData()
     }
 }

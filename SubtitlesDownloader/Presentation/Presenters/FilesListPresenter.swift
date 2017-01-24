@@ -10,15 +10,40 @@ import Foundation
 
 class FilesListPresenter {
 
+    weak var view: FilesListViewProtocol?
+
+    private let path: String
+    private let useCaseFactory: UseCaseFactory
+
+    private var files = [File]()
+
+    init(path: String, useCaseFactory: UseCaseFactory) {
+        self.path = path
+        self.useCaseFactory = useCaseFactory
+    }
+
     var numberOfFiles: Int {
-        return 0
+        return files.count
     }
     
     func viewReady() {
-        
+        let useCase = createShowFilesListUseCase()
+        useCase.execute()
     }
 
     func configureCell(_ cell: FileCellProtocol, at index: Int) {
+        cell.displayName(files[index].name)
+    }
 
+    private func createShowFilesListUseCase() -> UseCase {
+        return useCaseFactory.createUseCase(for: .showFiles(directoryPath: path) { [weak self] result in
+            switch result {
+            case .success(let files):
+                self?.files = files
+                self?.view?.refresh()
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 }

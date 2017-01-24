@@ -10,15 +10,19 @@ import UIKit
 
 class FilesListConnector {
 
+    private let path: String
     private let fileGateway: FileGateway
 
-    init(fileGateway: FileGateway) {
+    init(path: String, fileGateway: FileGateway) {
+        self.path = path
         self.fileGateway = fileGateway
     }
 
     func filesListViewController() -> UIViewController {
-        let presenter = FilesListPresenter()
+        let useCaseFactory = UseCaseFactory(fileGateway: fileGateway)
+        let presenter = FilesListPresenter(path: path, useCaseFactory: useCaseFactory)
         let viewController = FilesListViewController(presenter: presenter, connector: self)
+        presenter.view = viewController
 
         return viewController
     }
