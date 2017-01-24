@@ -17,4 +17,8 @@ class FilesListPresenter {
     func viewReady() {
         
     }
+
+    func configureCell(_ cell: FileCellProtocol, at index: Int) {
+
+    }
 }

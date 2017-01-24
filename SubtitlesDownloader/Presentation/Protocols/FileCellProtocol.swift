@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FileCell {
+protocol FileCellProtocol {
 
     func displayName(_ name: String)
 }

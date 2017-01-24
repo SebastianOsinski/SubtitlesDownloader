@@ -20,6 +20,8 @@
 		91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874171E36A05B004A3EB6 /* FilesListConnector.swift */; };
 		91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874191E36A530004A3EB6 /* FileCellProtocol.swift */; };
 		91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */; };
+		91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C261E37D3C0006433B7 /* UseCase.swift */; };
+		91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		91C874171E36A05B004A3EB6 /* FilesListConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListConnector.swift; sourceTree = "<group>"; };
 		91C874191E36A530004A3EB6 /* FileCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCellProtocol.swift; sourceTree = "<group>"; };
 		91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFileGateway.swift; sourceTree = "<group>"; };
+		91E17C261E37D3C0006433B7 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UseCase.swift; path = UseCases/UseCase.swift; sourceTree = "<group>"; };
+		91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFilesListUseCase.swift; sourceTree = "<group>"; };
 		D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +99,7 @@
 		91C874011E369B5E004A3EB6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				91E17C261E37D3C0006433B7 /* UseCase.swift */,
 				91C874021E369B6D004A3EB6 /* Entities */,
 				91C8740B1E369D12004A3EB6 /* UseCases */,
 				91C874031E369BBE004A3EB6 /* FileGateway.swift */,
@@ -115,6 +120,7 @@
 		91C8740B1E369D12004A3EB6 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -123,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				91C874141E369FEC004A3EB6 /* Presenters */,
-				91C874191E36A530004A3EB6 /* FileCellProtocol.swift */,
+				91C8741E1E36AFF8004A3EB6 /* Protocols */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -177,8 +183,15 @@
 			children = (
 				91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */,
 			);
-			name = Data;
 			path = Data;
+			sourceTree = "<group>";
+		};
+		91C8741E1E36AFF8004A3EB6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				91C874191E36A530004A3EB6 /* FileCellProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F2B0E3E4B813437E545E97D2 /* Pods */ = {
@@ -314,10 +327,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */,
+				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
 				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
 				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
+				91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */,
 				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
 				91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,
