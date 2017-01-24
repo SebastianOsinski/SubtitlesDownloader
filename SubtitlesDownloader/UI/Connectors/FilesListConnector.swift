@@ -41,4 +41,18 @@ class FilesListConnector {
 
         navigationController.pushViewController(viewController, animated: true)
     }
+
+    func previewControllerForDirectory(atPath path: String) -> UIViewController {
+        let connector = FilesListConnector(
+            path: path,
+            fileGateway: fileGateway,
+            navigationController: navigationController
+        )
+
+        return connector.filesListViewController()
+    }
+
+    func commitPreviewingController(_ controller: UIViewController) {
+        navigationController.pushViewController(controller, animated: true)
+    }
 }

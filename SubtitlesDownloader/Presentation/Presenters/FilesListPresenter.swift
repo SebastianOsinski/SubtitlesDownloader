@@ -43,6 +43,10 @@ class FilesListPresenter {
         }
     }
 
+    func pathForDirectory(at index: Int) -> String {
+        return files[index].path
+    }
+
     private func createShowFilesListUseCase() -> UseCase {
         return useCaseFactory.createUseCase(for: .showFiles(directoryPath: path) { [weak self] result in
             switch result {

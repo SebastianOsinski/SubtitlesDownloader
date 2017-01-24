@@ -13,7 +13,7 @@ protocol FilesListViewProtocol: class {
     func showDirectory(atPath path: String)
 }
 
-class FilesListViewController: UITableViewController {
+class FilesListViewController: UITableViewController, UIViewControllerPreviewingDelegate {
 
     let presenter: FilesListPresenter
     let connector: FilesListConnector
@@ -31,6 +31,9 @@ class FilesListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+
+        registerForPreviewing(with: self, sourceView: tableView)
+
         presenter.viewReady()
     }
 
@@ -53,6 +56,22 @@ class FilesListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.cellSelected(at: indexPath.row)
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView.indexPathForRow(at: location) else {
+            return nil
+        }
+
+        previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
+
+        let path = presenter.pathForDirectory(at: indexPath.row)
+
+        return connector.previewControllerForDirectory(atPath: path)
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        connector.commitPreviewingController(viewControllerToCommit)
     }
 }
 

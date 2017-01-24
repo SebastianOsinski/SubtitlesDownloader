@@ -34,7 +34,7 @@ class InMemoryFileGateway: FileGateway {
             File(name: "E", path: "", type: .directory)
         ]
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             completion(.success(files))
         }
 
