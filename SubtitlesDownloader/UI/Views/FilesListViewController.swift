@@ -10,6 +10,7 @@ import UIKit
 
 protocol FilesListViewProtocol: class {
     func refresh()
+    func showDirectory(atPath path: String)
 }
 
 class FilesListViewController: UITableViewController {
@@ -49,6 +50,10 @@ class FilesListViewController: UITableViewController {
 
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.cellSelected(at: indexPath.row)
+    }
 }
 
 
@@ -56,5 +61,9 @@ extension FilesListViewController: FilesListViewProtocol {
 
     func refresh() {
         tableView.reloadData()
+    }
+
+    func showDirectory(atPath path: String) {
+        connector.navigateToDirectory(atPath: path)
     }
 }

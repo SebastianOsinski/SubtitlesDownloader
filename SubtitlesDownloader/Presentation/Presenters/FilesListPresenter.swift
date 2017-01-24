@@ -35,6 +35,14 @@ class FilesListPresenter {
         cell.displayName(files[index].name)
     }
 
+    func cellSelected(at index: Int) {
+        let file = files[index]
+
+        if file.type == .directory {
+            view?.showDirectory(atPath: file.path)
+        }
+    }
+
     private func createShowFilesListUseCase() -> UseCase {
         return useCaseFactory.createUseCase(for: .showFiles(directoryPath: path) { [weak self] result in
             switch result {

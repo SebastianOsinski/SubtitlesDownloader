@@ -30,7 +30,7 @@ class FilesListConnector {
         return viewController
     }
 
-    func navigateToDirectory(atPath path: String, fileGateway: FileGateway) {
+    func navigateToDirectory(atPath path: String) {
         let connector = FilesListConnector(
             path: path,
             fileGateway: fileGateway,
