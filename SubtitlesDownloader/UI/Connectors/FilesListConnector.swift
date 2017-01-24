@@ -13,9 +13,12 @@ class FilesListConnector {
     private let path: String
     private let fileGateway: FileGateway
 
-    init(path: String, fileGateway: FileGateway) {
+    private let navigationController: UINavigationController
+
+    init(path: String, fileGateway: FileGateway, navigationController: UINavigationController) {
         self.path = path
         self.fileGateway = fileGateway
+        self.navigationController = navigationController
     }
 
     func filesListViewController() -> UIViewController {
@@ -25,5 +28,17 @@ class FilesListConnector {
         presenter.view = viewController
 
         return viewController
+    }
+
+    func navigateToDirectory(atPath path: String, fileGateway: FileGateway) {
+        let connector = FilesListConnector(
+            path: path,
+            fileGateway: fileGateway,
+            navigationController: navigationController
+        )
+
+        let viewController = connector.filesListViewController()
+
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

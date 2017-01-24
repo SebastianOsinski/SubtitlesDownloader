@@ -18,10 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         let fileGateway = InMemoryFileGateway()
-        rootConnector = FilesListConnector(path: "/", fileGateway: fileGateway)
+        let navigationController = UINavigationController()
+        rootConnector = FilesListConnector(
+            path: "/",
+            fileGateway: fileGateway,
+            navigationController: navigationController
+        )
 
-        let rootViewController = rootConnector.filesListViewController()
-        configureWindow(with: rootViewController)
+        navigationController.pushViewController(rootConnector.filesListViewController(), animated: false)
+        configureWindow(with: navigationController)
 
         return true
     }
