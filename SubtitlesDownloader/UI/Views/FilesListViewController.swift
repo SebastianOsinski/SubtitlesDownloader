@@ -39,6 +39,10 @@ class FilesListViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfFiles
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FileTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         presenter.configureCell(cell, at: indexPath.row)
