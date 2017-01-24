@@ -9,6 +9,6 @@
 import Foundation
 
 protocol FileGateway {
-    func contentsOfDirectory(path: String, completion: ResultCallback<[File]>) -> OperationHandle?
-    func contents(path: String, offset: Int64, length: Int, completion: ResultCallback<Data>) -> OperationHandle?
+    func contentsOfDirectory(path: String, completion: @escaping ResultCallback<[File]>) -> OperationHandle?
+    func contents(path: String, offset: Int64, length: Int, completion: @escaping ResultCallback<Data>) -> OperationHandle?
 }

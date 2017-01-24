@@ -25,7 +25,7 @@ class InMemoryFileGateway: FileGateway {
             ]
         )
 
-    func contentsOfDirectory(path: String, completion: (Result<[File]>) -> Void) -> OperationHandle? {
+    func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
         let files = [
             File(name: "A", path: "", type: .regular),
             File(name: "B", path: "", type: .regular),
@@ -34,12 +34,14 @@ class InMemoryFileGateway: FileGateway {
             File(name: "E", path: "", type: .regular)
         ]
 
-        completion(.success(files))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            completion(.success(files))
+        }
 
         return nil
     }
 
-    func contents(path: String, offset: Int64, length: Int, completion: (Result<Data>) -> Void) -> OperationHandle? {
+    func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
         return nil
     }
 }
