@@ -18,6 +18,7 @@
 		91816DDD1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDC1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift */; };
 		91816DDF1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDE1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift */; };
 		91816DE11E3A9DC8002ED2C5 /* DummyFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE01E3A9DC8002ED2C5 /* DummyFileGateway.swift */; };
+		915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360E21E396C7700E6F857 /* WebDavFileGateway.swift */; };
 		91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C873DA1E35487D004A3EB6 /* AppDelegate.swift */; };
 		91C873E21E35487D004A3EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E11E35487D004A3EB6 /* Assets.xcassets */; };
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
@@ -62,6 +63,7 @@
 		91816DDC1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+RegisteringSpec.swift"; sourceTree = "<group>"; };
 		91816DDE1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListConnectorSpec.swift; sourceTree = "<group>"; };
 		91816DE01E3A9DC8002ED2C5 /* DummyFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyFileGateway.swift; sourceTree = "<group>"; };
+		915360E21E396C7700E6F857 /* WebDavFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebDavFileGateway.swift; sourceTree = "<group>"; };
 		91C873D71E35487D004A3EB6 /* SubtitlesDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubtitlesDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C873DA1E35487D004A3EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C873E11E35487D004A3EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */,
+				915360E21E396C7700E6F857 /* WebDavFileGateway.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
 				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
+				915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */,
 				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
