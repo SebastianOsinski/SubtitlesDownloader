@@ -11,19 +11,14 @@ import Foundation
 class InMemoryFileGateway: FileGateway {
 
     private let tree: FileNode =
-        .directory(
-            name: "",
-            files: [
-                .file(name: "A"),
-                .file(name: "B"),
-                .file(name: "C"),
-                .directory(
-                    name: "dir",
-                    files: [
-                        .file(name: "D")
-                    ])
-            ]
-        )
+        .directory("", [
+            .file("A"),
+            .file("B"),
+            .file("C"),
+            .directory("dir", [
+                .file("D")
+            ])
+        ])
 
     func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
         let files = [
@@ -47,6 +42,6 @@ class InMemoryFileGateway: FileGateway {
 }
 
 private indirect enum FileNode {
-    case file(name: String)
-    case directory(name: String, files: [FileNode])
+    case file(String)
+    case directory(String, [FileNode])
 }
