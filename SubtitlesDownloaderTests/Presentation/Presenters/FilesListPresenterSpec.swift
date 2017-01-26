@@ -37,20 +37,42 @@ class FilesListPresenterSpec: QuickSpec {
                 expect(useCaseFactory.useCase.executeCalled).to(beTrue())
             }
 
-            it("has same amount of data as passed") {
-                useCaseFactory.data = [
-                    File(name: "A", path: "A", type: .regular),
-                    File(name: "B", path: "B", type: .regular)
-                ]
-
-                sut.viewReady()
-
-                expect(sut.numberOfFiles).to(equal(useCaseFactory.data.count))
-            }
-
             it("calls refresh on view when view is ready") {
                 sut.viewReady()
                 expect(view.refreshCalled).to(beTrue())
+            }
+
+            context("has data") {
+
+                beforeEach {
+                    useCaseFactory.data = [
+                        File(name: "A", path: "A", type: .regular),
+                        File(name: "B", path: "B", type: .directory)
+                    ]
+
+                    sut.viewReady()
+                }
+
+                it("has same amount of data as passed") {
+                    expect(sut.numberOfFiles).to(equal(useCaseFactory.data.count))
+                }
+
+                it("calls showDirectory on view when selected file is directory and passes correct path") {
+                    sut.cellSelected(at: 1)
+                    expect(view.shownDirectoryPath).to(equal("B"))
+                }
+
+                it("doesn't call showDirectory on view when selected file is regular file") {
+                    sut.cellSelected(at: 0)
+                    expect(view.shownDirectoryPath).to(beNil())
+                }
+
+                it("sets up cell with correct name of file") {
+                    let cell = MockFileCell()
+                    sut.configureCell(cell, at: 0)
+
+                    expect(cell.name).to(equal("A"))
+                }
             }
         }
     }
@@ -67,6 +89,15 @@ private class MockFilesListView: FilesListViewProtocol {
 
     func showDirectory(atPath path: String) {
         shownDirectoryPath = path
+    }
+}
+
+private class MockFileCell: FileCellProtocol {
+
+    private(set) var name: String?
+
+    func displayName(_ name: String) {
+        self.name = name
     }
 }
 
