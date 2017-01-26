@@ -16,4 +16,5 @@ struct File {
     let name: String
     let path: String
     let type: FileType
+    let size: Int64
 }

@@ -22,11 +22,11 @@ class InMemoryFileGateway: FileGateway {
 
     func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
         let files = [
-            File(name: "A", path: "", type: .directory),
-            File(name: "B", path: "", type: .directory),
-            File(name: "C", path: "", type: .directory),
-            File(name: "D", path: "", type: .directory),
-            File(name: "E", path: "", type: .directory)
+            File(name: "A", path: "", type: .directory, size: 0),
+            File(name: "B", path: "", type: .directory, size: 0),
+            File(name: "C", path: "", type: .directory, size: 0),
+            File(name: "D", path: "", type: .directory, size: 0),
+            File(name: "E", path: "", type: .directory, size: 0)
         ]
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {

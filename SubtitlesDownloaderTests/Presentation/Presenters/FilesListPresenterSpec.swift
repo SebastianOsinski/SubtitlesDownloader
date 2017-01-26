@@ -46,8 +46,8 @@ class FilesListPresenterSpec: QuickSpec {
 
                 beforeEach {
                     useCaseFactory.data = [
-                        File(name: "A", path: "A", type: .regular),
-                        File(name: "B", path: "B", type: .directory)
+                        File(name: "A", path: "A", type: .regular, size: 0),
+                        File(name: "B", path: "B", type: .directory, size: 0)
                     ]
 
                     sut.viewReady()

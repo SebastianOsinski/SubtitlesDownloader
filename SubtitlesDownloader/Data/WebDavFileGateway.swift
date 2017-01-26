@@ -43,7 +43,7 @@ class WebDavFileGateway: FileGateway {
                     return nil
                 }
 
-                return File(name: fileObject.name, path: fileObject.path, type: type)
+                return File(name: fileObject.name, path: fileObject.path, type: type, size: 0)
             }
 
             completionQueue.async {
