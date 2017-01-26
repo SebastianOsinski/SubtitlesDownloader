@@ -148,14 +148,3 @@ private class MockShowFilesListUseCase: UseCase {
     }
 
 }
-
-private class DummyFileGateway: FileGateway {
-
-    func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
-        return nil
-    }
-
-    func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
-        return nil
-    }
-}
