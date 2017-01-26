@@ -28,6 +28,7 @@
 		91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */; };
 		91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C261E37D3C0006433B7 /* UseCase.swift */; };
 		91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */; };
+		E9FD80BD8FF232175E9041A1 /* Pods_SubtitlesDownloaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C490620EAB5445792BDDD382 /* Pods_SubtitlesDownloaderTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		36EAC61DEDEF5BC95C45EBCF /* Pods-SubtitlesDownloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.debug.xcconfig"; sourceTree = "<group>"; };
+		41CBDFB7654572F73E149D2D /* Pods-SubtitlesDownloaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloaderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloaderTests/Pods-SubtitlesDownloaderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C7D0A64A0EC72B65964E365 /* Pods-SubtitlesDownloaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloaderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloaderTests/Pods-SubtitlesDownloaderTests.release.xcconfig"; sourceTree = "<group>"; };
 		857E85A3A1DE53567CFBBD01 /* Pods_SubtitlesDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubtitlesDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		915360B61E37D7E900E6F857 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Registering.swift"; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFileGateway.swift; sourceTree = "<group>"; };
 		91E17C261E37D3C0006433B7 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UseCase.swift; path = UseCases/UseCase.swift; sourceTree = "<group>"; };
 		91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFilesListUseCase.swift; sourceTree = "<group>"; };
+		C490620EAB5445792BDDD382 /* Pods_SubtitlesDownloaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubtitlesDownloaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FD80BD8FF232175E9041A1 /* Pods_SubtitlesDownloaderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				857E85A3A1DE53567CFBBD01 /* Pods_SubtitlesDownloader.framework */,
+				C490620EAB5445792BDDD382 /* Pods_SubtitlesDownloaderTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -254,6 +260,8 @@
 			children = (
 				36EAC61DEDEF5BC95C45EBCF /* Pods-SubtitlesDownloader.debug.xcconfig */,
 				D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */,
+				41CBDFB7654572F73E149D2D /* Pods-SubtitlesDownloaderTests.debug.xcconfig */,
+				6C7D0A64A0EC72B65964E365 /* Pods-SubtitlesDownloaderTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -265,9 +273,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91816DD31E3A752C002ED2C5 /* Build configuration list for PBXNativeTarget "SubtitlesDownloaderTests" */;
 			buildPhases = (
+				D1AF13715EE098C4BA5A1BF4 /* [CP] Check Pods Manifest.lock */,
 				91816DC61E3A752C002ED2C5 /* Sources */,
 				91816DC71E3A752C002ED2C5 /* Frameworks */,
 				91816DC81E3A752C002ED2C5 /* Resources */,
+				4141B64697FDB1F3CDC9A129 /* [CP] Embed Pods Frameworks */,
+				CFF5E4958ED408E42F69F3DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -376,6 +387,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4141B64697FDB1F3CDC9A129 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubtitlesDownloaderTests/Pods-SubtitlesDownloaderTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		59C0B73E615389A334A0316A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +430,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFF5E4958ED408E42F69F3DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubtitlesDownloaderTests/Pods-SubtitlesDownloaderTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1AF13715EE098C4BA5A1BF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -466,6 +522,7 @@
 /* Begin XCBuildConfiguration section */
 		91816DD11E3A752C002ED2C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41CBDFB7654572F73E149D2D /* Pods-SubtitlesDownloaderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GJF586P7E7;
@@ -480,6 +537,7 @@
 		};
 		91816DD21E3A752C002ED2C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C7D0A64A0EC72B65964E365 /* Pods-SubtitlesDownloaderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GJF586P7E7;
