@@ -21,6 +21,10 @@
 		91816DE11E3A9DC8002ED2C5 /* DummyFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE01E3A9DC8002ED2C5 /* DummyFileGateway.swift */; };
 		91816DE31E3AA467002ED2C5 /* HashCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE21E3AA467002ED2C5 /* HashCalculator.swift */; };
 		91816DE61E3AA7FB002ED2C5 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */; };
+		91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */; };
+		91816DEA1E3AB620002ED2C5 /* HashCalculatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */; };
+		91816DEF1E3AB6BC002ED2C5 /* breakdance.avi in Resources */ = {isa = PBXBuildFile; fileRef = 91816DED1E3AB6BC002ED2C5 /* breakdance.avi */; };
+		91816DF01E3AB6BC002ED2C5 /* dummy.rar in Resources */ = {isa = PBXBuildFile; fileRef = 91816DEE1E3AB6BC002ED2C5 /* dummy.rar */; };
 		91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C873DA1E35487D004A3EB6 /* AppDelegate.swift */; };
 		91C873E21E35487D004A3EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E11E35487D004A3EB6 /* Assets.xcassets */; };
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
@@ -68,6 +72,10 @@
 		91816DE01E3A9DC8002ED2C5 /* DummyFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyFileGateway.swift; sourceTree = "<group>"; };
 		91816DE21E3AA467002ED2C5 /* HashCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashCalculator.swift; sourceTree = "<group>"; };
 		91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBytesOperation.swift; sourceTree = "<group>"; };
+		91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashCalculatorSpec.swift; sourceTree = "<group>"; };
+		91816DED1E3AB6BC002ED2C5 /* breakdance.avi */ = {isa = PBXFileReference; lastKnownFileType = video.avi; path = breakdance.avi; sourceTree = "<group>"; };
+		91816DEE1E3AB6BC002ED2C5 /* dummy.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = dummy.rar; sourceTree = "<group>"; };
 		91C873D71E35487D004A3EB6 /* SubtitlesDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubtitlesDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C873DA1E35487D004A3EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C873E11E35487D004A3EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,11 +179,13 @@
 		91816DCB1E3A752C002ED2C5 /* SubtitlesDownloaderTests */ = {
 			isa = PBXGroup;
 			children = (
+				91816DEB1E3AB69B002ED2C5 /* SupportFiles */,
 				91816DD81E3A78BC002ED2C5 /* Presentation */,
 				91816DCE1E3A752C002ED2C5 /* Info.plist */,
 				274239CAE4F6C2F98481B242 /* UI */,
 				27423C297C68564E13DFF1BA /* Domain */,
 				91816DE01E3A9DC8002ED2C5 /* DummyFileGateway.swift */,
+				91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */,
 			);
 			path = SubtitlesDownloaderTests;
 			sourceTree = "<group>";
@@ -202,6 +212,23 @@
 				91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */,
 			);
 			name = Aux;
+			sourceTree = "<group>";
+		};
+		91816DEB1E3AB69B002ED2C5 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				91816DEC1E3AB6A2002ED2C5 /* HashingTestFiles */,
+			);
+			name = SupportFiles;
+			sourceTree = "<group>";
+		};
+		91816DEC1E3AB6A2002ED2C5 /* HashingTestFiles */ = {
+			isa = PBXGroup;
+			children = (
+				91816DED1E3AB6BC002ED2C5 /* breakdance.avi */,
+				91816DEE1E3AB6BC002ED2C5 /* dummy.rar */,
+			);
+			name = HashingTestFiles;
 			sourceTree = "<group>";
 		};
 		91C873CE1E35487D004A3EB6 = {
@@ -328,6 +355,7 @@
 				91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */,
 				915360E21E396C7700E6F857 /* WebDavFileGateway.swift */,
 				91816DE21E3AA467002ED2C5 /* HashCalculator.swift */,
+				91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -442,6 +470,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91816DF01E3AB6BC002ED2C5 /* dummy.rar in Resources */,
+				91816DEF1E3AB6BC002ED2C5 /* breakdance.avi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91816DEA1E3AB620002ED2C5 /* HashCalculatorSpec.swift in Sources */,
 				91816DDF1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift in Sources */,
 				91816DDB1E3A792B002ED2C5 /* FilesListPresenterSpec.swift in Sources */,
 				27423D528590228BA73C9F82 /* UITableViewCell+ReusableViewSpec.swift in Sources */,
@@ -578,6 +609,7 @@
 				915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */,
 				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
 				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
+				91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */,
 				91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */,
 				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
 				91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */,
