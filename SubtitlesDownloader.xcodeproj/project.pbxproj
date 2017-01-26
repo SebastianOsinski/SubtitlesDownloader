@@ -13,6 +13,7 @@
 		915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BC1E37DA1000E6F857 /* ReusableView.swift */; };
 		915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */; };
 		915360C11E37DD1600E6F857 /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360C01E37DD1600E6F857 /* UseCaseFactory.swift */; };
+		91816DCD1E3A752C002ED2C5 /* SubtitlesDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DCC1E3A752C002ED2C5 /* SubtitlesDownloaderTests.swift */; };
 		91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C873DA1E35487D004A3EB6 /* AppDelegate.swift */; };
 		91C873E21E35487D004A3EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E11E35487D004A3EB6 /* Assets.xcassets */; };
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
@@ -29,6 +30,16 @@
 		91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		91816DCF1E3A752C002ED2C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91C873CF1E35487D004A3EB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91C873D61E35487D004A3EB6;
+			remoteInfo = SubtitlesDownloader;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		36EAC61DEDEF5BC95C45EBCF /* Pods-SubtitlesDownloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.debug.xcconfig"; sourceTree = "<group>"; };
 		857E85A3A1DE53567CFBBD01 /* Pods_SubtitlesDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubtitlesDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +48,9 @@
 		915360BC1E37DA1000E6F857 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReusableView.swift"; sourceTree = "<group>"; };
 		915360C01E37DD1600E6F857 /* UseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
+		91816DCA1E3A752C002ED2C5 /* SubtitlesDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubtitlesDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91816DCC1E3A752C002ED2C5 /* SubtitlesDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitlesDownloaderTests.swift; sourceTree = "<group>"; };
+		91816DCE1E3A752C002ED2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91C873D71E35487D004A3EB6 /* SubtitlesDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubtitlesDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C873DA1E35487D004A3EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C873E11E35487D004A3EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +71,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		91816DC71E3A752C002ED2C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91C873D41E35487D004A3EB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,9 +107,19 @@
 			path = Aux;
 			sourceTree = "<group>";
 		};
+		91816DCB1E3A752C002ED2C5 /* SubtitlesDownloaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				91816DCC1E3A752C002ED2C5 /* SubtitlesDownloaderTests.swift */,
+				91816DCE1E3A752C002ED2C5 /* Info.plist */,
+			);
+			path = SubtitlesDownloaderTests;
+			sourceTree = "<group>";
+		};
 		91C873CE1E35487D004A3EB6 = {
 			isa = PBXGroup;
 			children = (
+				91816DCB1E3A752C002ED2C5 /* SubtitlesDownloaderTests */,
 				1BFAA80EF2E55977378C9A47 /* Frameworks */,
 				F2B0E3E4B813437E545E97D2 /* Pods */,
 				91C873D81E35487D004A3EB6 /* Products */,
@@ -100,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				91C873D71E35487D004A3EB6 /* SubtitlesDownloader.app */,
+				91816DCA1E3A752C002ED2C5 /* SubtitlesDownloaderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,6 +261,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		91816DC91E3A752C002ED2C5 /* SubtitlesDownloaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91816DD31E3A752C002ED2C5 /* Build configuration list for PBXNativeTarget "SubtitlesDownloaderTests" */;
+			buildPhases = (
+				91816DC61E3A752C002ED2C5 /* Sources */,
+				91816DC71E3A752C002ED2C5 /* Frameworks */,
+				91816DC81E3A752C002ED2C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91816DD01E3A752C002ED2C5 /* PBXTargetDependency */,
+			);
+			name = SubtitlesDownloaderTests;
+			productName = SubtitlesDownloaderTests;
+			productReference = 91816DCA1E3A752C002ED2C5 /* SubtitlesDownloaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		91C873D61E35487D004A3EB6 /* SubtitlesDownloader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91C873E91E35487D004A3EB6 /* Build configuration list for PBXNativeTarget "SubtitlesDownloader" */;
@@ -259,6 +309,12 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Sebastian Osiński";
 				TargetAttributes = {
+					91816DC91E3A752C002ED2C5 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GJF586P7E7;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 91C873D61E35487D004A3EB6;
+					};
 					91C873D61E35487D004A3EB6 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = GJF586P7E7;
@@ -280,11 +336,19 @@
 			projectRoot = "";
 			targets = (
 				91C873D61E35487D004A3EB6 /* SubtitlesDownloader */,
+				91816DC91E3A752C002ED2C5 /* SubtitlesDownloaderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		91816DC81E3A752C002ED2C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91C873D51E35487D004A3EB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +409,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		91816DC61E3A752C002ED2C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91816DCD1E3A752C002ED2C5 /* SubtitlesDownloaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91C873D31E35487D004A3EB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,6 +443,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		91816DD01E3A752C002ED2C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91C873D61E35487D004A3EB6 /* SubtitlesDownloader */;
+			targetProxy = 91816DCF1E3A752C002ED2C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -384,6 +464,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		91816DD11E3A752C002ED2C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GJF586P7E7;
+				INFOPLIST_FILE = SubtitlesDownloaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubtitlesDownloaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubtitlesDownloader.app/SubtitlesDownloader";
+			};
+			name = Debug;
+		};
+		91816DD21E3A752C002ED2C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GJF586P7E7;
+				INFOPLIST_FILE = SubtitlesDownloaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubtitlesDownloaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubtitlesDownloader.app/SubtitlesDownloader";
+			};
+			name = Release;
+		};
 		91C873E71E35487D004A3EB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -506,6 +614,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		91816DD31E3A752C002ED2C5 /* Build configuration list for PBXNativeTarget "SubtitlesDownloaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91816DD11E3A752C002ED2C5 /* Debug */,
+				91816DD21E3A752C002ED2C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		91C873D21E35487D004A3EB6 /* Build configuration list for PBXProject "SubtitlesDownloader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

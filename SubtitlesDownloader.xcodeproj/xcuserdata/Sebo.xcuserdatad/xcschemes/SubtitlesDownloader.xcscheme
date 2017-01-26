@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "91816DC91E3A752C002ED2C5"
+               BuildableName = "SubtitlesDownloaderTests.xctest"
+               BlueprintName = "SubtitlesDownloaderTests"
+               ReferencedContainer = "container:SubtitlesDownloader.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
