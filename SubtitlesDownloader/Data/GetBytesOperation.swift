@@ -17,7 +17,7 @@ class GetBytesOperation: AsyncOperation {
 
     private var operationHandle: OperationHandle?
 
-    private(set) var result: Result<Data>?
+    private(set) var result: Result<Data>!
 
     init(path: String, offset: Int64, length: Int, fileGateway: FileGateway) {
         self.path = path

@@ -39,6 +39,8 @@
 		91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */; };
 		91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C261E37D3C0006433B7 /* UseCase.swift */; };
 		91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */; };
+		91F9B3941E3BB64E000E32F2 /* GetBytesOperationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */; };
+		91F9B3971E3BC10D000E32F2 /* HashingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */; };
 		E9FD80BD8FF232175E9041A1 /* Pods_SubtitlesDownloaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C490620EAB5445792BDDD382 /* Pods_SubtitlesDownloaderTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFileGateway.swift; sourceTree = "<group>"; };
 		91E17C261E37D3C0006433B7 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFilesListUseCase.swift; sourceTree = "<group>"; };
+		91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBytesOperationSpec.swift; sourceTree = "<group>"; };
+		91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashingOperation.swift; sourceTree = "<group>"; };
 		C490620EAB5445792BDDD382 /* Pods_SubtitlesDownloaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubtitlesDownloaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +190,7 @@
 				27423C297C68564E13DFF1BA /* Domain */,
 				91816DE01E3A9DC8002ED2C5 /* DummyFileGateway.swift */,
 				91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */,
+				91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */,
 			);
 			path = SubtitlesDownloaderTests;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				915360E21E396C7700E6F857 /* WebDavFileGateway.swift */,
 				91816DE21E3AA467002ED2C5 /* HashCalculator.swift */,
 				91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */,
+				91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 				27423D528590228BA73C9F82 /* UITableViewCell+ReusableViewSpec.swift in Sources */,
 				91816DDD1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift in Sources */,
 				91816DE11E3A9DC8002ED2C5 /* DummyFileGateway.swift in Sources */,
+				91F9B3941E3BB64E000E32F2 /* GetBytesOperationSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +614,7 @@
 				915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */,
+				91F9B3971E3BC10D000E32F2 /* HashingOperation.swift in Sources */,
 				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
 				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
 				91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */,
