@@ -84,7 +84,9 @@ class HashingOperation: AsyncOperation {
 
         switch (startBytesResult, endBytesResult) {
         case (.failure(let error), _), (_, .failure(let error)):
-            completion(.failure(error))
+            DispatchQueue.main.async { [weak self] in
+                self?.completion(.failure(error))
+            }
             state = .finished
             return
         case (.success(let startData), .success(let endData)):
@@ -112,7 +114,9 @@ class HashingOperation: AsyncOperation {
 
         let hashString = String(format: "%016qx", arguments: [hash])
 
-        completion(.success(hashString))
+        DispatchQueue.main.async { [weak self] in
+            self?.completion(.success(hashString))
+        }
         state = .finished
     }
 }
