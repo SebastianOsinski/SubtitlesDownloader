@@ -43,7 +43,7 @@ class WebDavFileGateway: FileGateway {
                     return nil
                 }
 
-                return File(name: fileObject.name, path: fileObject.path, type: type, size: 0)
+                return File(name: fileObject.name, path: fileObject.path, type: type, size: fileObject.size)
             }
 
             completionQueue.async {
@@ -55,6 +55,19 @@ class WebDavFileGateway: FileGateway {
     }
 
     func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
+        provider.contents(path: path, offset: offset, length: length - 1) { [unowned completionQueue] (data, error) in
+            guard error == nil else {
+                completionQueue.async {
+                    completion(.failure(error!))
+                }
+                return
+            }
+
+            completionQueue.async {
+                completion(.success(data!))
+            }
+        }
+
         return nil
     }
 }
