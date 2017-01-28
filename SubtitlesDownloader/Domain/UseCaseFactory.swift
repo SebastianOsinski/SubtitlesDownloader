@@ -12,6 +12,7 @@ class UseCaseFactory {
 
     enum Use {
         case showFiles(directoryPath: String, completion: ShowFilesListCompletion)
+        case computeHash(file: File, completion: HashingCompletion)
     }
 
     private let fileGateway: FileGateway
@@ -24,6 +25,8 @@ class UseCaseFactory {
         switch use {
             case .showFiles(let directoryPath, let completion):
                 return ShowFilesListUseCase(directoryPath: directoryPath, gateway: fileGateway, completion: completion)
+            case .computeHash(let file, let completion):
+                return ComputeHashUseCase(file: file, fileGateway: fileGateway, completion: completion)
         }
     }
 }

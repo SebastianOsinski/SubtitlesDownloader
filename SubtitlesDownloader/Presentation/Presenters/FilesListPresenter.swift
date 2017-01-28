@@ -38,7 +38,11 @@ class FilesListPresenter {
     func cellSelected(at index: Int) {
         let file = files[index]
 
-        if file.type == .directory {
+        switch file.type {
+        case .regular:
+            let useCase = createComputeHashUseCase(file: file)
+            useCase.execute()
+        case .directory:
             view?.showDirectory(atPath: file.path)
         }
     }
@@ -52,6 +56,12 @@ class FilesListPresenter {
             case .failure(let error):
                 print(error)
             }
+        })
+    }
+
+    private func createComputeHashUseCase(file: File) -> UseCase {
+        return useCaseFactory.createUseCase(for: .computeHash(file: file) { result in
+            print(result.success ?? "error")
         })
     }
 }

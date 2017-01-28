@@ -41,6 +41,7 @@
 		91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */; };
 		91F9B3941E3BB64E000E32F2 /* GetBytesOperationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */; };
 		91F9B3971E3BC10D000E32F2 /* HashingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */; };
+		91F9B3BD1E3D558C000E32F2 /* ComputeHashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */; };
 		E9FD80BD8FF232175E9041A1 /* Pods_SubtitlesDownloaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C490620EAB5445792BDDD382 /* Pods_SubtitlesDownloaderTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFilesListUseCase.swift; sourceTree = "<group>"; };
 		91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBytesOperationSpec.swift; sourceTree = "<group>"; };
 		91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashingOperation.swift; sourceTree = "<group>"; };
+		91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeHashUseCase.swift; sourceTree = "<group>"; };
 		C490620EAB5445792BDDD382 /* Pods_SubtitlesDownloaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubtitlesDownloaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D909013EA1ADF36BB5FBDEE9 /* Pods-SubtitlesDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */,
+				91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				915360B71E37D7E900E6F857 /* FileTableViewCell.swift in Sources */,
+				91F9B3BD1E3D558C000E32F2 /* ComputeHashUseCase.swift in Sources */,
 				915360BB1E37D9FE00E6F857 /* UITableView+Registering.swift in Sources */,
 				91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */,
 				915360C11E37DD1600E6F857 /* UseCaseFactory.swift in Sources */,

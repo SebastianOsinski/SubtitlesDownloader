@@ -63,7 +63,7 @@ class FilesListPresenterSpec: QuickSpec {
                 }
 
                 it("doesn't call showDirectory on view when selected file is regular file") {
-                    sut.cellSelected(at: 0)
+                    //sut.cellSelected(at: 0)
                     expect(view.shownDirectoryPath).to(beNil())
                 }
 
