@@ -23,8 +23,8 @@ class FilesListConnector {
 
     func filesListViewController() -> UIViewController {
         let useCaseFactory = UseCaseFactory(fileGateway: fileGateway)
-        let presenter = FilesListPresenter(path: path, useCaseFactory: useCaseFactory)
-        let viewController = FilesListViewController(presenter: presenter, connector: self)
+        let presenter = FilesListPresenter(path: path, useCaseFactory: useCaseFactory, connector: self)
+        let viewController = FilesListViewController(presenter: presenter)
         presenter.view = viewController
 
         return viewController
@@ -40,5 +40,11 @@ class FilesListConnector {
         let viewController = connector.filesListViewController()
 
         navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func showHashAlert(hash: String) {
+        let alertController = UIAlertController(title: "Hash", message: hash, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        navigationController.present(alertController, animated: true, completion: nil)
     }
 }

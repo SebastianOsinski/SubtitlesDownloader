@@ -18,10 +18,12 @@ class FilesListPresenterSpec: QuickSpec {
         var sut: FilesListPresenter!
         var useCaseFactory: MockUseCaseFactory!
         var view: MockFilesListView!
+        var connector: MockFilesListConnector!
 
         beforeEach {
             useCaseFactory = MockUseCaseFactory(fileGateway: DummyFileGateway())
-            sut = FilesListPresenter(path: "", useCaseFactory: useCaseFactory)
+            connector = MockFilesListConnector()
+            sut = FilesListPresenter(path: "", useCaseFactory: useCaseFactory, connector: connector)
             view = MockFilesListView()
             sut.view = view
         }
@@ -57,14 +59,14 @@ class FilesListPresenterSpec: QuickSpec {
                     expect(sut.numberOfFiles).to(equal(useCaseFactory.data.count))
                 }
 
-                it("calls showDirectory on view when selected file is directory and passes correct path") {
+                it("calls showDirectory on connector when selected file is directory and passes correct path") {
                     sut.cellSelected(at: 1)
-                    expect(view.shownDirectoryPath).to(equal("B"))
+                    expect(connector.shownDirectoryPath).to(equal("B"))
                 }
 
-                it("doesn't call showDirectory on view when selected file is regular file") {
+                it("doesn't call showDirectory on connector when selected file is regular file") {
                     //sut.cellSelected(at: 0)
-                    expect(view.shownDirectoryPath).to(beNil())
+                    expect(connector.shownDirectoryPath).to(beNil())
                 }
 
                 it("sets up cell with correct name of file") {
@@ -81,14 +83,9 @@ class FilesListPresenterSpec: QuickSpec {
 private class MockFilesListView: FilesListViewProtocol {
 
     private(set) var refreshCalled = false
-    private(set) var shownDirectoryPath: String?
 
     func refresh() {
         refreshCalled = true
-    }
-
-    func showDirectory(atPath path: String) {
-        shownDirectoryPath = path
     }
 }
 
@@ -147,4 +144,17 @@ private class MockShowFilesListUseCase: UseCase {
         return nil
     }
 
+}
+
+private class MockFilesListConnector: FilesListConnector {
+
+    var shownDirectoryPath: String?
+
+    init() {
+        super.init(path: "", fileGateway: DummyFileGateway(), navigationController: UINavigationController())
+    }
+
+    override func navigateToDirectory(atPath path: String) {
+        shownDirectoryPath = path
+    }
 }

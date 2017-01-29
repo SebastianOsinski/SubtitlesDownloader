@@ -12,14 +12,17 @@ class FilesListPresenter {
 
     weak var view: FilesListViewProtocol?
 
+    private let connector: FilesListConnector
+
     private let path: String
     private let useCaseFactory: UseCaseFactory
 
     private var files = [File]()
 
-    init(path: String, useCaseFactory: UseCaseFactory) {
+    init(path: String, useCaseFactory: UseCaseFactory, connector: FilesListConnector) {
         self.path = path
         self.useCaseFactory = useCaseFactory
+        self.connector = connector
     }
 
     var numberOfFiles: Int {
@@ -43,7 +46,7 @@ class FilesListPresenter {
             let useCase = createComputeHashUseCase(file: file)
             useCase.execute()
         case .directory:
-            view?.showDirectory(atPath: file.path)
+            connector.navigateToDirectory(atPath: file.path)
         }
     }
 
@@ -60,8 +63,8 @@ class FilesListPresenter {
     }
 
     private func createComputeHashUseCase(file: File) -> UseCase {
-        return useCaseFactory.createUseCase(for: .computeHash(file: file) { result in
-            print(result.success ?? "error")
+        return useCaseFactory.createUseCase(for: .computeHash(file: file) { [weak connector] result in
+            connector?.showHashAlert(hash: result.success ?? "error")
         })
     }
 }

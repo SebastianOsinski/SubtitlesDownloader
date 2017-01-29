@@ -10,17 +10,14 @@ import UIKit
 
 protocol FilesListViewProtocol: class {
     func refresh()
-    func showDirectory(atPath path: String)
 }
 
 class FilesListViewController: UITableViewController {
 
     let presenter: FilesListPresenter
-    let connector: FilesListConnector
 
-    init(presenter: FilesListPresenter, connector: FilesListConnector) {
+    init(presenter: FilesListPresenter) {
         self.presenter = presenter
-        self.connector = connector
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,9 +58,5 @@ extension FilesListViewController: FilesListViewProtocol {
 
     func refresh() {
         tableView.reloadData()
-    }
-
-    func showDirectory(atPath path: String) {
-        connector.navigateToDirectory(atPath: path)
     }
 }
