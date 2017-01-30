@@ -23,11 +23,11 @@
 		91816DE61E3AA7FB002ED2C5 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */; };
 		91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */; };
 		91816DEA1E3AB620002ED2C5 /* HashCalculatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */; };
-		91816DEF1E3AB6BC002ED2C5 /* breakdance.avi in Resources */ = {isa = PBXBuildFile; fileRef = 91816DED1E3AB6BC002ED2C5 /* breakdance.avi */; };
-		91816DF01E3AB6BC002ED2C5 /* dummy.rar in Resources */ = {isa = PBXBuildFile; fileRef = 91816DEE1E3AB6BC002ED2C5 /* dummy.rar */; };
 		91AF42551E3FB5EE005B7216 /* NetworkTasksMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */; };
 		91AF42591E3FB64C005B7216 /* UINetworkTasksMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */; };
 		91AF425B1E3FBCD1005B7216 /* FileObjectsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF425A1E3FBCD1005B7216 /* FileObjectsMapper.swift */; };
+		91AF42601E3FBF34005B7216 /* breakdance.avi in Resources */ = {isa = PBXBuildFile; fileRef = 91AF425C1E3FBF30005B7216 /* breakdance.avi */; };
+		91AF42611E3FBF37005B7216 /* dummy.rar in Resources */ = {isa = PBXBuildFile; fileRef = 91AF425D1E3FBF30005B7216 /* dummy.rar */; };
 		91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C873DA1E35487D004A3EB6 /* AppDelegate.swift */; };
 		91C873E21E35487D004A3EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E11E35487D004A3EB6 /* Assets.xcassets */; };
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
@@ -80,11 +80,11 @@
 		91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBytesOperation.swift; sourceTree = "<group>"; };
 		91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashCalculatorSpec.swift; sourceTree = "<group>"; };
-		91816DED1E3AB6BC002ED2C5 /* breakdance.avi */ = {isa = PBXFileReference; lastKnownFileType = video.avi; path = breakdance.avi; sourceTree = "<group>"; };
-		91816DEE1E3AB6BC002ED2C5 /* dummy.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = dummy.rar; sourceTree = "<group>"; };
 		91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTasksMonitor.swift; sourceTree = "<group>"; };
 		91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINetworkTasksMonitor.swift; sourceTree = "<group>"; };
 		91AF425A1E3FBCD1005B7216 /* FileObjectsMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileObjectsMapper.swift; sourceTree = "<group>"; };
+		91AF425C1E3FBF30005B7216 /* breakdance.avi */ = {isa = PBXFileReference; lastKnownFileType = video.avi; path = breakdance.avi; sourceTree = "<group>"; };
+		91AF425D1E3FBF30005B7216 /* dummy.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = dummy.rar; sourceTree = "<group>"; };
 		91C873D71E35487D004A3EB6 /* SubtitlesDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubtitlesDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C873DA1E35487D004A3EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C873E11E35487D004A3EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,18 +233,8 @@
 		91816DEB1E3AB69B002ED2C5 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				91816DEC1E3AB6A2002ED2C5 /* HashingTestFiles */,
 			);
 			name = SupportFiles;
-			sourceTree = "<group>";
-		};
-		91816DEC1E3AB6A2002ED2C5 /* HashingTestFiles */ = {
-			isa = PBXGroup;
-			children = (
-				91816DED1E3AB6BC002ED2C5 /* breakdance.avi */,
-				91816DEE1E3AB6BC002ED2C5 /* dummy.rar */,
-			);
-			name = HashingTestFiles;
 			sourceTree = "<group>";
 		};
 		91C873CE1E35487D004A3EB6 = {
@@ -333,6 +323,8 @@
 		91C8740F1E369DB8004A3EB6 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				91AF425C1E3FBF30005B7216 /* breakdance.avi */,
+				91AF425D1E3FBF30005B7216 /* dummy.rar */,
 				91C873E11E35487D004A3EB6 /* Assets.xcassets */,
 				91C873E61E35487D004A3EB6 /* Info.plist */,
 			);
@@ -429,6 +421,7 @@
 				91C873D31E35487D004A3EB6 /* Sources */,
 				91C873D41E35487D004A3EB6 /* Frameworks */,
 				91C873D51E35487D004A3EB6 /* Resources */,
+				91AF42641E3FC157005B7216 /* Copy Files for LocalFileGateway in debug configuration */,
 				6B2597ACC6FA12B222BA5F85 /* [CP] Embed Pods Frameworks */,
 				2E008B29D4A086742BA55445 /* [CP] Copy Pods Resources */,
 			);
@@ -488,8 +481,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91816DF01E3AB6BC002ED2C5 /* dummy.rar in Resources */,
-				91816DEF1E3AB6BC002ED2C5 /* breakdance.avi in Resources */,
+				91AF42611E3FBF37005B7216 /* dummy.rar in Resources */,
+				91AF42601E3FBF34005B7216 /* breakdance.avi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +557,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubtitlesDownloader/Pods-SubtitlesDownloader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		91AF42641E3FC157005B7216 /* Copy Files for LocalFileGateway in debug configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Files for LocalFileGateway in debug configuration";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "RESOURCE_PATH=$SRCROOT/SubtitlesDownloader/SupportFiles\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\ncp $RESOURCE_PATH/breakdance.avi $BUILD_APP_DIR/breakdance.avi\nfi";
 		};
 		CFF5E4958ED408E42F69F3DB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

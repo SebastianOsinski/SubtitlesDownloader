@@ -31,7 +31,7 @@ class GetBytesOperation: AsyncOperation {
             if self?.isCancelled ?? true {
                 return
             }
-
+            print(result)
             self?.result = result
             self?.state = .finished
         }

@@ -12,16 +12,17 @@ import FileProvider
 class LocalFileGateway: FileGateway {
 
     private let provider: LocalFileProvider
+
     private let completionQueue: DispatchQueue = .main
 
     init() {
         let manager = FileManager.default
-
         let documents = manager.urls(for: .documentDirectory, in: .userDomainMask).first!
 
         let root = "SubtitlesDownloader"
+        let rootUrl = documents.appendingPathComponent(root)
 
-        try? manager.removeItem(at: documents.appendingPathComponent(root))
+        try? manager.removeItem(at: rootUrl)
 
         manager.changeCurrentDirectoryPath(documents.path)
         try! manager.createDirectory(atPath: root, withIntermediateDirectories: false, attributes: nil)
@@ -29,7 +30,11 @@ class LocalFileGateway: FileGateway {
         try! manager.createDirectory(atPath: "\(root)/Test B", withIntermediateDirectories: false, attributes: nil)
         try! manager.createDirectory(atPath: "\(root)/Test C", withIntermediateDirectories: false, attributes: nil)
 
-        self.provider = LocalFileProvider(baseURL: documents.appendingPathComponent(root))
+        if let breakdanceUrl = Bundle.main.url(forResource: "breakdance", withExtension: "avi") {
+            try? manager.copyItem(at: breakdanceUrl, to: documents.appendingPathComponent("\(root)/Test A/breakdance.avi"))
+        }
+
+        self.provider = LocalFileProvider(baseURL: rootUrl)
     }
 
     func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
@@ -52,7 +57,7 @@ class LocalFileGateway: FileGateway {
     }
 
     func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
-        provider.contents(path: path, offset: offset, length: length - 1) { [unowned completionQueue] (data, error) in
+        provider.contents(path: path, offset: offset, length: length) { [unowned completionQueue] (data, error) in
             guard error == nil else {
                 completionQueue.async {
                     completion(.failure(error!))
@@ -66,9 +71,4 @@ class LocalFileGateway: FileGateway {
         }
         return nil
     }
-}
-
-private indirect enum FileNode {
-    case file(String)
-    case directory(String, [FileNode])
 }

@@ -1,18 +1,18 @@
 PODS:
-  - FileProvider (0.6.1)
+  - FileProvider (0.10.3)
   - Nimble (5.1.1)
   - Quick (1.0.0)
 
 DEPENDENCIES:
-  - FileProvider
+  - FileProvider (~> 0.10.3)
   - Nimble
   - Quick
 
 SPEC CHECKSUMS:
-  FileProvider: ecc5828d87ca148bcbd2ea15e53e636bacf182b0
+  FileProvider: a23d7d23013f42f4ceb5c1cf61dec39ade9e8f58
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
-PODFILE CHECKSUM: 61f0ec46b3034b6e8f90ea94150c4ca97516728c
+PODFILE CHECKSUM: 2944fd8416b9154b22e484e8929413ae8875e260
 
 COCOAPODS: 1.1.1

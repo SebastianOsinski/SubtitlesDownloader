@@ -13,12 +13,15 @@ struct FileObjectsMapper {
 
     static func files(from fileObjects: [FileObject]) -> [File] {
         return fileObjects.flatMap { fileObject -> File? in
+            guard let fileObjectType = fileObject.type else {
+                return nil
+            }
             let type: File.FileType
 
-            switch fileObject.fileType {
-            case .regular:
+            switch fileObjectType {
+            case URLFileResourceType.regular:
                 type = .regular
-            case .directory:
+            case URLFileResourceType.directory:
                 type = .directory
             default:
                 assertionFailure("Unexpected file type!")
