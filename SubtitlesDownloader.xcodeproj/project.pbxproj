@@ -27,6 +27,7 @@
 		91816DF01E3AB6BC002ED2C5 /* dummy.rar in Resources */ = {isa = PBXBuildFile; fileRef = 91816DEE1E3AB6BC002ED2C5 /* dummy.rar */; };
 		91AF42551E3FB5EE005B7216 /* NetworkTasksMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */; };
 		91AF42591E3FB64C005B7216 /* UINetworkTasksMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */; };
+		91AF425B1E3FBCD1005B7216 /* FileObjectsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF425A1E3FBCD1005B7216 /* FileObjectsMapper.swift */; };
 		91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C873DA1E35487D004A3EB6 /* AppDelegate.swift */; };
 		91C873E21E35487D004A3EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E11E35487D004A3EB6 /* Assets.xcassets */; };
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
@@ -38,7 +39,7 @@
 		91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874151E36A018004A3EB6 /* FilesListPresenter.swift */; };
 		91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874171E36A05B004A3EB6 /* FilesListConnector.swift */; };
 		91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874191E36A530004A3EB6 /* FileCellProtocol.swift */; };
-		91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */; };
+		91C8741D1E36A9CE004A3EB6 /* LocalFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* LocalFileGateway.swift */; };
 		91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C261E37D3C0006433B7 /* UseCase.swift */; };
 		91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */; };
 		91F9B3941E3BB64E000E32F2 /* GetBytesOperationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */; };
@@ -83,6 +84,7 @@
 		91816DEE1E3AB6BC002ED2C5 /* dummy.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = dummy.rar; sourceTree = "<group>"; };
 		91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTasksMonitor.swift; sourceTree = "<group>"; };
 		91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINetworkTasksMonitor.swift; sourceTree = "<group>"; };
+		91AF425A1E3FBCD1005B7216 /* FileObjectsMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileObjectsMapper.swift; sourceTree = "<group>"; };
 		91C873D71E35487D004A3EB6 /* SubtitlesDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubtitlesDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C873DA1E35487D004A3EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C873E11E35487D004A3EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 		91C874151E36A018004A3EB6 /* FilesListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListPresenter.swift; sourceTree = "<group>"; };
 		91C874171E36A05B004A3EB6 /* FilesListConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListConnector.swift; sourceTree = "<group>"; };
 		91C874191E36A530004A3EB6 /* FileCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCellProtocol.swift; sourceTree = "<group>"; };
-		91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFileGateway.swift; sourceTree = "<group>"; };
+		91C8741C1E36A9CE004A3EB6 /* LocalFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileGateway.swift; sourceTree = "<group>"; };
 		91E17C261E37D3C0006433B7 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFilesListUseCase.swift; sourceTree = "<group>"; };
 		91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBytesOperationSpec.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */,
 				91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */,
+				91AF425A1E3FBCD1005B7216 /* FileObjectsMapper.swift */,
 			);
 			name = Aux;
 			sourceTree = "<group>";
@@ -366,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				91816DE41E3AA7F2002ED2C5 /* Aux */,
-				91C8741C1E36A9CE004A3EB6 /* InMemoryFileGateway.swift */,
+				91C8741C1E36A9CE004A3EB6 /* LocalFileGateway.swift */,
 				915360E21E396C7700E6F857 /* WebDavFileGateway.swift */,
 				91816DE21E3AA467002ED2C5 /* HashCalculator.swift */,
 				91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */,
@@ -622,6 +625,7 @@
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
 				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
 				91AF42591E3FB64C005B7216 /* UINetworkTasksMonitor.swift in Sources */,
+				91AF425B1E3FBCD1005B7216 /* FileObjectsMapper.swift in Sources */,
 				915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */,
@@ -631,7 +635,7 @@
 				91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */,
 				91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */,
 				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
-				91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */,
+				91C8741D1E36A9CE004A3EB6 /* LocalFileGateway.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,
 				91AF42551E3FB5EE005B7216 /* NetworkTasksMonitor.swift in Sources */,
 				91C874081E369CA0004A3EB6 /* File.swift in Sources */,

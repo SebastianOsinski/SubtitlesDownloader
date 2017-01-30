@@ -34,21 +34,7 @@ class WebDavFileGateway: FileGateway {
                 return
             }
 
-            let files = fileObjects.flatMap { fileObject -> File? in
-                let type: File.FileType
-
-                switch fileObject.fileType {
-                case .regular:
-                    type = .regular
-                case .directory:
-                    type = .directory
-                default:
-                    assertionFailure("Unexpected file type!")
-                    return nil
-                }
-
-                return File(name: fileObject.name, path: fileObject.path, type: type, size: fileObject.size)
-            }
+            let files = FileObjectsMapper.files(from: fileObjects)
 
             completionQueue.async {
                 monitor.decrement()
