@@ -10,6 +10,7 @@ import UIKit
 
 protocol FilesListViewProtocol: class {
     func refresh()
+    func reportError(_ error: String)
 }
 
 class FilesListViewController: UITableViewController {
@@ -58,5 +59,11 @@ extension FilesListViewController: FilesListViewProtocol {
 
     func refresh() {
         tableView.reloadData()
+    }
+
+    func reportError(_ error: String) {
+        let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }

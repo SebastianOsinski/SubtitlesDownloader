@@ -57,14 +57,19 @@ class FilesListPresenter {
                 self?.files = files
                 self?.view?.refresh()
             case .failure(let error):
-                print(error)
+                self?.view?.reportError(error.localizedDescription)
             }
         })
     }
 
     private func createComputeHashUseCase(file: File) -> UseCase {
-        return useCaseFactory.createUseCase(for: .computeHash(file: file) { [weak connector] result in
-            connector?.showHashAlert(hash: result.success ?? "error")
+        return useCaseFactory.createUseCase(for: .computeHash(file: file) { [weak self] result in
+            switch result {
+            case .success(let hash):
+                self?.connector.showHashAlert(hash: hash)
+            case .failure(let error):
+                self?.view?.reportError(error.localizedDescription)
+            }
         })
     }
 }
