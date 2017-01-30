@@ -25,6 +25,8 @@
 		91816DEA1E3AB620002ED2C5 /* HashCalculatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */; };
 		91816DEF1E3AB6BC002ED2C5 /* breakdance.avi in Resources */ = {isa = PBXBuildFile; fileRef = 91816DED1E3AB6BC002ED2C5 /* breakdance.avi */; };
 		91816DF01E3AB6BC002ED2C5 /* dummy.rar in Resources */ = {isa = PBXBuildFile; fileRef = 91816DEE1E3AB6BC002ED2C5 /* dummy.rar */; };
+		91AF42551E3FB5EE005B7216 /* NetworkTasksMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */; };
+		91AF42591E3FB64C005B7216 /* UINetworkTasksMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */; };
 		91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C873DA1E35487D004A3EB6 /* AppDelegate.swift */; };
 		91C873E21E35487D004A3EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E11E35487D004A3EB6 /* Assets.xcassets */; };
 		91C873E51E35487D004A3EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */; };
@@ -79,6 +81,8 @@
 		91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashCalculatorSpec.swift; sourceTree = "<group>"; };
 		91816DED1E3AB6BC002ED2C5 /* breakdance.avi */ = {isa = PBXFileReference; lastKnownFileType = video.avi; path = breakdance.avi; sourceTree = "<group>"; };
 		91816DEE1E3AB6BC002ED2C5 /* dummy.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = dummy.rar; sourceTree = "<group>"; };
+		91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTasksMonitor.swift; sourceTree = "<group>"; };
+		91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINetworkTasksMonitor.swift; sourceTree = "<group>"; };
 		91C873D71E35487D004A3EB6 /* SubtitlesDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubtitlesDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C873DA1E35487D004A3EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C873E11E35487D004A3EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				915360BC1E37DA1000E6F857 /* ReusableView.swift */,
 				915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */,
 				915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */,
+				91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */,
 			);
 			path = Aux;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */,
+				91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */,
 			);
 			name = Aux;
 			sourceTree = "<group>";
@@ -615,6 +621,7 @@
 				915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
 				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
+				91AF42591E3FB64C005B7216 /* UINetworkTasksMonitor.swift in Sources */,
 				915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */,
@@ -626,6 +633,7 @@
 				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
 				91C8741D1E36A9CE004A3EB6 /* InMemoryFileGateway.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,
+				91AF42551E3FB5EE005B7216 /* NetworkTasksMonitor.swift in Sources */,
 				91C874081E369CA0004A3EB6 /* File.swift in Sources */,
 				91C874041E369BBE004A3EB6 /* FileGateway.swift in Sources */,
 				91816DE61E3AA7FB002ED2C5 /* AsyncOperation.swift in Sources */,

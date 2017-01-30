@@ -13,18 +13,22 @@ class WebDavFileGateway: FileGateway {
 
     private let provider: WebDAVFileProvider
     private let completionQueue: DispatchQueue = .main
+    private let monitor: NetworkTasksMonitor
 
-    init(baseUrl: URL, user: String, password: String) {
+    init(baseUrl: URL, user: String, password: String, monitor: NetworkTasksMonitor) {
         self.provider = WebDAVFileProvider(
             baseURL: baseUrl,
             credential: URLCredential(user: user, password: password, persistence: .none)
         )!
+        self.monitor = monitor
     }
 
     func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
-        provider.contentsOfDirectory(path: path) { [unowned completionQueue] (fileObjects, error) in
+        monitor.increment()
+        provider.contentsOfDirectory(path: path) { [unowned completionQueue, unowned monitor] (fileObjects, error) in
             guard error == nil else {
                 completionQueue.async {
+                    monitor.decrement()
                     completion(.failure(error!))
                 }
                 return
@@ -47,6 +51,7 @@ class WebDavFileGateway: FileGateway {
             }
 
             completionQueue.async {
+                monitor.decrement()
                 completion(.success(files))
             }
         }
@@ -55,15 +60,18 @@ class WebDavFileGateway: FileGateway {
     }
 
     func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
-        provider.contents(path: path, offset: offset, length: length - 1) { [unowned completionQueue] (data, error) in
+        monitor.increment()
+        provider.contents(path: path, offset: offset, length: length - 1) { [unowned completionQueue, unowned monitor] (data, error) in
             guard error == nil else {
                 completionQueue.async {
+                    monitor.decrement()
                     completion(.failure(error!))
                 }
                 return
             }
 
             completionQueue.async {
+                monitor.decrement()
                 completion(.success(data!))
             }
         }
