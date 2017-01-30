@@ -15,6 +15,7 @@
 		915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */; };
 		915360C11E37DD1600E6F857 /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360C01E37DD1600E6F857 /* UseCaseFactory.swift */; };
 		915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360E21E396C7700E6F857 /* WebDavFileGateway.swift */; };
+		917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */; };
 		91816DDB1E3A792B002ED2C5 /* FilesListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDA1E3A792B002ED2C5 /* FilesListPresenterSpec.swift */; };
 		91816DDD1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDC1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift */; };
 		91816DDF1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDE1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift */; };
@@ -70,6 +71,7 @@
 		915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReusableView.swift"; sourceTree = "<group>"; };
 		915360C01E37DD1600E6F857 /* UseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		915360E21E396C7700E6F857 /* WebDavFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebDavFileGateway.swift; sourceTree = "<group>"; };
+		9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitlesGateway.swift; sourceTree = "<group>"; };
 		91816DCA1E3A752C002ED2C5 /* SubtitlesDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubtitlesDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91816DCE1E3A752C002ED2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91816DDA1E3A792B002ED2C5 /* FilesListPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListPresenterSpec.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				91C874091E369CC2004A3EB6 /* Result.swift */,
 				91E17C261E37D3C0006433B7 /* UseCase.swift */,
 				915360C01E37DD1600E6F857 /* UseCaseFactory.swift */,
+				9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				915360BB1E37D9FE00E6F857 /* UITableView+Registering.swift in Sources */,
 				91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */,
 				915360C11E37DD1600E6F857 /* UseCaseFactory.swift in Sources */,
+				917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */,
 				915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
 				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
