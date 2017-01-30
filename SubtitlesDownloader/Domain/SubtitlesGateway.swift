@@ -19,7 +19,7 @@ protocol SubtitlesGateway {
 }
 
 struct MovieHash {
-
+    
 }
 
 struct Subtitles {
