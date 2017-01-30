@@ -4,6 +4,7 @@ target 'SubtitlesDownloader' do
   use_frameworks!
 
   pod 'FileProvider', '~> 0.10.3'
+  pod 'SWXMLHash', '~> 3.0.0'
 
   target 'SubtitlesDownloaderTests' do
     inherit! :search_paths
