@@ -182,6 +182,33 @@ class ValueSerializerSpec: QuickSpec {
                     "</value>"
                 )))
             }
+
+            it("serializes struct with multiple members") {
+                let value: Value = .struct([
+                    (name: "TestInteger", value: .int(1)),
+                    (name: "TestDouble", value: .double(1.1)),
+                    (name: "TestString", value: .string("Test"))
+                ])
+
+                expect(sut.serialize(value)).to(equal(String(
+                    "<value>",
+                    "  <struct>",
+                    "    <member>",
+                    "      <name>TestInteger</name>",
+                    "      <value><integer>1</integer></value>",
+                    "    </member>",
+                    "    <member>",
+                    "      <name>TestDouble</name>",
+                    "      <value><double>1.1</double></value>",
+                    "    </member>",
+                    "    <member>",
+                    "      <name>TestString</name>",
+                    "      <value><string>Test</string></value>",
+                    "    </member>",
+                    "  </struct>",
+                    "</value>"
+                )))
+            }
         }
     }
 }
