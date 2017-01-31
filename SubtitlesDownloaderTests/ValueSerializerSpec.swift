@@ -159,11 +159,28 @@ class ValueSerializerSpec: QuickSpec {
 
             it("serializes empty struct") {
                 expect(sut.serialize(.struct([]))).to(equal(String(
-                "<value>",
-                "  <struct>",
-                "  </struct>",
-                "</value>"
-            )))
+                    "<value>",
+                    "  <struct>",
+                    "  </struct>",
+                    "</value>"
+                )))
+            }
+
+            it("serializes struct with one member") {
+                let value: Value = .struct([
+                    (name: "Test", value: .int(1))
+                ])
+
+                expect(sut.serialize(value)).to(equal(String(
+                    "<value>",
+                    "  <struct>",
+                    "    <member>",
+                    "      <name>Test</name>",
+                    "      <value><integer>1</integer></value>",
+                    "    </member>",
+                    "  </struct>",
+                    "</value>"
+                )))
             }
         }
     }

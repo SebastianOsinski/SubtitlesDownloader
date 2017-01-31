@@ -83,17 +83,39 @@ class ValueSerializer {
         return "\n" + result + "\n" + String(repeating: indentation, count: indentationLevel - 1)
     }
 
-    private func serializeStruct(_ properties: [Value.Property], indentationLevel: Int) -> String {
+    private func serializeStruct(_ members: [Value.Member], indentationLevel: Int) -> String {
         let structIndentation = String(repeating: indentation, count: indentationLevel)
+        let memberIndentationLevel = indentationLevel + 1
+
+        let serializedMembers = members.map { member in
+            serializeMember(member, indentationLevel: memberIndentationLevel)
+        }.joined(separator: "\n")
 
         let lines = [
             structIndentation + "<struct>",
+            serializedMembers,
             structIndentation + "</struct>"
         ]
 
         let result = lines
+            .filter { !$0.isEmpty }
             .joined(separator: "\n")
 
         return "\n" + result + "\n" + String(repeating: indentation, count: indentationLevel - 1)
+    }
+
+    private func serializeMember(_ member: Value.Member, indentationLevel: Int) -> String {
+        let memberIndentation = String(repeating: indentation, count: indentationLevel)
+        let nameIndentation = memberIndentation + indentation
+        let valueIndentationLevel = indentationLevel + 1
+
+        let lines = [
+            memberIndentation + "<member>",
+            nameIndentation + wrap(member.name, inTag: "name"),
+            serialize(member.value, indentationLevel: valueIndentationLevel),
+            memberIndentation + "</member>"
+        ]
+
+        return lines.joined(separator: "\n")
     }
 }

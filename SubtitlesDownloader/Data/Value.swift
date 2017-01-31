@@ -11,7 +11,7 @@ import Foundation
 
 indirect enum Value {
 
-    typealias Property = (name: String, value: Value)
+    typealias Member = (name: String, value: Value)
 
     case int(Int)
     case double(Double)
@@ -20,5 +20,5 @@ indirect enum Value {
     case date(Date)
     case base64(Data)
     case array([Value])
-    case `struct`([Property])
+    case `struct`([Member])
 }
