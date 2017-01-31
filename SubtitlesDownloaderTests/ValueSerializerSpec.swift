@@ -156,6 +156,15 @@ class ValueSerializerSpec: QuickSpec {
                     "</value>"
                 )))
             }
+
+            it("serializes empty struct") {
+                expect(sut.serialize(.struct([]))).to(equal(String(
+                "<value>",
+                "  <struct>",
+                "  </struct>",
+                "</value>"
+            )))
+            }
         }
     }
 }

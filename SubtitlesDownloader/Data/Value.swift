@@ -10,6 +10,9 @@
 import Foundation
 
 indirect enum Value {
+
+    typealias Property = (name: String, value: Value)
+
     case int(Int)
     case double(Double)
     case bool(Bool)
@@ -17,5 +20,5 @@ indirect enum Value {
     case date(Date)
     case base64(Data)
     case array([Value])
-    case `struct`([String: Value])
+    case `struct`([Property])
 }

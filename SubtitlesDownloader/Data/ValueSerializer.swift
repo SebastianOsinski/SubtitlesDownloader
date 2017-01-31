@@ -46,8 +46,8 @@ class ValueSerializer {
             serializedValue = wrap(value.base64EncodedString(), inTag: "base64")
         case .array(let values):
             serializedValue = serializeArray(values, indentationLevel: indentationLevel + 1)
-        default:
-            notImplemented()
+        case .struct(let values):
+            serializedValue = serializeStruct(values, indentationLevel: indentationLevel + 1)
         }
 
         let currentIndentation = String(repeating: indentation, count: indentationLevel)
@@ -78,6 +78,20 @@ class ValueSerializer {
         let result = lines
             .lazy
             .filter { !$0.isEmpty }
+            .joined(separator: "\n")
+
+        return "\n" + result + "\n" + String(repeating: indentation, count: indentationLevel - 1)
+    }
+
+    private func serializeStruct(_ properties: [Value.Property], indentationLevel: Int) -> String {
+        let structIndentation = String(repeating: indentation, count: indentationLevel)
+
+        let lines = [
+            structIndentation + "<struct>",
+            structIndentation + "</struct>"
+        ]
+
+        let result = lines
             .joined(separator: "\n")
 
         return "\n" + result + "\n" + String(repeating: indentation, count: indentationLevel - 1)
