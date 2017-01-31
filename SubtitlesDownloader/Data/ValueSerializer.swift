@@ -14,7 +14,7 @@ class ValueSerializer {
 
     private let indentationStep = "  "
 
-    private var indentationCache = [String]()
+    private var indentationCache = [""]
 
     init(indentationCachePrefill: Int? = 5) {
         dateFormatter = ISO8601DateFormatter()
@@ -132,14 +132,9 @@ class ValueSerializer {
 
         let count = indentationCache.count
 
-        var indentation = String(repeating: indentationStep, count: count)
-        indentationCache.append(indentation)
+        var indentation = indentationCache.last!
 
-        if count + 1 > level {
-            return indentation
-        }
-
-        for _ in (count + 1)...level {
+        for _ in count...level {
             indentation += indentationStep
             indentationCache.append(indentation)
         }
