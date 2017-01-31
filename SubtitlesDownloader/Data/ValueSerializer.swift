@@ -12,7 +12,7 @@ class ValueSerializer {
 
     private let dateFormatter: ISO8601DateFormatter
 
-    private let indentation = "  "
+    private let indentationStep = "  "
 
     init() {
         dateFormatter = ISO8601DateFormatter()
@@ -50,7 +50,7 @@ class ValueSerializer {
             serializedValue = serializeStruct(values, indentationLevel: indentationLevel + 1)
         }
 
-        let currentIndentation = String(repeating: indentation, count: indentationLevel)
+        let currentIndentation = indentation(for: indentationLevel)
         return currentIndentation + wrap(serializedValue, inTag: "value")
     }
 
@@ -65,13 +65,13 @@ class ValueSerializer {
             serialize(value, indentationLevel: valuesIndentationLevel)
         }.joined(separator: "\n")
 
-        let currentIndentation = String(repeating: indentation, count: indentationLevel)
+        let currentIndentation = indentation(for: indentationLevel)
 
         let lines = [
             currentIndentation + "<array>",
-            currentIndentation + indentation + "<data>",
+            currentIndentation + indentationStep + "<data>",
             serializedValues,
-            currentIndentation + indentation + "</data>",
+            currentIndentation + indentationStep + "</data>",
             currentIndentation + "</array>"
         ]
 
@@ -80,11 +80,11 @@ class ValueSerializer {
             .filter { !$0.isEmpty }
             .joined(separator: "\n")
 
-        return "\n" + result + "\n" + String(repeating: indentation, count: indentationLevel - 1)
+        return "\n" + result + "\n" + indentation(for: indentationLevel - 1)
     }
 
     private func serializeStruct(_ members: [Value.Member], indentationLevel: Int) -> String {
-        let structIndentation = String(repeating: indentation, count: indentationLevel)
+        let structIndentation = indentation(for: indentationLevel)
         let memberIndentationLevel = indentationLevel + 1
 
         let serializedMembers = members.map { member in
@@ -101,12 +101,12 @@ class ValueSerializer {
             .filter { !$0.isEmpty }
             .joined(separator: "\n")
 
-        return "\n" + result + "\n" + String(repeating: indentation, count: indentationLevel - 1)
+        return "\n" + result + "\n" + indentation(for: indentationLevel - 1)
     }
 
     private func serializeMember(_ member: Value.Member, indentationLevel: Int) -> String {
-        let memberIndentation = String(repeating: indentation, count: indentationLevel)
-        let nameIndentation = memberIndentation + indentation
+        let memberIndentation = indentation(for: indentationLevel)
+        let nameIndentation = memberIndentation + indentationStep
         let valueIndentationLevel = indentationLevel + 1
 
         let lines = [
@@ -117,5 +117,9 @@ class ValueSerializer {
         ]
 
         return lines.joined(separator: "\n")
+    }
+
+    private func indentation(for level: Int) -> String {
+        return String(repeating: indentationStep, count: level)
     }
 }
