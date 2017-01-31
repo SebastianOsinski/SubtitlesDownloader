@@ -87,6 +87,10 @@ private class MockFilesListView: FilesListViewProtocol {
     func refresh() {
         refreshCalled = true
     }
+
+    func reportError(_ error: String) {
+
+    }
 }
 
 private class MockFileCell: FileCellProtocol {
