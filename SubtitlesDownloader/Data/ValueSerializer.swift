@@ -19,6 +19,8 @@ class ValueSerializer {
             serializedValue = wrap("\(value)", inTag: "double")
         case .bool(let value):
             serializedValue = wrap("\(value ? 1 : 0)", inTag: "boolean")
+        case .string(let value):
+            serializedValue = wrap(value, inTag: "string")
         default:
             notImplemented()
         }

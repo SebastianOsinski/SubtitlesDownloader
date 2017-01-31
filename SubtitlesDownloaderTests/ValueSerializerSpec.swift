@@ -34,6 +34,11 @@ class ValueSerializerSpec: QuickSpec {
                 expect(sut.serialize(.bool(true))).to(equal("<value><boolean>1</boolean></value>"))
                 expect(sut.serialize(.bool(false))).to(equal("<value><boolean>0</boolean></value>"))
             }
+
+            it("serializes string value") {
+                expect(sut.serialize(.string(""))).to(equal("<value><string></string></value>"))
+                expect(sut.serialize(.string("Test"))).to(equal("<value><string>Test</string></value>"))
+            }
         }
     }
 }
