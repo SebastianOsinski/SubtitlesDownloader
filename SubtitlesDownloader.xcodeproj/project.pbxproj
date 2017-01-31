@@ -17,6 +17,8 @@
 		915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360E21E396C7700E6F857 /* WebDavFileGateway.swift */; };
 		917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */; };
 		917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */; };
+		917104151E40B8170015CB82 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104141E40B8170015CB82 /* Method.swift */; };
+		917104171E40B8320015CB82 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104161E40B8320015CB82 /* Parameter.swift */; };
 		91816DDB1E3A792B002ED2C5 /* FilesListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDA1E3A792B002ED2C5 /* FilesListPresenterSpec.swift */; };
 		91816DDD1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDC1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift */; };
 		91816DDF1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDE1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift */; };
@@ -74,6 +76,8 @@
 		915360E21E396C7700E6F857 /* WebDavFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebDavFileGateway.swift; sourceTree = "<group>"; };
 		9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitlesGateway.swift; sourceTree = "<group>"; };
 		917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitlesGateway.swift; sourceTree = "<group>"; };
+		917104141E40B8170015CB82 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		917104161E40B8320015CB82 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		91816DCA1E3A752C002ED2C5 /* SubtitlesDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubtitlesDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91816DCE1E3A752C002ED2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91816DDA1E3A792B002ED2C5 /* FilesListPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListPresenterSpec.swift; sourceTree = "<group>"; };
@@ -193,6 +197,15 @@
 			path = Aux;
 			sourceTree = "<group>";
 		};
+		917104131E40B80D0015CB82 /* XML-RPC */ = {
+			isa = PBXGroup;
+			children = (
+				917104141E40B8170015CB82 /* Method.swift */,
+				917104161E40B8320015CB82 /* Parameter.swift */,
+			);
+			name = "XML-RPC";
+			sourceTree = "<group>";
+		};
 		91816DCB1E3A752C002ED2C5 /* SubtitlesDownloaderTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +240,7 @@
 		91816DE41E3AA7F2002ED2C5 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
+				917104131E40B80D0015CB82 /* XML-RPC */,
 				91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */,
 				91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */,
 				91AF425A1E3FBCD1005B7216 /* FileObjectsMapper.swift */,
@@ -636,6 +650,7 @@
 				915360C11E37DD1600E6F857 /* UseCaseFactory.swift in Sources */,
 				917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */,
 				915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */,
+				917104151E40B8170015CB82 /* Method.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
 				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
 				91AF42591E3FB64C005B7216 /* UINetworkTasksMonitor.swift in Sources */,
@@ -649,6 +664,7 @@
 				91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */,
 				91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */,
 				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
+				917104171E40B8320015CB82 /* Parameter.swift in Sources */,
 				917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */,
 				91C8741D1E36A9CE004A3EB6 /* LocalFileGateway.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,

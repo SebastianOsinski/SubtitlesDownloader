@@ -26,3 +26,27 @@ class OpenSubtitlesGateway: SubtitlesGateway {
         notImplemented()
     }
 }
+
+
+struct ServerInfoMethod: Method {
+
+    static let name = "ServerInfo"
+
+    var parameters: [Parameter] = []
+}
+
+class MethodBodyBuilder {
+
+    func buildBody<M: Method>(method: M) -> String {
+        let methodName = wrapInXmlTag(
+            value: M.name,
+            tag: "methodName"
+        )
+
+        return methodName
+    }
+
+    private func wrapInXmlTag(value: String, tag: String) -> String {
+        return "<\(tag)>\(value)</\(tag)>"
+    }
+}
