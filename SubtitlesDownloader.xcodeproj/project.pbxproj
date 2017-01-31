@@ -19,6 +19,8 @@
 		917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */; };
 		917104151E40B8170015CB82 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104141E40B8170015CB82 /* Method.swift */; };
 		917104171E40B8320015CB82 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104161E40B8320015CB82 /* Parameter.swift */; };
+		917104191E40B9230015CB82 /* MethodSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104181E40B9230015CB82 /* MethodSerializer.swift */; };
+		9171041F1E40B9C10015CB82 /* MethodSerializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171041E1E40B9C10015CB82 /* MethodSerializerSpec.swift */; };
 		91816DDB1E3A792B002ED2C5 /* FilesListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDA1E3A792B002ED2C5 /* FilesListPresenterSpec.swift */; };
 		91816DDD1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDC1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift */; };
 		91816DDF1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDE1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift */; };
@@ -78,6 +80,8 @@
 		917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitlesGateway.swift; sourceTree = "<group>"; };
 		917104141E40B8170015CB82 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		917104161E40B8320015CB82 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		917104181E40B9230015CB82 /* MethodSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodSerializer.swift; sourceTree = "<group>"; };
+		9171041E1E40B9C10015CB82 /* MethodSerializerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodSerializerSpec.swift; sourceTree = "<group>"; };
 		91816DCA1E3A752C002ED2C5 /* SubtitlesDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubtitlesDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91816DCE1E3A752C002ED2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91816DDA1E3A792B002ED2C5 /* FilesListPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListPresenterSpec.swift; sourceTree = "<group>"; };
@@ -202,6 +206,31 @@
 			children = (
 				917104141E40B8170015CB82 /* Method.swift */,
 				917104161E40B8320015CB82 /* Parameter.swift */,
+				917104181E40B9230015CB82 /* MethodSerializer.swift */,
+			);
+			name = "XML-RPC";
+			sourceTree = "<group>";
+		};
+		9171041B1E40B9940015CB82 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9171041C1E40B99D0015CB82 /* Aux */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		9171041C1E40B99D0015CB82 /* Aux */ = {
+			isa = PBXGroup;
+			children = (
+				9171041D1E40B9A00015CB82 /* XML-RPC */,
+			);
+			name = Aux;
+			sourceTree = "<group>";
+		};
+		9171041D1E40B9A00015CB82 /* XML-RPC */ = {
+			isa = PBXGroup;
+			children = (
+				9171041E1E40B9C10015CB82 /* MethodSerializerSpec.swift */,
 			);
 			name = "XML-RPC";
 			sourceTree = "<group>";
@@ -209,6 +238,7 @@
 		91816DCB1E3A752C002ED2C5 /* SubtitlesDownloaderTests */ = {
 			isa = PBXGroup;
 			children = (
+				9171041B1E40B9940015CB82 /* Data */,
 				91816DEB1E3AB69B002ED2C5 /* SupportFiles */,
 				91816DD81E3A78BC002ED2C5 /* Presentation */,
 				91816DCE1E3A752C002ED2C5 /* Info.plist */,
@@ -632,6 +662,7 @@
 				91816DEA1E3AB620002ED2C5 /* HashCalculatorSpec.swift in Sources */,
 				91816DDF1E3A9D66002ED2C5 /* FilesListConnectorSpec.swift in Sources */,
 				91816DDB1E3A792B002ED2C5 /* FilesListPresenterSpec.swift in Sources */,
+				9171041F1E40B9C10015CB82 /* MethodSerializerSpec.swift in Sources */,
 				27423D528590228BA73C9F82 /* UITableViewCell+ReusableViewSpec.swift in Sources */,
 				91816DDD1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift in Sources */,
 				91816DE11E3A9DC8002ED2C5 /* DummyFileGateway.swift in Sources */,
@@ -661,6 +692,7 @@
 				91F9B3971E3BC10D000E32F2 /* HashingOperation.swift in Sources */,
 				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
 				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
+				917104191E40B9230015CB82 /* MethodSerializer.swift in Sources */,
 				91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */,
 				91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */,
 				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
