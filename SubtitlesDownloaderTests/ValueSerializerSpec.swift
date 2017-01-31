@@ -44,6 +44,11 @@ class ValueSerializerSpec: QuickSpec {
                 let date = Date(timeIntervalSince1970: 1485882317)
                 expect(sut.serialize(.date(date))).to(equal("<value><dateTime.iso8601>20170131T17:05:17</dateTime.iso8601></value>"))
             }
+
+            it("serializes data value") {
+                let data = Data(base64Encoded: "AQIDBAU=")!
+                expect(sut.serialize(.base64(data))).to(equal("<value><base64>AQIDBAU=</base64></value>"))
+            }
         }
     }
 }

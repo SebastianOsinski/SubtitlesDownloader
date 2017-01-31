@@ -15,7 +15,7 @@ indirect enum Value {
     case bool(Bool)
     case string(String)
     case date(Date)
-    case base64(String)
+    case base64(Data)
     case array([Value])
     case `struct`([String: Value])
 }

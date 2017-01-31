@@ -36,6 +36,8 @@ class ValueSerializer {
             serializedValue = wrap(value, inTag: "string")
         case .date(let value):
             serializedValue = wrap(dateFormatter.string(from: value), inTag: "dateTime.iso8601")
+        case .base64(let value):
+            serializedValue = wrap(value.base64EncodedString(), inTag: "base64")
         default:
             notImplemented()
         }
