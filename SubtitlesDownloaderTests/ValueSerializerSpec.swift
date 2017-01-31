@@ -87,6 +87,36 @@ class ValueSerializerSpec: QuickSpec {
                     "</value>"
                 )))
             }
+
+            it("serializes nested arrays") {
+                let value: Value =
+                    .array([
+                        .array([
+                            .int(1), .double(1.1), .bool(true), .string("Test")
+                        ])
+                    ])
+
+                print(sut.serialize(value))
+
+                expect(sut.serialize(value)).to(equal(String(
+                    "<value>",
+                    "  <array>",
+                    "    <data>",
+                    "      <value>",
+                    "        <array>",
+                    "          <data>",
+                    "            <value><integer>1</integer></value>",
+                    "            <value><double>1.1</double></value>",
+                    "            <value><boolean>1</boolean></value>",
+                    "            <value><string>Test</string></value>",
+                    "          </data>",
+                    "        </array>",
+                    "      </value>",
+                    "    </data>",
+                    "  </array>",
+                    "</value>"
+                )))
+            }
         }
     }
 }

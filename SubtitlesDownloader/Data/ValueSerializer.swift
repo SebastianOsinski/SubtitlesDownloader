@@ -80,6 +80,6 @@ class ValueSerializer {
             .filter { !$0.isEmpty }
             .joined(separator: "\n")
 
-        return "\n" + result + "\n"
+        return "\n" + result + "\n" + String(repeating: indentation, count: indentationLevel - 1)
     }
 }
