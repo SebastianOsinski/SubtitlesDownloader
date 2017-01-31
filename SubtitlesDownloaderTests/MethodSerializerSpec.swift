@@ -40,5 +40,5 @@ class MethodSerializerSpec: QuickSpec {
 struct TestMethod: SubtitlesDownloader.Method {
 
     let name: String
-    let parameters: [Parameter]
+    let parameters: [Value]
 }

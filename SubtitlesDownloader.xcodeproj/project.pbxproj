@@ -15,10 +15,11 @@
 		915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */; };
 		915360C11E37DD1600E6F857 /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360C01E37DD1600E6F857 /* UseCaseFactory.swift */; };
 		915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360E21E396C7700E6F857 /* WebDavFileGateway.swift */; };
+		916CA8AC1E40C0E400B5FD35 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CA8AB1E40C0E400B5FD35 /* Value.swift */; };
+		916CA8AE1E40C1EC00B5FD35 /* ValueSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */; };
 		917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */; };
 		917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */; };
 		917104151E40B8170015CB82 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104141E40B8170015CB82 /* Method.swift */; };
-		917104171E40B8320015CB82 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104161E40B8320015CB82 /* Parameter.swift */; };
 		917104191E40B9230015CB82 /* MethodSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104181E40B9230015CB82 /* MethodSerializer.swift */; };
 		9171041F1E40B9C10015CB82 /* MethodSerializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171041E1E40B9C10015CB82 /* MethodSerializerSpec.swift */; };
 		91816DDB1E3A792B002ED2C5 /* FilesListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91816DDA1E3A792B002ED2C5 /* FilesListPresenterSpec.swift */; };
@@ -76,10 +77,11 @@
 		915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReusableView.swift"; sourceTree = "<group>"; };
 		915360C01E37DD1600E6F857 /* UseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		915360E21E396C7700E6F857 /* WebDavFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebDavFileGateway.swift; sourceTree = "<group>"; };
+		916CA8AB1E40C0E400B5FD35 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueSerializer.swift; sourceTree = "<group>"; };
 		9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitlesGateway.swift; sourceTree = "<group>"; };
 		917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitlesGateway.swift; sourceTree = "<group>"; };
 		917104141E40B8170015CB82 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
-		917104161E40B8320015CB82 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		917104181E40B9230015CB82 /* MethodSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodSerializer.swift; sourceTree = "<group>"; };
 		9171041E1E40B9C10015CB82 /* MethodSerializerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodSerializerSpec.swift; sourceTree = "<group>"; };
 		91816DCA1E3A752C002ED2C5 /* SubtitlesDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubtitlesDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,9 +206,10 @@
 		917104131E40B80D0015CB82 /* XML-RPC */ = {
 			isa = PBXGroup;
 			children = (
+				916CA8AB1E40C0E400B5FD35 /* Value.swift */,
 				917104141E40B8170015CB82 /* Method.swift */,
-				917104161E40B8320015CB82 /* Parameter.swift */,
 				917104181E40B9230015CB82 /* MethodSerializer.swift */,
+				916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */,
 			);
 			name = "XML-RPC";
 			sourceTree = "<group>";
@@ -677,12 +680,14 @@
 				915360B71E37D7E900E6F857 /* FileTableViewCell.swift in Sources */,
 				91F9B3BD1E3D558C000E32F2 /* ComputeHashUseCase.swift in Sources */,
 				915360BB1E37D9FE00E6F857 /* UITableView+Registering.swift in Sources */,
+				916CA8AC1E40C0E400B5FD35 /* Value.swift in Sources */,
 				91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */,
 				915360C11E37DD1600E6F857 /* UseCaseFactory.swift in Sources */,
 				917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */,
 				915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */,
 				917104151E40B8170015CB82 /* Method.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
+				916CA8AE1E40C1EC00B5FD35 /* ValueSerializer.swift in Sources */,
 				91C8741A1E36A530004A3EB6 /* FileCellProtocol.swift in Sources */,
 				91AF42591E3FB64C005B7216 /* UINetworkTasksMonitor.swift in Sources */,
 				91AF425B1E3FBCD1005B7216 /* FileObjectsMapper.swift in Sources */,
@@ -696,7 +701,6 @@
 				91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */,
 				91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */,
 				91C874131E369FB2004A3EB6 /* FilesListViewController.swift in Sources */,
-				917104171E40B8320015CB82 /* Parameter.swift in Sources */,
 				917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */,
 				91C8741D1E36A9CE004A3EB6 /* LocalFileGateway.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,

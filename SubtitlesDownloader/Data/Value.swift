@@ -1,10 +1,11 @@
 //
-//  Parameter.swift
+//  Value.swift
 //  SubtitlesDownloader
 //
 //  Created by Sebastian Osiński on 31/01/2017.
 //  Copyright © 2017 Sebastian Osiński. All rights reserved.
 //
+
 
 import Foundation
 
@@ -17,10 +18,4 @@ indirect enum Value {
     case base64(String)
     case array([Value])
     case `struct`([String: Value])
-}
-
-struct Parameter {
-
-    let name: String
-    let value: Value
 }

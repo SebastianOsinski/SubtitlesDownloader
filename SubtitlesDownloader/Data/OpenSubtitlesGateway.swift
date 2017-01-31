@@ -32,5 +32,5 @@ struct ServerInfoMethod: Method {
 
     let name = "ServerInfo"
 
-    let parameters: [Parameter] = []
+    let parameters: [Value] = []
 }

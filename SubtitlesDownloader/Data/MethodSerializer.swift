@@ -11,13 +11,13 @@ import Foundation
 class MethodSerializer {
 
     func serialize(_ method: Method) -> String {
-        let name = wrapInXmlTag(value: method.name, tag: "methodName")
-        let parameters = wrapInXmlTag(value: "", tag: "params")
+        let name = wrap(method.name, inTag: "methodName")
+        let parameters = wrap("", inTag: "params")
 
-        return wrapInXmlTag(value: name + parameters, tag: "methodCall")
+        return wrap(name + parameters, inTag: "methodCall")
     }
 
-    private func wrapInXmlTag(value: String, tag: String) -> String {
+    private func wrap(_ value: String, inTag tag: String) -> String {
         return "<\(tag)>\(value)</\(tag)>"
     }
 }
