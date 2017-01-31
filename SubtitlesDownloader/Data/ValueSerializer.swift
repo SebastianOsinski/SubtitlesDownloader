@@ -14,7 +14,9 @@ class ValueSerializer {
 
     private let indentationStep = "  "
 
-    init() {
+    private var indentationCache = [String]()
+
+    init(indentationCachePrefill: Int? = 5) {
         dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions = [
             .withYear,
@@ -23,6 +25,10 @@ class ValueSerializer {
             .withTime,
             .withColonSeparatorInTime
         ]
+
+        if let level = indentationCachePrefill {
+            _ = indentation(for: level)
+        }
     }
 
     func serialize(_ value: Value) -> String {
@@ -120,6 +126,24 @@ class ValueSerializer {
     }
 
     private func indentation(for level: Int) -> String {
-        return String(repeating: indentationStep, count: level)
+        if level < indentationCache.count {
+            return indentationCache[level]
+        }
+
+        let count = indentationCache.count
+
+        var indentation = String(repeating: indentationStep, count: count)
+        indentationCache.append(indentation)
+
+        if count + 1 > level {
+            return indentation
+        }
+
+        for _ in (count + 1)...level {
+            indentation += indentationStep
+            indentationCache.append(indentation)
+        }
+
+        return indentation
     }
 }

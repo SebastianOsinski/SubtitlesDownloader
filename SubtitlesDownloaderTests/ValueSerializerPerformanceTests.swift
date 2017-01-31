@@ -22,8 +22,20 @@ class ValueSerializerPerformanceTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
+
+    func testSerializationPerformanceOfVeryNestedArray() {
+        var array: Value = .array([.array([]), .array([])])
+
+        for _ in 0...5 {
+            array = .array([Value](repeatElement(array, count: 5)))
+        }
+
+        self.measure {
+            _ = self.sut.serialize(array)
+        }
+    }
     
-    func testPerformanceExample() {
+    func testSerializationPerformanceOfArrayWithMixedContents() {
         let arr: Value = .array([
             .array([
                 .array([.int(1), .bool(true), .array([.array([])]) ]),
@@ -52,13 +64,9 @@ class ValueSerializerPerformanceTests: XCTestCase {
             (name: "D", value: arr2)
         ])
 
-        var result = ""
-
         self.measure {
-            result = self.sut.serialize(value)
+            _ = self.sut.serialize(value)
         }
-
-        print(result)
     }
     
 }
