@@ -39,6 +39,11 @@ class ValueSerializerSpec: QuickSpec {
                 expect(sut.serialize(.string(""))).to(equal("<value><string></string></value>"))
                 expect(sut.serialize(.string("Test"))).to(equal("<value><string>Test</string></value>"))
             }
+
+            it("serializes date value") {
+                let date = Date(timeIntervalSince1970: 1485882317)
+                expect(sut.serialize(.date(date))).to(equal("<value><dateTime.iso8601>20170131T17:05:17</dateTime.iso8601></value>"))
+            }
         }
     }
 }
