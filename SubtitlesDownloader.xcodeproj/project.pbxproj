@@ -17,6 +17,7 @@
 		915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360E21E396C7700E6F857 /* WebDavFileGateway.swift */; };
 		916CA8AC1E40C0E400B5FD35 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CA8AB1E40C0E400B5FD35 /* Value.swift */; };
 		916CA8AE1E40C1EC00B5FD35 /* ValueSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */; };
+		916CA8B01E40C4E300B5FD35 /* ValueSerializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CA8AF1E40C4E300B5FD35 /* ValueSerializerSpec.swift */; };
 		917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */; };
 		917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */; };
 		917104151E40B8170015CB82 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104141E40B8170015CB82 /* Method.swift */; };
@@ -79,6 +80,7 @@
 		915360E21E396C7700E6F857 /* WebDavFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebDavFileGateway.swift; sourceTree = "<group>"; };
 		916CA8AB1E40C0E400B5FD35 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueSerializer.swift; sourceTree = "<group>"; };
+		916CA8AF1E40C4E300B5FD35 /* ValueSerializerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueSerializerSpec.swift; sourceTree = "<group>"; };
 		9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitlesGateway.swift; sourceTree = "<group>"; };
 		917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitlesGateway.swift; sourceTree = "<group>"; };
 		917104141E40B8170015CB82 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				9171041E1E40B9C10015CB82 /* MethodSerializerSpec.swift */,
+				916CA8AF1E40C4E300B5FD35 /* ValueSerializerSpec.swift */,
 			);
 			name = "XML-RPC";
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				91816DDB1E3A792B002ED2C5 /* FilesListPresenterSpec.swift in Sources */,
 				9171041F1E40B9C10015CB82 /* MethodSerializerSpec.swift in Sources */,
 				27423D528590228BA73C9F82 /* UITableViewCell+ReusableViewSpec.swift in Sources */,
+				916CA8B01E40C4E300B5FD35 /* ValueSerializerSpec.swift in Sources */,
 				91816DDD1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift in Sources */,
 				91816DE11E3A9DC8002ED2C5 /* DummyFileGateway.swift in Sources */,
 				91F9B3941E3BB64E000E32F2 /* GetBytesOperationSpec.swift in Sources */,

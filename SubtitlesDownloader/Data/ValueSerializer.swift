@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+class ValueSerializer {
+
+    func serialize(_ value: Value) -> String {
+        let serializedValue: String
+        switch value {
+        case .int(let value):
+            serializedValue = wrap("\(value)", inTag: "integer")
+        case .double(let value):
+            serializedValue = wrap("\(value)", inTag: "double")
+        case .bool(let value):
+            serializedValue = wrap("\(value ? 1 : 0)", inTag: "boolean")
+        default:
+            notImplemented()
+        }
+        return wrap(serializedValue, inTag: "value")
+    }
+
+    private func wrap(_ value: String, inTag tag: String) -> String {
+        return "<\(tag)>\(value)</\(tag)>"
+    }
+}
