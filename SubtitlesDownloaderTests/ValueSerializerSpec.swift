@@ -22,35 +22,66 @@ class ValueSerializerSpec: QuickSpec {
                 sut = ValueSerializer()
             }
 
-            it("serializes int value") {
+            it("serializes int") {
                 expect(sut.serialize(.int(1))).to(equal("<value><integer>1</integer></value>"))
             }
 
-            it("serializes double value") {
+            it("serializes double") {
                 expect(sut.serialize(.double(1.1))).to(equal("<value><double>1.1</double></value>"))
             }
 
-            it("serializes boolean value") {
+            it("serializes boolean") {
                 expect(sut.serialize(.bool(true))).to(equal("<value><boolean>1</boolean></value>"))
                 expect(sut.serialize(.bool(false))).to(equal("<value><boolean>0</boolean></value>"))
             }
 
-            it("serializes string value") {
+            it("serializes string") {
                 expect(sut.serialize(.string(""))).to(equal("<value><string></string></value>"))
                 expect(sut.serialize(.string("Test"))).to(equal("<value><string>Test</string></value>"))
             }
 
-            it("serializes date value") {
+            it("serializes date") {
                 let date = Date(timeIntervalSince1970: 1485882317)
                 expect(sut.serialize(.date(date))).to(equal("<value><dateTime.iso8601>20170131T17:05:17</dateTime.iso8601></value>"))
             }
 
-            it("serializes empty array value") {
-                print(sut.serialize(.array([])))
+            it("serializes data") {
+                let data = Data(base64Encoded: "AQIDBAU=")!
+                expect(sut.serialize(.base64(data))).to(equal("<value><base64>AQIDBAU=</base64></value>"))
+            }
+
+            it("serializes empty array") {
                 expect(sut.serialize(.array([]))).to(equal(String(
                     "<value>",
                     "  <array>",
                     "    <data>",
+                    "    </data>",
+                    "  </array>",
+                    "</value>"
+                )))
+            }
+
+            it("serializes array with one int inside") {
+                expect(sut.serialize(.array([.int(1)]))).to(equal(String(
+                    "<value>",
+                    "  <array>",
+                    "    <data>",
+                    "      <value><integer>1</integer></value>",
+                    "    </data>",
+                    "  </array>",
+                    "</value>"
+                )))
+            }
+
+            it("serializes array with multiple values inside") {
+                expect(sut.serialize(.array([.int(1), .double(1.1), .bool(true), .string("Test")]))).to(equal(String(
+                    "<value>",
+                    "  <array>",
+                    "    <data>",
+                    "      <value><integer>1</integer></value>",
+                    "      <value><double>1.1</double></value>",
+                    "      <value><boolean>1</boolean></value>",
+                    "      <value><string>Test</string></value>",
                     "    </data>",
                     "  </array>",
                     "</value>"
