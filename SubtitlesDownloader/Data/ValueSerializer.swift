@@ -12,11 +12,13 @@ class ValueSerializer {
 
     private let dateFormatter: ISO8601DateFormatter
 
-    private let indentationStep = "  "
+    private let indentationStep: String
 
     private var indentationCache = [""]
 
-    init(indentationCachePrefill: Int? = 5) {
+    init(indentationStepLevel: Int = 2, indentationCachePrefill: Int? = 5) {
+        indentationStep = String(repeating: " ", count: indentationStepLevel)
+
         dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions = [
             .withYear,
