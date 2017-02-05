@@ -213,9 +213,3 @@ class ValueSerializerSpec: QuickSpec {
     }
 }
 
-extension String {
-
-    init(_ lines: String...) {
-        self = lines.joined(separator: "\n")
-    }
-}

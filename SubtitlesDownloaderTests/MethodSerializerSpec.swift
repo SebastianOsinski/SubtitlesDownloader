@@ -25,13 +25,19 @@ class MethodSerializerSpec: QuickSpec {
             it("serializes method without parameters") {
                 let method = TestMethod(name: "TestMethod", parameters: [])
 
-                let expectedResult =
-                    "<methodCall>" +
-                    "<methodName>TestMethod</methodName>" +
-                    "<params></params>" +
-                    "</methodCall>"
+                print(sut.serialize(method))
 
-                expect(sut.serialize(method)).to(equal(expectedResult))
+                expect(sut.serialize(method)).to(equal(String(
+                    "<methodCall>",
+                    "  <methodName>TestMethod</methodName>",
+                    "  <params>",
+                    "  </params>",
+                    "</methodCall>"
+                )))
+            }
+
+            it("serializes method with one parameter") {
+
             }
         }
     }
