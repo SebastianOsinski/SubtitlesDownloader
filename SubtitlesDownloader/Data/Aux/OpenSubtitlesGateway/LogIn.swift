@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SWXMLHash
 
 struct LogIn: Method {
 
@@ -32,12 +31,8 @@ struct LogInResponse: MethodResponse {
 
     let token: String
 
-    init?(xml: XMLIndexer) {
-        let maybeToken = xml["struct"]["member"].all.first(where: { xml in
-            xml["name"].element?.text ?? "" == "token"
-        })?["value"]["string"].element?.text
-
-        guard let token = maybeToken else {
+    init?(xml: XmlResponse) {
+        guard let token = xml.struct.member("token")?.string else {
             return nil
         }
 

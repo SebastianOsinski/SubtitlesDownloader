@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SWXMLHash
 
 func notImplemented(file: StaticString = #file, line: UInt = #line) -> Never {
     fatalError("Feature not implemented", file: file, line: line)

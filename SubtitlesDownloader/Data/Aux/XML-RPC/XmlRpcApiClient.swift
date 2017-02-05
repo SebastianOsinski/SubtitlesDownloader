@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SWXMLHash
 
 typealias MethodCallCompletion = (Result<String>) -> Void
 
@@ -44,7 +43,7 @@ class XmlRpcApiClient {
 
             guard
                 let data = data,
-                let response = M.Response.init(xml: SWXMLHash.lazy(data)["methodResponse"]["params"]["param"]["value"])
+                let response = M.Response.init(xml: XmlResponse(data: data))
             else {
                 // FIXME: - Handle lack of data
                 return

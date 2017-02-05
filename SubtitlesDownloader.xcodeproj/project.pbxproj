@@ -14,6 +14,7 @@
 		914546D31E47BCFE0058ABC8 /* MethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D21E47BCFE0058ABC8 /* MethodResponse.swift */; };
 		914546D61E47CB7E0058ABC8 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D51E47CB7E0058ABC8 /* LogIn.swift */; };
 		914546D91E47D2800058ABC8 /* MovieHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D81E47D2800058ABC8 /* MovieHash.swift */; };
+		914546DE1E47E9AC0058ABC8 /* XmlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546DD1E47E9AC0058ABC8 /* XmlResponse.swift */; };
 		915360B71E37D7E900E6F857 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360B61E37D7E900E6F857 /* FileTableViewCell.swift */; };
 		915360BB1E37D9FE00E6F857 /* UITableView+Registering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */; };
 		915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BC1E37DA1000E6F857 /* ReusableView.swift */; };
@@ -83,6 +84,7 @@
 		914546D21E47BCFE0058ABC8 /* MethodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodResponse.swift; sourceTree = "<group>"; };
 		914546D51E47CB7E0058ABC8 /* LogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		914546D81E47D2800058ABC8 /* MovieHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieHash.swift; sourceTree = "<group>"; };
+		914546DD1E47E9AC0058ABC8 /* XmlResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmlResponse.swift; sourceTree = "<group>"; };
 		915360B61E37D7E900E6F857 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Registering.swift"; sourceTree = "<group>"; };
 		915360BC1E37DA1000E6F857 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				916CA8AB1E40C0E400B5FD35 /* Value.swift */,
 				916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */,
 				914546D01E47B3440058ABC8 /* XmlRpcApiClient.swift */,
+				914546DD1E47E9AC0058ABC8 /* XmlResponse.swift */,
 			);
 			path = "XML-RPC";
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				91AF425B1E3FBCD1005B7216 /* FileObjectsMapper.swift in Sources */,
 				915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
+				914546DE1E47E9AC0058ABC8 /* XmlResponse.swift in Sources */,
 				915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */,
 				91F9B3971E3BC10D000E32F2 /* HashingOperation.swift in Sources */,
 				91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */,
