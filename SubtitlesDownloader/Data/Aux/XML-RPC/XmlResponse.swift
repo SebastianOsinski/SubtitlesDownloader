@@ -25,6 +25,10 @@ struct XmlResponse {
         return StructXmlResponse(indexer: value("struct"))
     }
 
+    var int: Int? {
+        return value("int").element?.text.flatMap { Int($0) }
+    }
+
     var double: Double? {
         return value("double").element?.text.flatMap { Double($0) }
     }
