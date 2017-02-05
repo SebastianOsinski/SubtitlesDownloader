@@ -15,38 +15,45 @@ class XmlRpcApiClient {
 
     private let url: URL
 
+    private let monitor: NetworkTasksMonitor
     private let methodSerializer = MethodSerializer()
     private let urlSession: URLSession = .shared
+    private let completionQueue: DispatchQueue = .main
 
-    init(url: URL) {
+    init(url: URL, monitor: NetworkTasksMonitor) {
         self.url = url
+        self.monitor = monitor
     }
 
     func callMethod<M: Method>(_ method: M, completion: @escaping (Result<M.Response>) -> Void) {
+        monitor.increment()
         var urlRequest = URLRequest(url: url)
 
         urlRequest.addValue("gzip", forHTTPHeaderField: "Accept-Encoding")
         urlRequest.httpBody = methodSerializer.serialize(method).data(using: .utf8)
         urlRequest.httpMethod = "POST"
 
-        let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
+        let task = urlSession.dataTask(with: urlRequest) { [unowned completionQueue, unowned monitor] (data, response, error) in
             if let error = error ?? (response as? HTTPURLResponse).flatMap(HttpError.error) {
-                completion(.failure(error))
+                completionQueue.async {
+                    monitor.decrement()
+                    completion(.failure(error))
+                }
                 return
             }
 
-            guard let data = data else {
+            guard
+                let data = data,
+                let response = M.Response.init(xml: SWXMLHash.lazy(data)["methodResponse"]["params"]["param"]["value"])
+            else {
                 // FIXME: - Handle lack of data
                 return
             }
 
-            let xml = SWXMLHash.lazy(data)["methodResponse"]["params"]["param"]["value"]
-
-            guard let response = M.Response.init(xml: xml) else {
-                return
+            completionQueue.async {
+                monitor.decrement()
+                completion(.success(response))
             }
-
-            completion(.success(response))
         }
 
         task.resume()

@@ -211,7 +211,6 @@
 			children = (
 				914546CE1E47A9A50058ABC8 /* String+lines.swift */,
 			);
-			name = Helpers;
 			path = Helpers;
 			sourceTree = "<group>";
 		};
@@ -221,7 +220,6 @@
 				914546D51E47CB7E0058ABC8 /* LogIn.swift */,
 				917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */,
 			);
-			name = OpenSubtitlesGateway;
 			path = OpenSubtitlesGateway;
 			sourceTree = "<group>";
 		};
@@ -233,7 +231,6 @@
 				91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */,
 				914546D81E47D2800058ABC8 /* MovieHash.swift */,
 			);
-			name = HashCalculator;
 			path = HashCalculator;
 			sourceTree = "<group>";
 		};
@@ -258,7 +255,6 @@
 				916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */,
 				914546D01E47B3440058ABC8 /* XmlRpcApiClient.swift */,
 			);
-			name = "XML-RPC";
 			path = "XML-RPC";
 			sourceTree = "<group>";
 		};
@@ -267,7 +263,6 @@
 			children = (
 				9171041C1E40B99D0015CB82 /* Aux */,
 			);
-			name = Data;
 			path = Data;
 			sourceTree = "<group>";
 		};
@@ -276,7 +271,6 @@
 			children = (
 				9171041D1E40B9A00015CB82 /* XML-RPC */,
 			);
-			name = Aux;
 			path = Aux;
 			sourceTree = "<group>";
 		};
@@ -287,7 +281,6 @@
 				916CA8B11E41294D00B5FD35 /* ValueSerializerPerformanceTests.swift */,
 				916CA8AF1E40C4E300B5FD35 /* ValueSerializerSpec.swift */,
 			);
-			name = "XML-RPC";
 			path = "XML-RPC";
 			sourceTree = "<group>";
 		};
@@ -334,7 +327,6 @@
 				91AF425A1E3FBCD1005B7216 /* FileObjectsMapper.swift */,
 				91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */,
 			);
-			name = Aux;
 			path = Aux;
 			sourceTree = "<group>";
 		};
@@ -342,7 +334,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = SupportFiles;
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};

@@ -15,9 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var rootConnector: FilesListConnector!
 
-    private let gateway = OpenSubtitlesGateway()
+    private var gateway: SubtitlesGateway!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let monitor = UINetworkTasksMonitor()
+
+        gateway = OpenSubtitlesGateway(
+            apiClient: XmlRpcApiClient(url: URL(string: "http://api.opensubtitles.org/xml-rpc")!, monitor: monitor)
+        )
+
 
         let fileGateway = LocalFileGateway()
         //let fileGateway = WebDavFileGateway(baseUrl: URL(string: "http://localhost:1111")!, user: "user", password: "password", monitor: UINetworkTasksMonitor())

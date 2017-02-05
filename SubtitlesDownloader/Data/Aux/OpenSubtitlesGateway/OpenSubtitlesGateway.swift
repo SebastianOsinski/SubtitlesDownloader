@@ -15,10 +15,14 @@ func notImplemented(file: StaticString = #file, line: UInt = #line) -> Never {
 
 class OpenSubtitlesGateway: SubtitlesGateway {
 
-    private let apiClient = XmlRpcApiClient(url: URL(string: "http://api.opensubtitles.org/xml-rpc")!)
+    private let apiClient: XmlRpcApiClient
     private let userAgent = "OSTestUserAgentTemp"
 
     private var token: String?
+
+    init(apiClient: XmlRpcApiClient) {
+        self.apiClient = apiClient
+    }
 
     func logIn(credentials: (user: String, password: String)?, completion: @escaping (Result<Void>) -> Void) {
         let method = LogIn(
