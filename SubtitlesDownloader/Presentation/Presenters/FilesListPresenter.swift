@@ -66,7 +66,7 @@ class FilesListPresenter {
         return useCaseFactory.createUseCase(for: .computeHash(file: file) { [weak self] result in
             switch result {
             case .success(let hash):
-                self?.connector.showHashAlert(hash: hash)
+                self?.connector.showHashAlert(hash: hash.hash)
             case .failure(let error):
                 self?.view?.reportError(error.localizedDescription)
             }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias HashingCompletion = (Result<String>) -> Void
+typealias HashingCompletion = (Result<MovieHash>) -> Void
 
 class ComputeHashUseCase: UseCase {
 

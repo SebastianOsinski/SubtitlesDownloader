@@ -21,7 +21,7 @@ class HashCalculator {
         queue.maxConcurrentOperationCount = 2
     }
 
-    func calculateHash(of file: File, completion: @escaping ResultCallback<String>) {
+    func calculateHash(of file: File, completion: @escaping ResultCallback<MovieHash>) {
         let size = file.size
         let path = file.path
 
@@ -48,7 +48,11 @@ class HashCalculator {
         )
 
         hashingOperation.completionBlock = { [unowned hashingOperation] in
-            let result = hashingOperation.result!
+            let result = hashingOperation.result!.map { hash in
+                MovieHash(size: size, hash: hash)
+            }
+
+
             DispatchQueue.main.async {
                 completion(result)
             }

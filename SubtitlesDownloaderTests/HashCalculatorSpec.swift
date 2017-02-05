@@ -29,8 +29,8 @@ class HashCalculatorSpec: QuickSpec {
                 var hash = ""
 
                 calculator.calculateHash(of: file) { result in
-                    if case .success(let hashString) = result {
-                        hash = hashString
+                    if case .success(let movieHash) = result {
+                        hash = movieHash.hash
                     }
                 }
 
@@ -45,8 +45,8 @@ class HashCalculatorSpec: QuickSpec {
                 var hash = ""
 
                 calculator.calculateHash(of: file) { result in
-                    if case .success(let hashString) = result {
-                        hash = hashString
+                    if case .success(let movieHash) = result {
+                        hash = movieHash.hash
                     }
                 }
 
