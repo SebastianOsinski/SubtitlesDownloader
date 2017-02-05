@@ -10,6 +10,8 @@
 		27423D528590228BA73C9F82 /* UITableViewCell+ReusableViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27423610089CC8CE856A0194 /* UITableViewCell+ReusableViewSpec.swift */; };
 		612F5BD334B89215D23EA4FB /* Pods_SubtitlesDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857E85A3A1DE53567CFBBD01 /* Pods_SubtitlesDownloader.framework */; };
 		914546CF1E47A9A50058ABC8 /* String+lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546CE1E47A9A50058ABC8 /* String+lines.swift */; };
+		914546D11E47B3440058ABC8 /* XmlRpcApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D01E47B3440058ABC8 /* XmlRpcApiClient.swift */; };
+		914546D31E47BCFE0058ABC8 /* MethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D21E47BCFE0058ABC8 /* MethodResponse.swift */; };
 		915360B71E37D7E900E6F857 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360B61E37D7E900E6F857 /* FileTableViewCell.swift */; };
 		915360BB1E37D9FE00E6F857 /* UITableView+Registering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */; };
 		915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BC1E37DA1000E6F857 /* ReusableView.swift */; };
@@ -75,6 +77,8 @@
 		6C7D0A64A0EC72B65964E365 /* Pods-SubtitlesDownloaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubtitlesDownloaderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubtitlesDownloaderTests/Pods-SubtitlesDownloaderTests.release.xcconfig"; sourceTree = "<group>"; };
 		857E85A3A1DE53567CFBBD01 /* Pods_SubtitlesDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubtitlesDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		914546CE1E47A9A50058ABC8 /* String+lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+lines.swift"; sourceTree = "<group>"; };
+		914546D01E47B3440058ABC8 /* XmlRpcApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmlRpcApiClient.swift; sourceTree = "<group>"; };
+		914546D21E47BCFE0058ABC8 /* MethodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodResponse.swift; sourceTree = "<group>"; };
 		915360B61E37D7E900E6F857 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Registering.swift"; sourceTree = "<group>"; };
 		915360BC1E37DA1000E6F857 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 				917104141E40B8170015CB82 /* Method.swift */,
 				917104181E40B9230015CB82 /* MethodSerializer.swift */,
 				916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */,
+				914546D01E47B3440058ABC8 /* XmlRpcApiClient.swift */,
+				914546D21E47BCFE0058ABC8 /* MethodResponse.swift */,
 			);
 			name = "XML-RPC";
 			sourceTree = "<group>";
@@ -702,9 +708,11 @@
 				915360BB1E37D9FE00E6F857 /* UITableView+Registering.swift in Sources */,
 				916CA8AC1E40C0E400B5FD35 /* Value.swift in Sources */,
 				91C874161E36A018004A3EB6 /* FilesListPresenter.swift in Sources */,
+				914546D11E47B3440058ABC8 /* XmlRpcApiClient.swift in Sources */,
 				915360C11E37DD1600E6F857 /* UseCaseFactory.swift in Sources */,
 				917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */,
 				915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */,
+				914546D31E47BCFE0058ABC8 /* MethodResponse.swift in Sources */,
 				917104151E40B8170015CB82 /* Method.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
 				916CA8AE1E40C1EC00B5FD35 /* ValueSerializer.swift in Sources */,

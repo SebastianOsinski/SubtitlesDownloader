@@ -18,7 +18,7 @@ class MethodSerializer {
         indentationStep = String(repeating: " ", count: indentationStepLevel)
     }
 
-    func serialize(_ method: Method) -> String {
+    func serialize<M: Method>(_ method: M) -> String {
         let name = wrap(method.name, inTag: "methodName")
 
         let serializedParameters = method.parameters

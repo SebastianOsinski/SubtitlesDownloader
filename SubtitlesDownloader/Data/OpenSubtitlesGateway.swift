@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SWXMLHash
 
 func notImplemented(file: StaticString = #file, line: UInt = #line) -> Never {
     fatalError("Feature not implemented", file: file, line: line)
@@ -30,7 +31,28 @@ class OpenSubtitlesGateway: SubtitlesGateway {
 
 struct ServerInfoMethod: Method {
 
+    typealias Response = ServerInfoResponse
+
     let name = "ServerInfo"
 
     let parameters: [Value] = []
+}
+
+struct ServerInfoResponse: MethodResponse {
+
+    let moviesTotal: Int
+
+    init?(data: Data) {
+        let xml = SWXMLHash.parse(data)
+
+        let moviesTotal = xml["methodResponse"]["params"]["param"]["value"]["struct"]["member"].all.first(where: { xml in
+            xml["name"].element?.text ?? "" == "movies_total"
+        })?["value"]["string"].element?.text.flatMap { Int($0) }
+
+        guard let total = moviesTotal else {
+            return nil
+        }
+
+        self.moviesTotal = total
+    }
 }

@@ -78,6 +78,14 @@ class MethodSerializerSpec: QuickSpec {
 
 struct TestMethod: SubtitlesDownloader.Method {
 
+    struct Response: MethodResponse {
+
+        init(data: Data) {
+            
+        }
+    }
+
     let name: String
     let parameters: [Value]
 }
+

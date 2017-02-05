@@ -7,6 +7,9 @@
 //
 
 protocol Method {
+
+    associatedtype Response: MethodResponse
+    
     var name: String { get }
     var parameters: [Value] { get }
 }
