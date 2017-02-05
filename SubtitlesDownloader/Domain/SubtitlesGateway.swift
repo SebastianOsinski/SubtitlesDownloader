@@ -13,9 +13,9 @@ typealias LogOutCompletion = (Result<Void>) -> Void
 typealias SubtitlesSearchCompletion = (Result<[Subtitles]>) -> Void
 
 protocol SubtitlesGateway {
-    func logIn(credentials: (user: String, password: String)?, completion: LogInCompletion)
-    func logOut(completion: LogOutCompletion)
-    func search(hash: MovieHash, languages: [String], completion: SubtitlesSearchCompletion)
+    func logIn(credentials: (user: String, password: String)?, completion: @escaping LogInCompletion)
+    func logOut(completion: @escaping LogOutCompletion)
+    func search(hash: MovieHash, languages: [String], completion: @escaping SubtitlesSearchCompletion)
 }
 
 struct MovieHash {

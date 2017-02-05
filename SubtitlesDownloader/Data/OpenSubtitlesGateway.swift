@@ -15,15 +15,35 @@ func notImplemented(file: StaticString = #file, line: UInt = #line) -> Never {
 
 class OpenSubtitlesGateway: SubtitlesGateway {
 
-    func logIn(credentials: (user: String, password: String)?, completion: (Result<Void>) -> Void) {
+    private let apiClient = XmlRpcApiClient(url: URL(string: "http://api.opensubtitles.org/xml-rpc")!)
+    private let userAgent = "OSTestUserAgentTemp"
+
+    private var token: String?
+
+    func logIn(credentials: (user: String, password: String)?, completion: @escaping (Result<Void>) -> Void) {
+        let method = LogIn(
+            user: credentials?.user ?? "",
+            password: credentials?.password ?? "",
+            language: "en",
+            userAgent: userAgent
+        )
+
+        apiClient.callMethod(method) { [weak self] result in
+            switch result {
+            case .success(let token):
+                self?.token = token.token
+                completion(.success())
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func logOut(completion: @escaping (Result<Void>) -> Void) {
         notImplemented()
     }
 
-    func logOut(completion: (Result<Void>) -> Void) {
-        notImplemented()
-    }
-
-    func search(hash: MovieHash, languages: [String], completion: (Result<[Subtitles]>) -> Void) {
+    func search(hash: MovieHash, languages: [String], completion: @escaping (Result<[Subtitles]>) -> Void) {
         notImplemented()
     }
 }
@@ -33,7 +53,7 @@ struct ServerInfoMethod: Method {
 
     typealias Response = ServerInfoResponse
 
-    let name = "ServerInfo"
+    static let name = "ServerInfo"
 
     let parameters: [Value] = []
 }

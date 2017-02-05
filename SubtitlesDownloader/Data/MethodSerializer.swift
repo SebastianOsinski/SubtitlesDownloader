@@ -19,7 +19,7 @@ class MethodSerializer {
     }
 
     func serialize<M: Method>(_ method: M) -> String {
-        let name = wrap(method.name, inTag: "methodName")
+        let name = wrap(M.name, inTag: "methodName")
 
         let serializedParameters = method.parameters
             .lazy

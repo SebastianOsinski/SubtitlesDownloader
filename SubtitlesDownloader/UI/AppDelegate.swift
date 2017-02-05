@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var rootConnector: FilesListConnector!
 
-    private let apiClient = XmlRpcApiClient(url: URL(string: "http://api.opensubtitles.org/xml-rpc")!)
+    private let gateway = OpenSubtitlesGateway()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.pushViewController(rootConnector.filesListViewController(), animated: false)
         configureWindow(with: navigationController)
 
-        apiClient.callMethod(ServerInfoMethod()) { result in
+        gateway.logIn(credentials: nil) { result in
             print(result)
         }
 
