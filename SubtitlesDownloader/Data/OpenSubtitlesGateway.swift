@@ -47,31 +47,3 @@ class OpenSubtitlesGateway: SubtitlesGateway {
         notImplemented()
     }
 }
-
-
-struct ServerInfoMethod: Method {
-
-    typealias Response = ServerInfoResponse
-
-    static let name = "ServerInfo"
-
-    let parameters: [Value] = []
-}
-
-struct ServerInfoResponse: MethodResponse {
-
-    let moviesTotal: Int
-
-    init?(xml: XMLIndexer) {
-
-        let moviesTotal = xml["struct"]["member"].all.first(where: { xml in
-            xml["name"].element?.text ?? "" == "movies_total"
-        })?["value"]["string"].element?.text.flatMap { Int($0) }
-
-        guard let total = moviesTotal else {
-            return nil
-        }
-
-        self.moviesTotal = total
-    }
-}

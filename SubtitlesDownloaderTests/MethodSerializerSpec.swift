@@ -24,7 +24,7 @@ class MethodSerializerSpec: QuickSpec {
             }
 
             it("serializes method without parameters") {
-                let method = TestMethod(name: "TestMethod", parameters: [])
+                let method = TestMethod(parameters: [])
 
                 expect(sut.serialize(method)).to(equal(String(
                     "<methodCall>",
@@ -36,7 +36,7 @@ class MethodSerializerSpec: QuickSpec {
             }
 
             it("serializes method with one parameter") {
-                let method = TestMethod(name: "TestMethod", parameters: [.int(1)])
+                let method = TestMethod(parameters: [.int(1)])
 
                 expect(sut.serialize(method)).to(equal(String(
                     "<methodCall>",
@@ -51,10 +51,7 @@ class MethodSerializerSpec: QuickSpec {
             }
 
             it("serializes method with multiple parameters") {
-                let method = TestMethod(
-                    name: "TestMethod",
-                    parameters: [.int(1), .double(1.0), .bool(true)]
-                )
+                let method = TestMethod(parameters: [.int(1), .double(1.0), .bool(true)])
 
                 expect(sut.serialize(method)).to(equal(String(
                     "<methodCall>",
@@ -86,7 +83,8 @@ struct TestMethod: SubtitlesDownloader.Method {
         }
     }
 
-    let name: String
+    static let name = "TestMethod"
+
     let parameters: [Value]
 }
 
