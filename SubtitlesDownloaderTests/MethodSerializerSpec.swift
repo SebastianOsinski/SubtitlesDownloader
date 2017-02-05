@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import SWXMLHash
 @testable import SubtitlesDownloader
 
 class MethodSerializerSpec: QuickSpec {
@@ -80,7 +81,7 @@ struct TestMethod: SubtitlesDownloader.Method {
 
     struct Response: MethodResponse {
 
-        init(data: Data) {
+        init(xml: XMLIndexer) {
             
         }
     }

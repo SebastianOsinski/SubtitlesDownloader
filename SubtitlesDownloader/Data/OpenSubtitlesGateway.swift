@@ -42,10 +42,9 @@ struct ServerInfoResponse: MethodResponse {
 
     let moviesTotal: Int
 
-    init?(data: Data) {
-        let xml = SWXMLHash.parse(data)
+    init?(xml: XMLIndexer) {
 
-        let moviesTotal = xml["methodResponse"]["params"]["param"]["value"]["struct"]["member"].all.first(where: { xml in
+        let moviesTotal = xml["struct"]["member"].all.first(where: { xml in
             xml["name"].element?.text ?? "" == "movies_total"
         })?["value"]["string"].element?.text.flatMap { Int($0) }
 

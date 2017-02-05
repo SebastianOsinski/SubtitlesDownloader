@@ -6,8 +6,8 @@
 //  Copyright © 2017 Sebastian Osiński. All rights reserved.
 //
 
-import Foundation
+import SWXMLHash
 
 protocol MethodResponse {
-    init?(data: Data)
+    init?(xml: XMLIndexer)
 }

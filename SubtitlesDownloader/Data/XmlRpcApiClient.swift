@@ -34,8 +34,14 @@ class XmlRpcApiClient {
                 return
             }
 
-            guard let data = data, let response = M.Response.init(data: data) else {
+            guard let data = data else {
                 // FIXME: - Handle lack of data
+                return
+            }
+
+            let xml = SWXMLHash.lazy(data)["methodResponse"]["params"]["param"]["value"]
+
+            guard let response = M.Response.init(xml: xml) else {
                 return
             }
 
