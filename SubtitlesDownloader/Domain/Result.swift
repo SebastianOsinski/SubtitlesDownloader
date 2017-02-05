@@ -18,6 +18,15 @@ enum Result<SuccessType> {
             return nil
         }
     }
+
+    func map<T>(_ transform: (SuccessType) -> T) -> Result<T> {
+        switch self {
+        case .success(let value):
+            return .success(transform(value))
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
 }
 
 typealias ResultCallback<T> = (Result<T>) -> Void
