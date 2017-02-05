@@ -17,7 +17,7 @@ struct XmlResponse {
         self.indexer = SWXMLHash.lazy(data)["methodResponse"]["params"]["param"]
     }
 
-    init(indexer: XMLIndexer) {
+    fileprivate init(indexer: XMLIndexer) {
         self.indexer = indexer
     }
 
@@ -46,7 +46,7 @@ struct StructXmlResponse {
 
     private let indexer: XMLIndexer
 
-    init(indexer: XMLIndexer) {
+    fileprivate init(indexer: XMLIndexer) {
         self.indexer = indexer
     }
 
