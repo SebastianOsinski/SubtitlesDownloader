@@ -168,8 +168,8 @@
 		274235236284BDB8D36EF16A /* Aux */ = {
 			isa = PBXGroup;
 			children = (
-				27423610089CC8CE856A0194 /* UITableViewCell+ReusableViewSpec.swift */,
 				91816DDC1E3A9717002ED2C5 /* UITableView+RegisteringSpec.swift */,
+				27423610089CC8CE856A0194 /* UITableViewCell+ReusableViewSpec.swift */,
 			);
 			path = Aux;
 			sourceTree = "<group>";
@@ -184,9 +184,9 @@
 		274239CAE4F6C2F98481B242 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				274236CABCE070FF8FDE4058 /* Views */,
-				27423BFFC941B016F896BA32 /* Connectors */,
 				274235236284BDB8D36EF16A /* Aux */,
+				27423BFFC941B016F896BA32 /* Connectors */,
+				274236CABCE070FF8FDE4058 /* Views */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -212,35 +212,38 @@
 				914546CE1E47A9A50058ABC8 /* String+lines.swift */,
 			);
 			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		914546D41E47CB1E0058ABC8 /* OpenSubtitlesGateway */ = {
 			isa = PBXGroup;
 			children = (
-				917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */,
 				914546D51E47CB7E0058ABC8 /* LogIn.swift */,
+				917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */,
 			);
 			name = OpenSubtitlesGateway;
+			path = OpenSubtitlesGateway;
 			sourceTree = "<group>";
 		};
 		914546D71E47D26F0058ABC8 /* HashCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				91816DE21E3AA467002ED2C5 /* HashCalculator.swift */,
 				91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */,
+				91816DE21E3AA467002ED2C5 /* HashCalculator.swift */,
 				91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */,
 				914546D81E47D2800058ABC8 /* MovieHash.swift */,
 			);
 			name = HashCalculator;
+			path = HashCalculator;
 			sourceTree = "<group>";
 		};
 		915360B91E37D9B200E6F857 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
 				915360BC1E37DA1000E6F857 /* ReusableView.swift */,
+				91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */,
 				915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */,
 				915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */,
-				91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */,
 			);
 			path = Aux;
 			sourceTree = "<group>";
@@ -248,14 +251,15 @@
 		917104131E40B80D0015CB82 /* XML-RPC */ = {
 			isa = PBXGroup;
 			children = (
-				916CA8AB1E40C0E400B5FD35 /* Value.swift */,
 				917104141E40B8170015CB82 /* Method.swift */,
+				914546D21E47BCFE0058ABC8 /* MethodResponse.swift */,
 				917104181E40B9230015CB82 /* MethodSerializer.swift */,
+				916CA8AB1E40C0E400B5FD35 /* Value.swift */,
 				916CA8AD1E40C1EC00B5FD35 /* ValueSerializer.swift */,
 				914546D01E47B3440058ABC8 /* XmlRpcApiClient.swift */,
-				914546D21E47BCFE0058ABC8 /* MethodResponse.swift */,
 			);
 			name = "XML-RPC";
+			path = "XML-RPC";
 			sourceTree = "<group>";
 		};
 		9171041B1E40B9940015CB82 /* Data */ = {
@@ -264,6 +268,7 @@
 				9171041C1E40B99D0015CB82 /* Aux */,
 			);
 			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		9171041C1E40B99D0015CB82 /* Aux */ = {
@@ -272,31 +277,33 @@
 				9171041D1E40B9A00015CB82 /* XML-RPC */,
 			);
 			name = Aux;
+			path = Aux;
 			sourceTree = "<group>";
 		};
 		9171041D1E40B9A00015CB82 /* XML-RPC */ = {
 			isa = PBXGroup;
 			children = (
 				9171041E1E40B9C10015CB82 /* MethodSerializerSpec.swift */,
-				916CA8AF1E40C4E300B5FD35 /* ValueSerializerSpec.swift */,
 				916CA8B11E41294D00B5FD35 /* ValueSerializerPerformanceTests.swift */,
+				916CA8AF1E40C4E300B5FD35 /* ValueSerializerSpec.swift */,
 			);
 			name = "XML-RPC";
+			path = "XML-RPC";
 			sourceTree = "<group>";
 		};
 		91816DCB1E3A752C002ED2C5 /* SubtitlesDownloaderTests */ = {
 			isa = PBXGroup;
 			children = (
-				914546CD1E47A99B0058ABC8 /* Helpers */,
 				9171041B1E40B9940015CB82 /* Data */,
-				91816DEB1E3AB69B002ED2C5 /* SupportFiles */,
-				91816DD81E3A78BC002ED2C5 /* Presentation */,
-				91816DCE1E3A752C002ED2C5 /* Info.plist */,
-				274239CAE4F6C2F98481B242 /* UI */,
 				27423C297C68564E13DFF1BA /* Domain */,
+				914546CD1E47A99B0058ABC8 /* Helpers */,
+				91816DD81E3A78BC002ED2C5 /* Presentation */,
+				91816DEB1E3AB69B002ED2C5 /* SupportFiles */,
+				274239CAE4F6C2F98481B242 /* UI */,
 				91816DE01E3A9DC8002ED2C5 /* DummyFileGateway.swift */,
-				91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */,
 				91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */,
+				91816DE91E3AB620002ED2C5 /* HashCalculatorSpec.swift */,
+				91816DCE1E3A752C002ED2C5 /* Info.plist */,
 			);
 			path = SubtitlesDownloaderTests;
 			sourceTree = "<group>";
@@ -324,10 +331,11 @@
 				914546D41E47CB1E0058ABC8 /* OpenSubtitlesGateway */,
 				917104131E40B80D0015CB82 /* XML-RPC */,
 				91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */,
-				91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */,
 				91AF425A1E3FBCD1005B7216 /* FileObjectsMapper.swift */,
+				91AF42541E3FB5EE005B7216 /* NetworkTasksMonitor.swift */,
 			);
 			name = Aux;
+			path = Aux;
 			sourceTree = "<group>";
 		};
 		91816DEB1E3AB69B002ED2C5 /* SupportFiles */ = {
@@ -335,6 +343,7 @@
 			children = (
 			);
 			name = SupportFiles;
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 		91C873CE1E35487D004A3EB6 = {
@@ -377,9 +386,9 @@
 				91C874031E369BBE004A3EB6 /* FileGateway.swift */,
 				91C874051E369C5E004A3EB6 /* OperationHandle.swift */,
 				91C874091E369CC2004A3EB6 /* Result.swift */,
+				9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */,
 				91E17C261E37D3C0006433B7 /* UseCase.swift */,
 				915360C01E37DD1600E6F857 /* UseCaseFactory.swift */,
-				9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -395,8 +404,8 @@
 		91C8740B1E369D12004A3EB6 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */,
 				91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */,
+				91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -424,10 +433,10 @@
 		91C8740F1E369DB8004A3EB6 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				91AF425C1E3FBF30005B7216 /* breakdance.avi */,
-				91AF425D1E3FBF30005B7216 /* dummy.rar */,
 				91C873E11E35487D004A3EB6 /* Assets.xcassets */,
 				91C873E61E35487D004A3EB6 /* Info.plist */,
+				91AF425C1E3FBF30005B7216 /* breakdance.avi */,
+				91AF425D1E3FBF30005B7216 /* dummy.rar */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
