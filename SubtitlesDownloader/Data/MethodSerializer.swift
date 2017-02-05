@@ -20,12 +20,17 @@ class MethodSerializer {
 
     func serialize(_ method: Method) -> String {
         let name = wrap(method.name, inTag: "methodName")
-        let parameters = wrap("", inTag: "params")
+
+        let serializedParameters = method.parameters
+            .lazy
+            .map(serializeParameter)
+            .joined(separator: "\n")
 
         let lines = [
             "<methodCall>",
             indentationStep + name,
             indentationStep + "<params>",
+            serializedParameters,
             indentationStep + "</params>",
             "</methodCall>"
         ]
@@ -34,6 +39,14 @@ class MethodSerializer {
             .lazy
             .filter { !$0.isEmpty }
             .joined(separator: "\n")
+    }
+
+    private func serializeParameter(_ parameter: Value) -> String {
+        return [
+            indentationStep + indentationStep + "<param>",
+            valueSerializer.serialize(parameter, indentationLevel: 3),
+            indentationStep + indentationStep + "</param>"
+        ].joined(separator: "\n")
     }
 
     private func wrap(_ value: String, inTag tag: String) -> String {

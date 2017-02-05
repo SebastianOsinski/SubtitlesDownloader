@@ -37,7 +37,7 @@ class ValueSerializer {
         return serialize(value, indentationLevel: 0)
     }
 
-    private func serialize(_ value: Value, indentationLevel: Int) -> String {
+    func serialize(_ value: Value, indentationLevel: Int) -> String {
         let serializedValue: String
         switch value {
         case .int(let value):

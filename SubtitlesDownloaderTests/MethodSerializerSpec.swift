@@ -25,8 +25,6 @@ class MethodSerializerSpec: QuickSpec {
             it("serializes method without parameters") {
                 let method = TestMethod(name: "TestMethod", parameters: [])
 
-                print(sut.serialize(method))
-
                 expect(sut.serialize(method)).to(equal(String(
                     "<methodCall>",
                     "  <methodName>TestMethod</methodName>",
@@ -37,7 +35,42 @@ class MethodSerializerSpec: QuickSpec {
             }
 
             it("serializes method with one parameter") {
+                let method = TestMethod(name: "TestMethod", parameters: [.int(1)])
 
+                expect(sut.serialize(method)).to(equal(String(
+                    "<methodCall>",
+                    "  <methodName>TestMethod</methodName>",
+                    "  <params>",
+                    "    <param>",
+                    "      <value><integer>1</integer></value>",
+                    "    </param>",
+                    "  </params>",
+                    "</methodCall>"
+                )))
+            }
+
+            it("serializes method with multiple parameters") {
+                let method = TestMethod(
+                    name: "TestMethod",
+                    parameters: [.int(1), .double(1.0), .bool(true)]
+                )
+
+                expect(sut.serialize(method)).to(equal(String(
+                    "<methodCall>",
+                    "  <methodName>TestMethod</methodName>",
+                    "  <params>",
+                    "    <param>",
+                    "      <value><integer>1</integer></value>",
+                    "    </param>",
+                    "    <param>",
+                    "      <value><double>1.0</double></value>",
+                    "    </param>",
+                    "    <param>",
+                    "      <value><boolean>1</boolean></value>",
+                    "    </param>",
+                    "  </params>",
+                    "</methodCall>"
+                )))
             }
         }
     }
