@@ -25,6 +25,7 @@ class XmlRpcApiClient {
     func callMethod<M: Method>(_ method: M, completion: @escaping (Result<M.Response>) -> Void) {
         var urlRequest = URLRequest(url: url)
 
+        urlRequest.addValue("gzip", forHTTPHeaderField: "Accept-Encoding")
         urlRequest.httpBody = methodSerializer.serialize(method).data(using: .utf8)
         urlRequest.httpMethod = "POST"
 
