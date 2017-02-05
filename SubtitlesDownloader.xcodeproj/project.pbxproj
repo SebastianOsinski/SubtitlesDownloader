@@ -13,6 +13,7 @@
 		914546D11E47B3440058ABC8 /* XmlRpcApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D01E47B3440058ABC8 /* XmlRpcApiClient.swift */; };
 		914546D31E47BCFE0058ABC8 /* MethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D21E47BCFE0058ABC8 /* MethodResponse.swift */; };
 		914546D61E47CB7E0058ABC8 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D51E47CB7E0058ABC8 /* LogIn.swift */; };
+		914546D91E47D2800058ABC8 /* MovieHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914546D81E47D2800058ABC8 /* MovieHash.swift */; };
 		915360B71E37D7E900E6F857 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360B61E37D7E900E6F857 /* FileTableViewCell.swift */; };
 		915360BB1E37D9FE00E6F857 /* UITableView+Registering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */; };
 		915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915360BC1E37DA1000E6F857 /* ReusableView.swift */; };
@@ -81,6 +82,7 @@
 		914546D01E47B3440058ABC8 /* XmlRpcApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmlRpcApiClient.swift; sourceTree = "<group>"; };
 		914546D21E47BCFE0058ABC8 /* MethodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodResponse.swift; sourceTree = "<group>"; };
 		914546D51E47CB7E0058ABC8 /* LogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		914546D81E47D2800058ABC8 /* MovieHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieHash.swift; sourceTree = "<group>"; };
 		915360B61E37D7E900E6F857 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Registering.swift"; sourceTree = "<group>"; };
 		915360BC1E37DA1000E6F857 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -221,6 +223,17 @@
 			name = OpenSubtitlesGateway;
 			sourceTree = "<group>";
 		};
+		914546D71E47D26F0058ABC8 /* HashCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				91816DE21E3AA467002ED2C5 /* HashCalculator.swift */,
+				91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */,
+				91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */,
+				914546D81E47D2800058ABC8 /* MovieHash.swift */,
+			);
+			name = HashCalculator;
+			sourceTree = "<group>";
+		};
 		915360B91E37D9B200E6F857 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +320,7 @@
 		91816DE41E3AA7F2002ED2C5 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
+				914546D71E47D26F0058ABC8 /* HashCalculator */,
 				914546D41E47CB1E0058ABC8 /* OpenSubtitlesGateway */,
 				917104131E40B80D0015CB82 /* XML-RPC */,
 				91816DE51E3AA7FB002ED2C5 /* AsyncOperation.swift */,
@@ -450,9 +464,6 @@
 				91816DE41E3AA7F2002ED2C5 /* Aux */,
 				91C8741C1E36A9CE004A3EB6 /* LocalFileGateway.swift */,
 				915360E21E396C7700E6F857 /* WebDavFileGateway.swift */,
-				91816DE21E3AA467002ED2C5 /* HashCalculator.swift */,
-				91816DE71E3AAA54002ED2C5 /* GetBytesOperation.swift */,
-				91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -724,6 +735,7 @@
 				917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */,
 				915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */,
 				914546D31E47BCFE0058ABC8 /* MethodResponse.swift in Sources */,
+				914546D91E47D2800058ABC8 /* MovieHash.swift in Sources */,
 				914546D61E47CB7E0058ABC8 /* LogIn.swift in Sources */,
 				917104151E40B8170015CB82 /* Method.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,

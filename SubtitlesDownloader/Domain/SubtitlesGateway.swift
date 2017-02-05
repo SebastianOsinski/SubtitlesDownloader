@@ -18,10 +18,6 @@ protocol SubtitlesGateway {
     func search(hash: MovieHash, languages: [String], completion: @escaping SubtitlesSearchCompletion)
 }
 
-struct MovieHash {
-    
-}
-
 struct Subtitles {
     let fileName: String
     let releaseName: String
