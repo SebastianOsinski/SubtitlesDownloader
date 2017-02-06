@@ -79,6 +79,38 @@ class XmlResponseSpec: QuickSpec {
 
                 expect(response.string).to(equal("TestResponse"))
             }
+
+            it("returns date value from response with date value") {
+                let data = String(
+                    "<methodResponse>",
+                    "  <params>",
+                    "    <param>",
+                    "      <value><dateTime.iso8601>20170131T17:05:17</dateTime.iso8601></value>",
+                    "    </param>",
+                    "  </params>",
+                    "</methodResponse>"
+                    ).data(using: .utf8)!
+
+                let response = XmlResponse(data: data)
+
+                expect(response.date).to(equal(Date(timeIntervalSince1970: 1485882317)))
+            }
+
+            it("returns data value from response with data value") {
+                let data = String(
+                    "<methodResponse>",
+                    "  <params>",
+                    "    <param>",
+                    "      <value><base64>AQIDBAU=</base64></value>",
+                    "    </param>",
+                    "  </params>",
+                    "</methodResponse>"
+                    ).data(using: .utf8)!
+
+                let response = XmlResponse(data: data)
+
+                expect(response.base64).to(equal(Data(base64Encoded: "AQIDBAU=")!))
+            }
         }
     }
 }

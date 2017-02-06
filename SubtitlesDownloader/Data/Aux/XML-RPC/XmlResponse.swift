@@ -41,6 +41,14 @@ struct XmlResponse {
         return value("string").element?.text
     }
 
+    var date: Date? {
+        return value("dateTime.iso8601").element?.text.flatMap(XmlRpcDateFormatter.shared.date)
+    }
+
+    var base64: Data? {
+        return value("base64").element?.text.flatMap { Data(base64Encoded: $0) }
+    }
+
     private func value(_ type: String) -> XMLIndexer {
         return indexer["value"][type]
     }
