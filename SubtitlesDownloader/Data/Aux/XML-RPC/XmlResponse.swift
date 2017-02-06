@@ -26,11 +26,15 @@ struct XmlResponse {
     }
 
     var int: Int? {
-        return value("int").element?.text.flatMap { Int($0) }
+        return value("integer").element?.text.flatMap { Int($0) }
     }
 
     var double: Double? {
         return value("double").element?.text.flatMap { Double($0) }
+    }
+
+    var bool: Bool? {
+        return value("boolean").element?.text.map { $0 == "1" }
     }
 
     var string: String? {

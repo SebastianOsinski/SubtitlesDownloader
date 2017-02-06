@@ -10,7 +10,7 @@ import Foundation
 
 class ValueSerializer {
 
-    private let dateFormatter: ISO8601DateFormatter
+    private let dateFormatter = XmlRpcDateFormatter.shared
 
     private let indentationStep: String
 
@@ -18,15 +18,6 @@ class ValueSerializer {
 
     init(indentationStepLevel: Int = 2, indentationCachePrefill: Int? = 5) {
         indentationStep = String(repeating: " ", count: indentationStepLevel)
-
-        dateFormatter = ISO8601DateFormatter()
-        dateFormatter.formatOptions = [
-            .withYear,
-            .withMonth,
-            .withDay,
-            .withTime,
-            .withColonSeparatorInTime
-        ]
 
         if let level = indentationCachePrefill {
             _ = indentation(for: level)
