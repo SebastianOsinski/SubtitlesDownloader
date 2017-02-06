@@ -12,17 +12,16 @@ import SWXMLHash
 struct XmlResponse {
 
     private let indexer: XMLIndexer
+    private let valueIndex: Int
 
     init(data: Data) {
         self.indexer = SWXMLHash.lazy(data)["methodResponse"]["params"]["param"]
+        self.valueIndex = 0
     }
 
-    fileprivate init(indexer: XMLIndexer) {
+    fileprivate init(indexer: XMLIndexer, valueIndex: Int = 0) {
         self.indexer = indexer
-    }
-
-    var `struct`: StructXmlResponse {
-        return StructXmlResponse(indexer: value("struct"))
+        self.valueIndex = valueIndex
     }
 
     var int: Int? {
@@ -49,8 +48,29 @@ struct XmlResponse {
         return value("base64").element?.text.flatMap { Data(base64Encoded: $0) }
     }
 
+    var `array`: ArrayXmlResponse {
+        return ArrayXmlResponse(indexer: value("array")["data"])
+    }
+
+    var `struct`: StructXmlResponse {
+        return StructXmlResponse(indexer: value("struct"))
+    }
+
     private func value(_ type: String) -> XMLIndexer {
-        return indexer["value"][type]
+        return indexer["value"].all[valueIndex][type]
+    }
+}
+
+struct ArrayXmlResponse {
+
+    private let indexer: XMLIndexer
+
+    fileprivate init(indexer: XMLIndexer) {
+        self.indexer = indexer
+    }
+
+    subscript(index: Int) -> XmlResponse {
+        return XmlResponse(indexer: indexer, valueIndex: index)
     }
 }
 
@@ -67,6 +87,6 @@ struct StructXmlResponse {
             xml["name"].element?.text == name
         })
 
-        return indexer.map(XmlResponse.init)
+        return indexer.map { XmlResponse(indexer: $0) }
     }
 }

@@ -41,7 +41,7 @@ class XmlResponseSpec: QuickSpec {
                     "    </param>",
                     "  </params>",
                     "</methodResponse>"
-                    ).data(using: .utf8)!
+                ).data(using: .utf8)!
 
                 let response = XmlResponse(data: data)
 
@@ -57,7 +57,7 @@ class XmlResponseSpec: QuickSpec {
                     "    </param>",
                     "  </params>",
                     "</methodResponse>"
-                    ).data(using: .utf8)!
+                ).data(using: .utf8)!
 
                 let response = XmlResponse(data: data)
 
@@ -73,7 +73,7 @@ class XmlResponseSpec: QuickSpec {
                     "    </param>",
                     "  </params>",
                     "</methodResponse>"
-                    ).data(using: .utf8)!
+                ).data(using: .utf8)!
 
                 let response = XmlResponse(data: data)
 
@@ -89,7 +89,7 @@ class XmlResponseSpec: QuickSpec {
                     "    </param>",
                     "  </params>",
                     "</methodResponse>"
-                    ).data(using: .utf8)!
+                ).data(using: .utf8)!
 
                 let response = XmlResponse(data: data)
 
@@ -105,11 +105,41 @@ class XmlResponseSpec: QuickSpec {
                     "    </param>",
                     "  </params>",
                     "</methodResponse>"
-                    ).data(using: .utf8)!
+                ).data(using: .utf8)!
 
                 let response = XmlResponse(data: data)
 
                 expect(response.base64).to(equal(Data(base64Encoded: "AQIDBAU=")!))
+            }
+
+            it("returns values of array from response") {
+                let data = String(
+                    "<methodResponse>",
+                    "  <params>",
+                    "    <param>",
+                    "      <value>",
+                    "        <array>",
+                    "          <data>",
+                    "            <value><integer>1</integer></value>",
+                    "            <value><double>1.1</double></value>",
+                    "            <value><boolean>1</boolean></value>",
+                    "            <value><string>Test</string></value>",
+                    "          </data>",
+                    "        </array>",
+                    "      </value>",
+                    "    </param>",
+                    "  </params>",
+                    "</methodResponse>"
+                ).data(using: .utf8)!
+
+                let response = XmlResponse(data: data)
+
+                let array = response.array
+
+                expect(array[0].int).to(equal(1))
+                expect(array[1].double).to(equal(1.1))
+                expect(array[2].bool).to(equal(true))
+                expect(array[3].string).to(equal("Test"))
             }
         }
     }
