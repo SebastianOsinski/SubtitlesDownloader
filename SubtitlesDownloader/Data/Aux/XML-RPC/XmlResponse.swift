@@ -82,7 +82,7 @@ struct StructXmlResponse {
         self.indexer = indexer
     }
 
-    func member(_ name: String) -> XmlResponse? {
+    subscript(name: String) -> XmlResponse? {
         let indexer = self.indexer["member"].all.first(where: { xml in
             xml["name"].element?.text == name
         })

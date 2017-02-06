@@ -141,6 +141,41 @@ class XmlResponseSpec: QuickSpec {
                 expect(array[2].bool).to(equal(true))
                 expect(array[3].string).to(equal("Test"))
             }
+
+            it("returns members of struct from response") {
+                let data = String(
+                    "<methodResponse>",
+                    "  <params>",
+                    "    <param>",
+                    "      <value>",
+                    "        <struct>",
+                    "          <member>",
+                    "            <name>TestInteger</name>",
+                    "            <value><integer>1</integer></value>",
+                    "          </member>",
+                    "          <member>",
+                    "            <name>TestDouble</name>",
+                    "            <value><double>1.1</double></value>",
+                    "          </member>",
+                    "          <member>",
+                    "            <name>TestString</name>",
+                    "            <value><string>Test</string></value>",
+                    "          </member>",
+                    "        </struct>",
+                    "      </value>",
+                    "    </param>",
+                    "  </params>",
+                    "</methodResponse>"
+                ).data(using: .utf8)!
+
+                let response = XmlResponse(data: data)
+
+                let str = response.struct
+
+                expect(str["TestInteger"]?.int).to(equal(1))
+                expect(str["TestDouble"]?.double).to(equal(1.1))
+                expect(str["TestString"]?.string).to(equal("Test"))
+            }
         }
     }
 }

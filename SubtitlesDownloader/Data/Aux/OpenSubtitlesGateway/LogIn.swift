@@ -32,7 +32,7 @@ struct LogInResponse: MethodResponse {
     let token: String
 
     init?(xml: XmlResponse) {
-        guard let token = xml.struct.member("token")?.string else {
+        guard let token = xml.struct["token"]?.string else {
             return nil
         }
 
