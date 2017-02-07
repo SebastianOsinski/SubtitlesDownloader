@@ -12,52 +12,55 @@ import SWXMLHash
 struct XmlResponse {
 
     private let indexer: XMLIndexer
-    private let valueIndex: Int
 
     init(data: Data) {
-        self.indexer = SWXMLHash.lazy(data)["methodResponse"]["params"]["param"]
-        self.valueIndex = 0
+        self.indexer = SWXMLHash.parse(data)["methodResponse"]["params"]["param"]["value"]
     }
 
-    fileprivate init(indexer: XMLIndexer, valueIndex: Int = 0) {
+    fileprivate init(indexer: XMLIndexer) {
         self.indexer = indexer
-        self.valueIndex = valueIndex
     }
 
     var int: Int? {
-        return value("integer").element?.text.flatMap { Int($0) }
+        return subIndexer("integer")?.element?.text.flatMap { Int($0) }
     }
 
     var double: Double? {
-        return value("double").element?.text.flatMap { Double($0) }
+        return subIndexer("double")?.element?.text.flatMap { Double($0) }
     }
 
     var bool: Bool? {
-        return value("boolean").element?.text.map { $0 == "1" }
+        return subIndexer("boolean")?.element?.text.map { $0 == "1" }
     }
 
     var string: String? {
-        return value("string").element?.text
+        return subIndexer("string")?.element?.text
     }
 
     var date: Date? {
-        return value("dateTime.iso8601").element?.text.flatMap(XmlRpcDateFormatter.shared.date)
+        return subIndexer("dateTime.iso8601")?.element?.text.flatMap(XmlRpcDateFormatter.shared.date)
     }
 
     var base64: Data? {
-        return value("base64").element?.text.flatMap { Data(base64Encoded: $0) }
+        return subIndexer("base64")?.element?.text.flatMap { Data(base64Encoded: $0) }
     }
 
-    var `array`: ArrayXmlResponse {
-        return ArrayXmlResponse(indexer: value("array")["data"])
+    var `array`: ArrayXmlResponse? {
+        return (subIndexer("array")?["data"]["value"]).map(ArrayXmlResponse.init)
     }
 
-    var `struct`: StructXmlResponse {
-        return StructXmlResponse(indexer: value("struct"))
+    var `struct`: StructXmlResponse? {
+        return subIndexer("struct").map(StructXmlResponse.init)
     }
 
-    private func value(_ type: String) -> XMLIndexer {
-        return indexer["value"].all[valueIndex][type]
+    private func subIndexer(_ key: String) -> XMLIndexer? {
+        let subIndexer = indexer[key]
+
+        if subIndexer.all.isEmpty {
+            return nil
+        }
+
+        return subIndexer
     }
 }
 
@@ -69,8 +72,12 @@ struct ArrayXmlResponse {
         self.indexer = indexer
     }
 
-    subscript(index: Int) -> XmlResponse {
-        return XmlResponse(indexer: indexer, valueIndex: index)
+    subscript(index: Int) -> XmlResponse? {
+        guard index < indexer.all.count else {
+            return nil
+        }
+
+        return XmlResponse(indexer: indexer.all[index])
     }
 }
 
@@ -85,7 +92,7 @@ struct StructXmlResponse {
     subscript(name: String) -> XmlResponse? {
         let indexer = self.indexer["member"].all.first(where: { xml in
             xml["name"].element?.text == name
-        })
+        })?["value"]
 
         return indexer.map { XmlResponse(indexer: $0) }
     }

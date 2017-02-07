@@ -136,10 +136,10 @@ class XmlResponseSpec: QuickSpec {
 
                 let array = response.array
 
-                expect(array[0].int).to(equal(1))
-                expect(array[1].double).to(equal(1.1))
-                expect(array[2].bool).to(equal(true))
-                expect(array[3].string).to(equal("Test"))
+                expect(array?[0]?.int).to(equal(1))
+                expect(array?[1]?.double).to(equal(1.1))
+                expect(array?[2]?.bool).to(equal(true))
+                expect(array?[3]?.string).to(equal("Test"))
             }
 
             it("returns members of struct from response") {
@@ -172,9 +172,9 @@ class XmlResponseSpec: QuickSpec {
 
                 let str = response.struct
 
-                expect(str["TestInteger"]?.int).to(equal(1))
-                expect(str["TestDouble"]?.double).to(equal(1.1))
-                expect(str["TestString"]?.string).to(equal("Test"))
+                expect(str?["TestInteger"]?.int).to(equal(1))
+                expect(str?["TestDouble"]?.double).to(equal(1.1))
+                expect(str?["TestString"]?.string).to(equal("Test"))
             }
         }
     }
