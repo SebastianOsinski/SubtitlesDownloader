@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FileProvider
+import FilesProvider
 
 class WebDavFileGateway: FileGateway {
 
@@ -47,7 +47,7 @@ class WebDavFileGateway: FileGateway {
 
     func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
         monitor.increment()
-        provider.contents(path: path, offset: offset, length: length - 1) { [unowned completionQueue, unowned monitor] (data, error) in
+        _ = provider.contents(path: path, offset: offset, length: length - 1) { [unowned completionQueue, unowned monitor] (data, error) in
             guard error == nil else {
                 completionQueue.async {
                     monitor.decrement()

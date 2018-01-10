@@ -22,15 +22,15 @@ struct XmlResponse {
     }
 
     var int: Int? {
-        return subIndexer("integer")?.element?.text.flatMap { Int($0) }
+        return (subIndexer("integer")?.element?.text).flatMap { Int($0) }
     }
 
     var double: Double? {
-        return subIndexer("double")?.element?.text.flatMap { Double($0) }
+        return (subIndexer("double")?.element?.text).flatMap { Double($0) }
     }
 
     var bool: Bool? {
-        return subIndexer("boolean")?.element?.text.map { $0 == "1" }
+        return (subIndexer("boolean")?.element?.text).map { $0 == "1" }
     }
 
     var string: String? {
@@ -38,11 +38,11 @@ struct XmlResponse {
     }
 
     var date: Date? {
-        return subIndexer("dateTime.iso8601")?.element?.text.flatMap(XmlRpcDateFormatter.shared.date)
+        return (subIndexer("dateTime.iso8601")?.element?.text).flatMap(XmlRpcDateFormatter.shared.date)
     }
 
     var base64: Data? {
-        return subIndexer("base64")?.element?.text.flatMap { Data(base64Encoded: $0) }
+        return (subIndexer("base64")?.element?.text).flatMap { Data(base64Encoded: $0) }
     }
 
     var `array`: ArrayXmlResponse? {

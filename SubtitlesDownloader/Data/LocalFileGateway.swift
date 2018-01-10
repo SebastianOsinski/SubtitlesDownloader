@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FileProvider
+import FilesProvider
 
 class LocalFileGateway: FileGateway {
 

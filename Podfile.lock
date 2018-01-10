@@ -1,21 +1,24 @@
 PODS:
-  - FileProvider (0.10.3)
-  - Nimble (5.1.1)
-  - Quick (1.0.0)
-  - SWXMLHash (3.0.3)
+  - FilesProvider (0.22.0)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+  - SnapKit (4.0.0)
+  - SWXMLHash (4.2.5)
 
 DEPENDENCIES:
-  - FileProvider (~> 0.10.3)
+  - FilesProvider
   - Nimble
   - Quick
-  - SWXMLHash (~> 3.0.0)
+  - SnapKit
+  - SWXMLHash
 
 SPEC CHECKSUMS:
-  FileProvider: a23d7d23013f42f4ceb5c1cf61dec39ade9e8f58
-  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
-  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  SWXMLHash: 80d2529d74891bb2f15305a0b9e08f2a4f229ee7
+  FilesProvider: 5781d22b6792d59ac930fc2d62fce31559eeeeb3
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SWXMLHash: eb16013c6f654853980822e0a778c9d66e017dde
 
-PODFILE CHECKSUM: d0b63204f7a8c592fc5c39f70f7e0cc42b6f1444
+PODFILE CHECKSUM: 82de05507e0d34d3a467aaec0dc13795af10ead9
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1

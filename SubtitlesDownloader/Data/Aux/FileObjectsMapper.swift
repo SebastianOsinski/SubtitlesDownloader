@@ -7,15 +7,13 @@
 //
 
 import Foundation
-import FileProvider
+import FilesProvider
 
 struct FileObjectsMapper {
 
     static func files(from fileObjects: [FileObject]) -> [File] {
         return fileObjects.flatMap { fileObject -> File? in
-            guard let fileObjectType = fileObject.type else {
-                return nil
-            }
+            let fileObjectType = fileObject.type
             let type: File.FileType
 
             switch fileObjectType {

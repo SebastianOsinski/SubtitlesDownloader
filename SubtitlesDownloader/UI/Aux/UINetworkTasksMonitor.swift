@@ -14,7 +14,7 @@ class UINetworkTasksMonitor: NetworkTasksMonitor {
 
     private var counter = 0 {
         didSet {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = counter > 0
+            DispatchQueue.main.sync { UIApplication.shared.isNetworkActivityIndicatorVisible = counter > 0 }
         }
     }
 

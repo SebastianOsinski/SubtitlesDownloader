@@ -35,7 +35,7 @@ class OpenSubtitlesGateway: SubtitlesGateway {
             switch result {
             case .success(let token):
                 self?.token = token.token
-                completion(.success())
+                completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
             }
