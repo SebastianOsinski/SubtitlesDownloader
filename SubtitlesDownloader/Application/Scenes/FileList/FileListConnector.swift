@@ -1,5 +1,5 @@
 //
-//  FilesListConnector.swift
+//  FileListConnector.swift
 //  SubtitlesDownloader
 //
 //  Created by Sebastian Osiński on 23/01/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilesListConnector {
+class FileListConnector {
 
     private let path: String
     private let fileGateway: FileGateway
@@ -21,7 +21,7 @@ class FilesListConnector {
         self.navigationController = navigationController
     }
 
-    func filesListViewController() -> UIViewController {
+    func fileListViewController() -> UIViewController {
         let useCaseFactory = UseCaseFactory(fileGateway: fileGateway)
         let viewModel = FileListViewModel(path: path, useCaseFactory: useCaseFactory, connector: self)
         let viewController = FileListViewController(viewModel: viewModel)
@@ -30,13 +30,13 @@ class FilesListConnector {
     }
 
     func navigateToDirectory(atPath path: String) {
-        let connector = FilesListConnector(
+        let connector = FileListConnector(
             path: path,
             fileGateway: fileGateway,
             navigationController: navigationController
         )
 
-        let viewController = connector.filesListViewController()
+        let viewController = connector.fileListViewController()
 
         navigationController.pushViewController(viewController, animated: true)
     }

@@ -150,7 +150,7 @@ private class MockShowFilesListUseCase: UseCase {
 
 }
 
-private class MockFilesListConnector: FilesListConnector {
+private class MockFilesListConnector: FileListConnector {
 
     var shownDirectoryPath: String?
 

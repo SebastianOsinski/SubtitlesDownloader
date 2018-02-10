@@ -21,20 +21,3 @@ class UseCaseFactory {
         return FilesUseCase(gateway: fileGateway)
     }
 }
-
-class FilesUseCase {
-
-    private let gateway: FileGateway
-
-    init(gateway: FileGateway) {
-        self.gateway = gateway
-    }
-
-    func files(at path: String) -> Single<Result<[File], FileError>> {
-        return gateway.contentsOfDirectory(path: path)
-    }
-
-    func hash(file: File) -> Single<Result<MovieHash, FileError>> {
-        return ComputeHashUseCase(file: file, fileGateway: gateway).execute()
-    }
-}

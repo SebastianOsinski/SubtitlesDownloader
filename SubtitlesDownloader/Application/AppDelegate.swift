@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private var rootConnector: FilesListConnector!
+    private var rootConnector: FileListConnector!
 
     private var gateway: SubtitlesGateway!
 
@@ -28,13 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let fileGateway = LocalFileGateway()
         let fileGateway = WebDavFileGateway(baseUrl: URL(string: "http://localhost:1111")!, user: "user", password: "password", monitor: UINetworkTasksMonitor())
         let navigationController = UINavigationController()
-        rootConnector = FilesListConnector(
+        rootConnector = FileListConnector(
             path: "",
             fileGateway: fileGateway,
             navigationController: navigationController
         )
 
-        navigationController.pushViewController(rootConnector.filesListViewController(), animated: false)
+        navigationController.pushViewController(rootConnector.fileListViewController(), animated: false)
         configureWindow(with: navigationController)
 
         return true

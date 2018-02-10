@@ -23,7 +23,7 @@ class FileListViewModel {
         let data: Driver<[FileCellViewModel]>
     }
     
-    private let connector: FilesListConnector
+    private let connector: FileListConnector
 
     private let path: String
     private let useCase: FilesUseCase
@@ -32,7 +32,7 @@ class FileListViewModel {
 
     private var disposeBag = DisposeBag()
 
-    init(path: String, useCaseFactory: UseCaseFactory, connector: FilesListConnector) {
+    init(path: String, useCaseFactory: UseCaseFactory, connector: FileListConnector) {
         self.path = path
         self.useCase = useCaseFactory.filesUseCase()
         self.connector = connector
