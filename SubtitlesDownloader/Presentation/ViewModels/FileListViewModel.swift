@@ -1,5 +1,5 @@
 //
-//  FilesListPresenter.swift
+//  FileListViewModel.swift
 //  SubtitlesDownloader
 //
 //  Created by Sebastian Osiński on 23/01/2017.
@@ -40,7 +40,7 @@ struct FileCellViewModel {
     }
 }
 
-class FilesListPresenter {
+class FileListViewModel {
 
     struct Input {
         let trigger: Driver<Void>
@@ -49,12 +49,10 @@ class FilesListPresenter {
 
     struct Output {
         //let fetching: Driver<Bool>
-        let files: Driver<[FileCellViewModel]>
+        let data: Driver<[FileCellViewModel]>
         //let driver: Driver<Void>
     }
-
-    weak var view: FilesListViewProtocol?
-
+    
     private let connector: FilesListConnector
 
     private let path: String
@@ -73,9 +71,10 @@ class FilesListPresenter {
     func transform(input: Input) -> Output {
         disposeBag = DisposeBag()
 
-        let files = input.trigger.flatMapLatest { [unowned self] in
-            self.useCase.files(at: self.path)
-                .asDriver(onErrorJustReturn: .success([]))
+        let files = input.trigger.flatMapLatest { [useCase, path] in
+            useCase.files(at: path)
+                .asObservable()
+                .asDriverOnErrorJustComplete()
         }
 
         let successes = files.successes()
@@ -99,48 +98,6 @@ class FilesListPresenter {
             .drive()
             .disposed(by: disposeBag)
 
-        return Output(files: fileViewModels)
+        return Output(data: fileViewModels)
     }
-//
-//    var numberOfFiles: Int {
-//        return files.count
-//    }
-//
-//    func viewReady() {
-//        let useCase = createShowFilesListUseCase()
-//        useCase.execute()
-//    }
-//
-//    func configureCell(_ cell: FileCellProtocol, at index: Int) {
-//        cell.displayName(files[index].name)
-//    }
-
-//    func cellSelected(at index: Int) {
-//        let file = files[index]
-//
-
-//    }
-//
-//    private func createShowFilesListUseCase() -> UseCase {
-//        return useCaseFactory.createUseCase(for: .showFiles(directoryPath: path) { [weak self] result in
-//            switch result {
-//            case .success(let files):
-//                self?.files = files
-//                self?.view?.refresh()
-//            case .failure(let error):
-//                self?.view?.reportError(error.localizedDescription)
-//            }
-//        })
-//    }
-//
-//    private func createComputeHashUseCase(file: File) -> UseCase {
-//        return useCaseFactory.createUseCase(for: .computeHash(file: file) { [weak self] result in
-//            switch result {
-//            case .success(let hash):
-//                self?.connector.showHashAlert(hash: hash.hash)
-//            case .failure(let error):
-//                self?.view?.reportError(error.localizedDescription)
-//            }
-//        })
-//    }
 }

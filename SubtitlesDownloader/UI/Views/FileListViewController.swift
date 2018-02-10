@@ -1,5 +1,5 @@
 //
-//  FilesListViewController.swift
+//  FileListViewController.swift
 //  SubtitlesDownloader
 //
 //  Created by Sebastian Osiński on 23/01/2017.
@@ -40,15 +40,16 @@ protocol FilesListViewProtocol: class {
     func reportError(_ error: String)
 }
 
-class FilesListViewController: UIViewController {
+class FileListViewController: UIViewController {
 
     private let tableView = UITableView()
 
-    let presenter: FilesListPresenter
-    let disposeBag = DisposeBag()
+    private let viewModel: FileListViewModel
 
-    init(presenter: FilesListPresenter) {
-        self.presenter = presenter
+    private let disposeBag = DisposeBag()
+
+    init(viewModel: FileListViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -59,7 +60,7 @@ class FilesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        bind()
+        bindViewModel()
     }
 
     private func setupTableView() {
@@ -80,34 +81,40 @@ class FilesListViewController: UIViewController {
         tableView.refreshControl = UIRefreshControl()
     }
 
-    private func bind() {
-        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
-            .mapToVoid()
-            .asDriverOnErrorJustComplete()
-        let pull = tableView.refreshControl!.rx
-            .controlEvent(.valueChanged)
-            .asDriver()
-
-
+    private func bindViewModel() {
         let selection = tableView.rx.itemSelected.asDriver()
 
-        let input = FilesListPresenter.Input(
-            trigger: Driver.merge(viewWillAppear, pull),
+        let input = FileListViewModel.Input(
+            trigger: refreshTrigger(),
             selection: selection
         )
 
-        let output = presenter.transform(input: input)
+        let output = viewModel.transform(input: input)
 
-        output.files
+        output.data
             .drive(tableView.rx.items(cellIdentifier: FileTableViewCell.defaultReuseIdentifier, cellType: FileTableViewCell.self)) { _, viewModel, cell in
                 cell.bind(viewModel)
             }
             .disposed(by: disposeBag)
     }
+
+    private func refreshTrigger() -> Driver<Void> {
+        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .mapToVoid()
+            .asDriverOnErrorJustComplete()
+
+        let pull = tableView.refreshControl!.rx
+            .controlEvent(.valueChanged)
+            .asDriver()
+
+        return Driver.merge(viewWillAppear, pull)
+    }
+
+
 }
 
 
-extension FilesListViewController: FilesListViewProtocol {
+extension FileListViewController: FilesListViewProtocol {
 
     func refresh() {
         tableView.reloadData()

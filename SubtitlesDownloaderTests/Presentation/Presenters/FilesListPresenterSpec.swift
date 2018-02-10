@@ -15,7 +15,7 @@ class FilesListPresenterSpec: QuickSpec {
 
     override func spec() {
 
-        var sut: FilesListPresenter!
+        var sut: FileListViewModel!
         var useCaseFactory: MockUseCaseFactory!
         var view: MockFilesListView!
         var connector: MockFilesListConnector!

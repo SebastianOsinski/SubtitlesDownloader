@@ -21,6 +21,10 @@ class FileTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func bind(_ viewModel: FileCellViewModel) {
+        nameLabel.text = viewModel.name
+    }
+
     private func setupView() {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
@@ -34,12 +38,5 @@ class FileTableViewCell: UITableViewCell {
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: hMargin),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -hMargin)
         ])
-    }
-}
-
-extension FileTableViewCell: FileCellProtocol {
-
-    func bind(_ viewModel: FileCellViewModel) {
-        nameLabel.text = viewModel.name
     }
 }

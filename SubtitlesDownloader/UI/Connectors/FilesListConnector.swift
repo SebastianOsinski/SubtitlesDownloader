@@ -23,9 +23,8 @@ class FilesListConnector {
 
     func filesListViewController() -> UIViewController {
         let useCaseFactory = UseCaseFactory(fileGateway: fileGateway)
-        let presenter = FilesListPresenter(path: path, useCaseFactory: useCaseFactory, connector: self)
-        let viewController = FilesListViewController(presenter: presenter)
-        presenter.view = viewController
+        let viewModel = FileListViewModel(path: path, useCaseFactory: useCaseFactory, connector: self)
+        let viewController = FileListViewController(viewModel: viewModel)
 
         return viewController
     }
