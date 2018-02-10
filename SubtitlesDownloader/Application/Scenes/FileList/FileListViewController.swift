@@ -10,11 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol FilesListViewProtocol: class {
-    func refresh()
-    func reportError(_ error: String)
-}
-
 class FileListViewController: UIViewController {
 
     private let tableView = UITableView()

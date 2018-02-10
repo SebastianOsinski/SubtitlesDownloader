@@ -224,6 +224,37 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		91194A37202F827400514E74 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				91C873DA1E35487D004A3EB6 /* AppDelegate.swift */,
+				916E3769202F771300F2A215 /* Extensions */,
+				916E3774202F80E000F2A215 /* Utility */,
+				91194A38202F828000514E74 /* Scenes */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		91194A38202F828000514E74 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				91194A39202F828800514E74 /* FileList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		91194A39202F828800514E74 /* FileList */ = {
+			isa = PBXGroup;
+			children = (
+				91C874151E36A018004A3EB6 /* FileListViewModel.swift */,
+				916E3772202F800E00F2A215 /* FileCellViewModel.swift */,
+				916E3765202F754500F2A215 /* FileListViewController.swift */,
+				915360B61E37D7E900E6F857 /* FileTableViewCell.swift */,
+				91C874171E36A05B004A3EB6 /* FilesListConnector.swift */,
+			);
+			path = FileList;
+			sourceTree = "<group>";
+		};
 		914546CD1E47A99B0058ABC8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,21 +283,12 @@
 			path = HashCalculator;
 			sourceTree = "<group>";
 		};
-		915360B91E37D9B200E6F857 /* Aux */ = {
-			isa = PBXGroup;
-			children = (
-				915360BC1E37DA1000E6F857 /* ReusableView.swift */,
-				91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */,
-				915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */,
-				915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */,
-				916E3767202F75EA00F2A215 /* UITableView+Rx.swift */,
-			);
-			path = Aux;
-			sourceTree = "<group>";
-		};
 		916E3769202F771300F2A215 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */,
+				915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */,
+				916E3767202F75EA00F2A215 /* UITableView+Rx.swift */,
 				916E376A202F772400F2A215 /* ObservableType+Extensions.swift */,
 				916E376C202F773E00F2A215 /* SharedSequenceConvertibleType+Extensions.swift */,
 				916E376E202F77B600F2A215 /* Observable+Extensions.swift */,
@@ -278,6 +300,8 @@
 		916E3774202F80E000F2A215 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				915360BC1E37DA1000E6F857 /* ReusableView.swift */,
+				91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */,
 				916E3775202F80EA00F2A215 /* ActivityIndicator.swift */,
 			);
 			path = Utility;
@@ -401,13 +425,10 @@
 		91C873D91E35487D004A3EB6 /* SubtitlesDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				916E3774202F80E000F2A215 /* Utility */,
-				916E3769202F771300F2A215 /* Extensions */,
+				91194A37202F827400514E74 /* Application */,
 				91C8741B1E36A9BF004A3EB6 /* Data */,
 				91C874011E369B5E004A3EB6 /* Domain */,
-				91C8740C1E369D33004A3EB6 /* Presentation */,
 				91C8740F1E369DB8004A3EB6 /* SupportFiles */,
-				91C8740D1E369D4A004A3EB6 /* UI */,
 			);
 			path = SubtitlesDownloader;
 			sourceTree = "<group>";
@@ -444,61 +465,16 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		91C8740C1E369D33004A3EB6 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				91C874141E369FEC004A3EB6 /* ViewModels */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		91C8740D1E369D4A004A3EB6 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				915360B91E37D9B200E6F857 /* Aux */,
-				91C874101E369DD1004A3EB6 /* Connectors */,
-				91C874111E369DDF004A3EB6 /* Views */,
-				91C873DA1E35487D004A3EB6 /* AppDelegate.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		91C8740F1E369DB8004A3EB6 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */,
 				91C873E11E35487D004A3EB6 /* Assets.xcassets */,
 				91C873E61E35487D004A3EB6 /* Info.plist */,
 				91AF425C1E3FBF30005B7216 /* breakdance.avi */,
 				91AF425D1E3FBF30005B7216 /* dummy.rar */,
 			);
 			path = SupportFiles;
-			sourceTree = "<group>";
-		};
-		91C874101E369DD1004A3EB6 /* Connectors */ = {
-			isa = PBXGroup;
-			children = (
-				91C874171E36A05B004A3EB6 /* FilesListConnector.swift */,
-			);
-			path = Connectors;
-			sourceTree = "<group>";
-		};
-		91C874111E369DDF004A3EB6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				916E3765202F754500F2A215 /* FileListViewController.swift */,
-				915360B61E37D7E900E6F857 /* FileTableViewCell.swift */,
-				91C873E31E35487D004A3EB6 /* LaunchScreen.storyboard */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		91C874141E369FEC004A3EB6 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				91C874151E36A018004A3EB6 /* FileListViewModel.swift */,
-				916E3772202F800E00F2A215 /* FileCellViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		91C8741B1E36A9BF004A3EB6 /* Data */ = {
