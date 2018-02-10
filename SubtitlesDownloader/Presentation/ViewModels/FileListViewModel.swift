@@ -11,35 +11,6 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 
-extension Observable where Element: ResultType {
-
-    func successes() -> Observable<Element.SuccessType> {
-        return self.map { $0.success }.unwrap()
-    }
-}
-
-extension Driver where Element: ResultType {
-
-    func successes() -> Driver<Element.SuccessType> {
-        return self
-            .map { $0.success }
-            .filter { $0 != nil }
-            .map { $0! }
-            .asDriver { error in
-                return Driver.empty()
-            }
-    }
-}
-
-struct FileCellViewModel {
-
-    let name: String
-
-    init(file: File) {
-        self.name = file.name
-    }
-}
-
 class FileListViewModel {
 
     struct Input {
@@ -48,9 +19,8 @@ class FileListViewModel {
     }
 
     struct Output {
-        //let fetching: Driver<Bool>
+        let fetching: Driver<Bool>
         let data: Driver<[FileCellViewModel]>
-        //let driver: Driver<Void>
     }
     
     private let connector: FilesListConnector
@@ -71,14 +41,18 @@ class FileListViewModel {
     func transform(input: Input) -> Output {
         disposeBag = DisposeBag()
 
+        let activityIndicator = ActivityIndicator()
+
         let files = input.trigger.flatMapLatest { [useCase, path] in
             useCase.files(at: path)
                 .asObservable()
+                .trackActivity(activityIndicator)
                 .asDriverOnErrorJustComplete()
         }
 
         let successes = files.successes()
 
+        let fetching = activityIndicator.asDriver()
         let fileViewModels = successes.map { $0.map(FileCellViewModel.init) }
 
         let selectionDriver = input.selection
@@ -98,6 +72,6 @@ class FileListViewModel {
             .drive()
             .disposed(by: disposeBag)
 
-        return Output(data: fileViewModels)
+        return Output(fetching: fetching, data: fileViewModels)
     }
 }

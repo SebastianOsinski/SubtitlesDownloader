@@ -10,31 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-extension SharedSequenceConvertibleType {
-    func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
-        return map { _ in }
-    }
-}
-
-extension ObservableType {
-
-    func catchErrorJustComplete() -> Observable<E> {
-        return catchError { _ in
-            return Observable.empty()
-        }
-    }
-
-    func asDriverOnErrorJustComplete() -> Driver<E> {
-        return asDriver { error in
-            return Driver.empty()
-        }
-    }
-
-    func mapToVoid() -> Observable<Void> {
-        return map { _ in }
-    }
-}
-
 protocol FilesListViewProtocol: class {
     func refresh()
     func reportError(_ error: String)
@@ -92,14 +67,18 @@ class FileListViewController: UIViewController {
         let output = viewModel.transform(input: input)
 
         output.data
-            .drive(tableView.rx.items(cellIdentifier: FileTableViewCell.defaultReuseIdentifier, cellType: FileTableViewCell.self)) { _, viewModel, cell in
+            .drive(tableView.rx.items(cellType: FileTableViewCell.self)) { _, viewModel, cell in
                 cell.bind(viewModel)
             }
+            .disposed(by: disposeBag)
+
+        output.fetching
+            .drive(tableView.refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
     }
 
     private func refreshTrigger() -> Driver<Void> {
-        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear))
             .mapToVoid()
             .asDriverOnErrorJustComplete()
 
@@ -110,19 +89,4 @@ class FileListViewController: UIViewController {
         return Driver.merge(viewWillAppear, pull)
     }
 
-
-}
-
-
-extension FileListViewController: FilesListViewProtocol {
-
-    func refresh() {
-        tableView.reloadData()
-    }
-
-    func reportError(_ error: String) {
-        let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
-    }
 }

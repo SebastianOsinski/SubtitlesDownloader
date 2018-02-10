@@ -28,6 +28,13 @@
 		916CA8B01E40C4E300B5FD35 /* ValueSerializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CA8AF1E40C4E300B5FD35 /* ValueSerializerSpec.swift */; };
 		916CA8B21E41294D00B5FD35 /* ValueSerializerPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CA8B11E41294D00B5FD35 /* ValueSerializerPerformanceTests.swift */; };
 		916E3766202F754500F2A215 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E3765202F754500F2A215 /* FileListViewController.swift */; };
+		916E3768202F75EA00F2A215 /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E3767202F75EA00F2A215 /* UITableView+Rx.swift */; };
+		916E376B202F772400F2A215 /* ObservableType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E376A202F772400F2A215 /* ObservableType+Extensions.swift */; };
+		916E376D202F773E00F2A215 /* SharedSequenceConvertibleType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E376C202F773E00F2A215 /* SharedSequenceConvertibleType+Extensions.swift */; };
+		916E376F202F77B600F2A215 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E376E202F77B600F2A215 /* Observable+Extensions.swift */; };
+		916E3771202F7FDB00F2A215 /* Driver+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E3770202F7FDB00F2A215 /* Driver+Extensions.swift */; };
+		916E3773202F800E00F2A215 /* FileCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E3772202F800E00F2A215 /* FileCellViewModel.swift */; };
+		916E3776202F80EA00F2A215 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E3775202F80EA00F2A215 /* ActivityIndicator.swift */; };
 		917104101E3FDCF10015CB82 /* SubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */; };
 		917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */; };
 		917104151E40B8170015CB82 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917104141E40B8170015CB82 /* Method.swift */; };
@@ -99,6 +106,13 @@
 		916CA8AF1E40C4E300B5FD35 /* ValueSerializerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueSerializerSpec.swift; sourceTree = "<group>"; };
 		916CA8B11E41294D00B5FD35 /* ValueSerializerPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueSerializerPerformanceTests.swift; sourceTree = "<group>"; };
 		916E3765202F754500F2A215 /* FileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
+		916E3767202F75EA00F2A215 /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
+		916E376A202F772400F2A215 /* ObservableType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extensions.swift"; sourceTree = "<group>"; };
+		916E376C202F773E00F2A215 /* SharedSequenceConvertibleType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedSequenceConvertibleType+Extensions.swift"; sourceTree = "<group>"; };
+		916E376E202F77B600F2A215 /* Observable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
+		916E3770202F7FDB00F2A215 /* Driver+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Extensions.swift"; sourceTree = "<group>"; };
+		916E3772202F800E00F2A215 /* FileCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCellViewModel.swift; sourceTree = "<group>"; };
+		916E3775202F80EA00F2A215 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		9171040F1E3FDCF10015CB82 /* SubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitlesGateway.swift; sourceTree = "<group>"; };
 		917104111E3FE29E0015CB82 /* OpenSubtitlesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitlesGateway.swift; sourceTree = "<group>"; };
 		917104141E40B8170015CB82 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -245,8 +259,28 @@
 				91AF42581E3FB64C005B7216 /* UINetworkTasksMonitor.swift */,
 				915360BA1E37D9FE00E6F857 /* UITableView+Registering.swift */,
 				915360BE1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift */,
+				916E3767202F75EA00F2A215 /* UITableView+Rx.swift */,
 			);
 			path = Aux;
+			sourceTree = "<group>";
+		};
+		916E3769202F771300F2A215 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				916E376A202F772400F2A215 /* ObservableType+Extensions.swift */,
+				916E376C202F773E00F2A215 /* SharedSequenceConvertibleType+Extensions.swift */,
+				916E376E202F77B600F2A215 /* Observable+Extensions.swift */,
+				916E3770202F7FDB00F2A215 /* Driver+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		916E3774202F80E000F2A215 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				916E3775202F80EA00F2A215 /* ActivityIndicator.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		917104131E40B80D0015CB82 /* XML-RPC */ = {
@@ -367,6 +401,8 @@
 		91C873D91E35487D004A3EB6 /* SubtitlesDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				916E3774202F80E000F2A215 /* Utility */,
+				916E3769202F771300F2A215 /* Extensions */,
 				91C8741B1E36A9BF004A3EB6 /* Data */,
 				91C874011E369B5E004A3EB6 /* Domain */,
 				91C8740C1E369D33004A3EB6 /* Presentation */,
@@ -460,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				91C874151E36A018004A3EB6 /* FileListViewModel.swift */,
+				916E3772202F800E00F2A215 /* FileCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -760,14 +797,17 @@
 				915360BF1E37DA6500E6F857 /* UITableViewCell+ReusableView.swift in Sources */,
 				914546D31E47BCFE0058ABC8 /* MethodResponse.swift in Sources */,
 				914546D91E47D2800058ABC8 /* MovieHash.swift in Sources */,
+				916E3771202F7FDB00F2A215 /* Driver+Extensions.swift in Sources */,
 				916E3766202F754500F2A215 /* FileListViewController.swift in Sources */,
 				914546D61E47CB7E0058ABC8 /* LogIn.swift in Sources */,
 				917104151E40B8170015CB82 /* Method.swift in Sources */,
 				91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */,
+				916E3773202F800E00F2A215 /* FileCellViewModel.swift in Sources */,
 				916CA8AE1E40C1EC00B5FD35 /* ValueSerializer.swift in Sources */,
 				91AF42591E3FB64C005B7216 /* UINetworkTasksMonitor.swift in Sources */,
 				91AF425B1E3FBCD1005B7216 /* FileObjectsMapper.swift in Sources */,
 				915360E31E396C7700E6F857 /* WebDavFileGateway.swift in Sources */,
+				916E3776202F80EA00F2A215 /* ActivityIndicator.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				914546DE1E47E9AC0058ABC8 /* XmlResponse.swift in Sources */,
 				915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */,
@@ -777,15 +817,19 @@
 				917104191E40B9230015CB82 /* MethodSerializer.swift in Sources */,
 				91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */,
 				91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */,
+				916E376D202F773E00F2A215 /* SharedSequenceConvertibleType+Extensions.swift in Sources */,
 				917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */,
 				914546E41E4911BB0058ABC8 /* XmlRpcDateFormatter.swift in Sources */,
 				91C8741D1E36A9CE004A3EB6 /* LocalFileGateway.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,
+				916E376B202F772400F2A215 /* ObservableType+Extensions.swift in Sources */,
 				91AF42551E3FB5EE005B7216 /* NetworkTasksMonitor.swift in Sources */,
+				916E376F202F77B600F2A215 /* Observable+Extensions.swift in Sources */,
 				91C874081E369CA0004A3EB6 /* File.swift in Sources */,
 				91C874041E369BBE004A3EB6 /* FileGateway.swift in Sources */,
 				91816DE61E3AA7FB002ED2C5 /* AsyncOperation.swift in Sources */,
 				91816DE31E3AA467002ED2C5 /* HashCalculator.swift in Sources */,
+				916E3768202F75EA00F2A215 /* UITableView+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
