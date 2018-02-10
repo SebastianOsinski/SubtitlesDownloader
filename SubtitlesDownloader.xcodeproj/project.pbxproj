@@ -64,7 +64,6 @@
 		91C874181E36A05B004A3EB6 /* FilesListConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874171E36A05B004A3EB6 /* FilesListConnector.swift */; };
 		91C8741D1E36A9CE004A3EB6 /* LocalFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* LocalFileGateway.swift */; };
 		91E17C271E37D3C0006433B7 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C261E37D3C0006433B7 /* UseCase.swift */; };
-		91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */; };
 		91F9B3941E3BB64E000E32F2 /* GetBytesOperationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */; };
 		91F9B3971E3BC10D000E32F2 /* HashingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */; };
 		91F9B3BD1E3D558C000E32F2 /* ComputeHashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */; };
@@ -146,7 +145,6 @@
 		91C874171E36A05B004A3EB6 /* FilesListConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesListConnector.swift; sourceTree = "<group>"; };
 		91C8741C1E36A9CE004A3EB6 /* LocalFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileGateway.swift; sourceTree = "<group>"; };
 		91E17C261E37D3C0006433B7 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFilesListUseCase.swift; sourceTree = "<group>"; };
 		91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBytesOperationSpec.swift; sourceTree = "<group>"; };
 		91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashingOperation.swift; sourceTree = "<group>"; };
 		91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeHashUseCase.swift; sourceTree = "<group>"; };
@@ -228,9 +226,9 @@
 			isa = PBXGroup;
 			children = (
 				91C873DA1E35487D004A3EB6 /* AppDelegate.swift */,
+				91194A38202F828000514E74 /* Scenes */,
 				916E3769202F771300F2A215 /* Extensions */,
 				916E3774202F80E000F2A215 /* Utility */,
-				91194A38202F828000514E74 /* Scenes */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -460,7 +458,6 @@
 			isa = PBXGroup;
 			children = (
 				91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */,
-				91E17C281E37D4C6006433B7 /* ShowFilesListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -792,7 +789,6 @@
 				91C874061E369C5E004A3EB6 /* OperationHandle.swift in Sources */,
 				917104191E40B9230015CB82 /* MethodSerializer.swift in Sources */,
 				91816DE81E3AAA54002ED2C5 /* GetBytesOperation.swift in Sources */,
-				91E17C291E37D4C6006433B7 /* ShowFilesListUseCase.swift in Sources */,
 				916E376D202F773E00F2A215 /* SharedSequenceConvertibleType+Extensions.swift in Sources */,
 				917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */,
 				914546E41E4911BB0058ABC8 /* XmlRpcDateFormatter.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 import FilesProvider
+import RxSwift
 
 class LocalFileGateway: FileGateway {
 
@@ -37,38 +38,43 @@ class LocalFileGateway: FileGateway {
         self.provider = LocalFileProvider(baseURL: rootUrl)
     }
 
-    func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
-        provider.contentsOfDirectory(path: path) { [unowned completionQueue] (fileObjects, error) in
-            guard error == nil else {
-                completionQueue.async {
-                    completion(.failure(error!))
+    func contentsOfDirectory(path: String) -> Single<Result<[File], FileError>> {
+        return Single.create { [provider, completionQueue] observer in
+            provider.contentsOfDirectory(path: path) { (fileObjects, error) in
+                guard error == nil else {
+                    completionQueue.async {
+                        observer(.success(.failure(.unknown)))
+                    }
+                    return
                 }
-                return
+
+                let files = FileObjectsMapper.files(from: fileObjects)
+
+                completionQueue.async {
+                    observer(.success(.success(files)))
+                }
             }
 
-            let files = FileObjectsMapper.files(from: fileObjects)
-
-            completionQueue.async {
-                completion(.success(files))
-            }
+            return Disposables.create()
         }
-
-        return nil
     }
 
-    func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
-        provider.contents(path: path, offset: offset, length: length) { [unowned completionQueue] (data, error) in
-            guard error == nil else {
-                completionQueue.async {
-                    completion(.failure(error!))
+    func contents(path: String, offset: Int64, length: Int) -> Single<Result<Data, FileError>> {
+        return Single.create { [provider, completionQueue] observer in
+            provider.contents(path: path, offset: offset, length: length) { [unowned completionQueue] (data, error) in
+                guard error == nil else {
+                    completionQueue.async {
+                        observer(.success(.failure(.unknown)))
+                    }
+                    return
                 }
-                return
-            }
 
-            completionQueue.async {
-                completion(.success(data!))
+                completionQueue.async {
+                    observer(.success(.success(data!)))
+                }
             }
+            
+            return Disposables.create()
         }
-        return nil
     }
 }

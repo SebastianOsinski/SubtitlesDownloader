@@ -11,7 +11,11 @@ import RxSwiftExt
 
 extension Observable where Element: ResultType {
 
-    func successes() -> Observable<Element.SuccessType> {
+    func successes() -> Observable<Element.Value> {
         return self.map { $0.success }.unwrap()
+    }
+
+    func errors() -> Observable<Element.Error> {
+        return self.map { $0.error }.unwrap()
     }
 }

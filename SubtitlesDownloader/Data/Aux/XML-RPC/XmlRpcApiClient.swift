@@ -8,7 +8,11 @@
 
 import Foundation
 
-typealias MethodCallCompletion = (Result<String>) -> Void
+enum XmlRpcApiClientError: Error {
+    case unknown(Error)
+}
+
+typealias MethodCallCompletion<M: Method> = (Result<M.Response, XmlRpcApiClientError>) -> Void
 
 class XmlRpcApiClient {
 
@@ -24,7 +28,7 @@ class XmlRpcApiClient {
         self.monitor = monitor
     }
 
-    func callMethod<M: Method>(_ method: M, completion: @escaping (Result<M.Response>) -> Void) {
+    func callMethod<M: Method>(_ method: M, completion: @escaping MethodCallCompletion<M>) {
         monitor.increment()
         var urlRequest = URLRequest(url: url)
 
@@ -36,7 +40,7 @@ class XmlRpcApiClient {
             if let error = error ?? (response as? HTTPURLResponse).flatMap(HttpError.error) {
                 completionQueue.async {
                     monitor.decrement()
-                    completion(.failure(error))
+                    completion(.failure(XmlRpcApiClientError.unknown(error)))
                 }
                 return
             }

@@ -6,24 +6,25 @@
 //  Copyright © 2017 Sebastian Osiński. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
-typealias HashingCompletion = (Result<MovieHash>) -> Void
-
-class ComputeHashUseCase: UseCase {
+class ComputeHashUseCase {
 
     private let file: File
     private let calculator: HashCalculator
-    private let completion: HashingCompletion
 
-    init(file: File, fileGateway: FileGateway, completion: @escaping HashingCompletion) {
+    init(file: File, fileGateway: FileGateway) {
         self.file = file
         self.calculator = HashCalculator(fileGateway: fileGateway)
-        self.completion = completion
     }
 
-    func execute() -> UseCaseHandle? {
-        calculator.calculateHash(of: file, completion: completion)
-        return nil
+    func execute() -> Single<Result<MovieHash, FileError>> {
+        return Single.create { [calculator, file] observer in
+            calculator.calculateHash(of: file) { result in
+                observer(.success(result))
+            }
+
+            return Disposables.create()
+        }
     }
 }

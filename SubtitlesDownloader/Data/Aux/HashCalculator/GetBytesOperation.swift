@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class GetBytesOperation: AsyncOperation {
 
@@ -15,9 +16,9 @@ class GetBytesOperation: AsyncOperation {
     private let length: Int
     private let fileGateway: FileGateway
 
-    private var operationHandle: OperationHandle?
+    private var disposable: Disposable?
 
-    private(set) var result: Result<Data>!
+    private(set) var result: Result<Data, FileError>!
 
     init(path: String, offset: Int64, length: Int, fileGateway: FileGateway) {
         self.path = path
@@ -27,18 +28,19 @@ class GetBytesOperation: AsyncOperation {
     }
 
     override func main() {
-        operationHandle = fileGateway.contents(path: path, offset: offset, length: length) { [weak self] result in
-            if self?.isCancelled ?? true {
-                return
-            }
-            print(result)
-            self?.result = result
-            self?.state = .finished
-        }
+        disposable = fileGateway.contents(path: path, offset: offset, length: length)
+            .subscribe(onSuccess: { [weak self] result in
+                if self?.isCancelled ?? true {
+                    return
+                }
+                print(result)
+                self?.result = result
+                self?.state = .finished
+            })
     }
 
     override func cancel() {
         super.cancel()
-        operationHandle?.cancel()
+        disposable?.dispose()
     }
 }

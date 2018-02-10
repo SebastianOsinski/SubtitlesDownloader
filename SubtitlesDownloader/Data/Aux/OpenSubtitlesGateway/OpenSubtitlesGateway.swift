@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 func notImplemented(file: StaticString = #file, line: UInt = #line) -> Never {
     fatalError("Feature not implemented", file: file, line: line)
@@ -23,7 +24,7 @@ class OpenSubtitlesGateway: SubtitlesGateway {
         self.apiClient = apiClient
     }
 
-    func logIn(credentials: (user: String, password: String)?, completion: @escaping (Result<Void>) -> Void) {
+    func logIn(credentials: (user: String, password: String)?) -> Single<Result<Void, LogInError>> {
         let method = LogIn(
             user: credentials?.user ?? "",
             password: credentials?.password ?? "",
@@ -31,22 +32,24 @@ class OpenSubtitlesGateway: SubtitlesGateway {
             userAgent: userAgent
         )
 
-        apiClient.callMethod(method) { [weak self] result in
-            switch result {
-            case .success(let token):
-                self?.token = token.token
-                completion(.success(()))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
+//        apiClient.callMethod(method) { [weak self] result in
+//            switch result {
+//            case .success(let token):
+//                self?.token = token.token
+//                completion(.success(()))
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
 
-    func logOut(completion: @escaping (Result<Void>) -> Void) {
         notImplemented()
     }
 
-    func search(hash: MovieHash, languages: [String], completion: @escaping (Result<[Subtitles]>) -> Void) {
+    func logOut() -> Single<Result<Void, NoError>> {
+        notImplemented()
+    }
+
+    func search(hash: MovieHash, languages: [String]) -> Single<Result<[Subtitles], NoError>> {
         notImplemented()
     }
 }

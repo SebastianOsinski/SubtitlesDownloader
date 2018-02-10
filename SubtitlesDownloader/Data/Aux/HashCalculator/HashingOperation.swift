@@ -14,7 +14,7 @@ class HashingOperation: Operation {
     private let startBytes: GetBytesOperation
     private let endBytes: GetBytesOperation
 
-    private(set) var result: Result<String>!
+    private(set) var result: Result<String, FileError>!
 
     init(size: Int64, startBytes: GetBytesOperation, endBytes: GetBytesOperation) {
         self.size = size

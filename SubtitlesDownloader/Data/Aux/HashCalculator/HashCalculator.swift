@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias ResultCallback<S, E: Error> = (Result<S, E>) -> Void
+
 class HashCalculator {
 
     private static let chunkLength = 65536
@@ -21,7 +23,7 @@ class HashCalculator {
         queue.maxConcurrentOperationCount = 2
     }
 
-    func calculateHash(of file: File, completion: @escaping ResultCallback<MovieHash>) {
+    func calculateHash(of file: File, completion: @escaping ResultCallback<MovieHash, FileError>) {
         let size = file.size
         let path = file.path
 
@@ -51,7 +53,6 @@ class HashCalculator {
             let result = hashingOperation.result!.map { hash in
                 MovieHash(size: size, hash: hash)
             }
-
 
             DispatchQueue.main.async {
                 completion(result)

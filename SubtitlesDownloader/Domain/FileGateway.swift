@@ -7,8 +7,13 @@
 //
 
 import Foundation
+import RxSwift
+
+enum FileError: Error {
+    case unknown
+}
 
 protocol FileGateway {
-    func contentsOfDirectory(path: String, completion: @escaping ResultCallback<[File]>) -> OperationHandle?
-    func contents(path: String, offset: Int64, length: Int, completion: @escaping ResultCallback<Data>) -> OperationHandle?
+    func contentsOfDirectory(path: String) -> Single<Result<[File], FileError>>
+    func contents(path: String, offset: Int64, length: Int) -> Single<Result<Data, FileError>>
 }

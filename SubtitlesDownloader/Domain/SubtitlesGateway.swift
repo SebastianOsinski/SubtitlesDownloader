@@ -7,15 +7,18 @@
 //
 
 import Foundation
+import RxSwift
 
-typealias LogInCompletion = (Result<Void>) -> Void
-typealias LogOutCompletion = (Result<Void>) -> Void
-typealias SubtitlesSearchCompletion = (Result<[Subtitles]>) -> Void
+enum LogInError: Error {
+    case unknown
+}
+
+enum NoError: Error {}
 
 protocol SubtitlesGateway {
-    func logIn(credentials: (user: String, password: String)?, completion: @escaping LogInCompletion)
-    func logOut(completion: @escaping LogOutCompletion)
-    func search(hash: MovieHash, languages: [String], completion: @escaping SubtitlesSearchCompletion)
+    func logIn(credentials: (user: String, password: String)?) -> Single<Result<Void, LogInError>>
+    func logOut() -> Single<Result<Void, NoError>>
+    func search(hash: MovieHash, languages: [String]) -> Single<Result<[Subtitles], NoError>>
 }
 
 struct Subtitles {

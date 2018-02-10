@@ -11,13 +11,17 @@ import RxCocoa
 
 extension Driver where Element: ResultType {
 
-    func successes() -> Driver<Element.SuccessType> {
+    func successes() -> Driver<Element.Value> {
         return self
-            .map { $0.success }
-            .filter { $0 != nil }
-            .map { $0! }
-            .asDriver { error in
-                return Driver.empty()
-            }
+            .asObservable()
+            .successes()
+            .asDriverOnErrorJustComplete()
+    }
+
+    func errors() -> Driver<Element.Error> {
+        return self
+            .asObservable()
+            .errors()
+            .asDriverOnErrorJustComplete()
     }
 }

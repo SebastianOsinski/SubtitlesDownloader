@@ -37,10 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.pushViewController(rootConnector.filesListViewController(), animated: false)
         configureWindow(with: navigationController)
 
-        gateway.logIn(credentials: nil) { result in
-            print(result)
-        }
-
         return true
     }
 

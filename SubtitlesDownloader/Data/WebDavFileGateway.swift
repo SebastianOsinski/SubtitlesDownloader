@@ -8,6 +8,7 @@
 
 import Foundation
 import FilesProvider
+import RxSwift
 
 class WebDavFileGateway: FileGateway {
 
@@ -23,45 +24,49 @@ class WebDavFileGateway: FileGateway {
         self.monitor = monitor
     }
 
-    func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
+    func contentsOfDirectory(path: String) -> Single<Result<[File], FileError>> {
         monitor.increment()
-        provider.contentsOfDirectory(path: path) { [unowned completionQueue, unowned monitor] (fileObjects, error) in
-            guard error == nil else {
+
+        return Single.create { [provider, monitor, completionQueue] observer in
+            provider.contentsOfDirectory(path: path) { (fileObjects, error) in
+                guard error == nil else {
+                    completionQueue.async {
+                        monitor.decrement()
+                        observer(.success(.failure(.unknown)))
+                    }
+                    return
+                }
+
+                let files = FileObjectsMapper.files(from: fileObjects)
+
                 completionQueue.async {
                     monitor.decrement()
-                    completion(.failure(error!))
+                    observer(.success(.success(files)))
                 }
-                return
             }
 
-            let files = FileObjectsMapper.files(from: fileObjects)
-
-            completionQueue.async {
-                monitor.decrement()
-                completion(.success(files))
-            }
+            return Disposables.create()
         }
-
-        return nil
     }
 
-    func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
-        monitor.increment()
-        _ = provider.contents(path: path, offset: offset, length: length - 1) { [unowned completionQueue, unowned monitor] (data, error) in
-            guard error == nil else {
+    func contents(path: String, offset: Int64, length: Int) -> Single<Result<Data, FileError>> {
+        return Single.create { [provider, monitor, completionQueue] observer in
+            _ = provider.contents(path: path, offset: offset, length: length - 1) { (data, error) in
+                guard error == nil else {
+                    completionQueue.async {
+                        monitor.decrement()
+                        observer(.success(.failure(.unknown)))
+                    }
+                    return
+                }
+
                 completionQueue.async {
                     monitor.decrement()
-                    completion(.failure(error!))
+                    observer(.success(.success(data!)))
                 }
-                return
             }
 
-            completionQueue.async {
-                monitor.decrement()
-                completion(.success(data!))
-            }
+            return Disposables.create()
         }
-
-        return nil
     }
 }

@@ -7,16 +7,18 @@
 //
 
 protocol ResultType {
-    associatedtype SuccessType
+    associatedtype Value
+    associatedtype Error: Swift.Error
 
-    var success: SuccessType? { get }
+    var success: Value? { get }
+    var error: Error? { get }
 }
 
-enum Result<SuccessType>: ResultType {
-    case success(SuccessType)
+enum Result<Value, Error: Swift.Error>: ResultType {
+    case success(Value)
     case failure(Error)
 
-    var success: SuccessType? {
+    var success: Value? {
         switch self {
         case .success(let value):
             return value
@@ -25,7 +27,16 @@ enum Result<SuccessType>: ResultType {
         }
     }
 
-    func map<T>(_ transform: (SuccessType) -> T) -> Result<T> {
+    var error: Error? {
+        switch self {
+        case .failure(let error):
+            return error
+        case .success:
+            return nil
+        }
+    }
+
+    func map<T>(_ transform: (Value) -> T) -> Result<T, Error> {
         switch self {
         case .success(let value):
             return .success(transform(value))
@@ -33,6 +44,13 @@ enum Result<SuccessType>: ResultType {
             return .failure(error)
         }
     }
-}
 
-typealias ResultCallback<T> = (Result<T>) -> Void
+    func mapError<E: Swift.Error>(_ transform: (Error) -> E) -> Result<Value, E> {
+        switch self {
+        case .failure(let error):
+            return .failure(transform(error))
+        case .success(let value):
+            return .success(value)
+        }
+    }
+}
