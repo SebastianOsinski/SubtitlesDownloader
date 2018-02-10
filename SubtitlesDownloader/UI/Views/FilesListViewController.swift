@@ -7,15 +7,45 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
+extension SharedSequenceConvertibleType {
+    func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
+        return map { _ in }
+    }
+}
+
+extension ObservableType {
+
+    func catchErrorJustComplete() -> Observable<E> {
+        return catchError { _ in
+            return Observable.empty()
+        }
+    }
+
+    func asDriverOnErrorJustComplete() -> Driver<E> {
+        return asDriver { error in
+            return Driver.empty()
+        }
+    }
+
+    func mapToVoid() -> Observable<Void> {
+        return map { _ in }
+    }
+}
 
 protocol FilesListViewProtocol: class {
     func refresh()
     func reportError(_ error: String)
 }
 
-class FilesListViewController: UITableViewController {
+class FilesListViewController: UIViewController {
+
+    private let tableView = UITableView()
 
     let presenter: FilesListPresenter
+    let disposeBag = DisposeBag()
 
     init(presenter: FilesListPresenter) {
         self.presenter = presenter
@@ -29,28 +59,50 @@ class FilesListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        presenter.viewReady()
+        bind()
     }
 
     private func setupTableView() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+
         tableView.register(FileTableViewCell.self)
         tableView.estimatedRowHeight = 40.0
         tableView.rowHeight = UITableViewAutomaticDimension
+
+        tableView.refreshControl = UIRefreshControl()
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfFiles
-    }
+    private func bind() {
+        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .mapToVoid()
+            .asDriverOnErrorJustComplete()
+        let pull = tableView.refreshControl!.rx
+            .controlEvent(.valueChanged)
+            .asDriver()
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: FileTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        presenter.configureCell(cell, at: indexPath.row)
 
-        return cell
-    }
+        let selection = tableView.rx.itemSelected.asDriver()
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.cellSelected(at: indexPath.row)
+        let input = FilesListPresenter.Input(
+            trigger: Driver.merge(viewWillAppear, pull),
+            selection: selection
+        )
+
+        let output = presenter.transform(input: input)
+
+        output.files
+            .drive(tableView.rx.items(cellIdentifier: FileTableViewCell.defaultReuseIdentifier, cellType: FileTableViewCell.self)) { _, viewModel, cell in
+                cell.bind(viewModel)
+            }
+            .disposed(by: disposeBag)
     }
 }
 

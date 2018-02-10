@@ -5,6 +5,10 @@ PODS:
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - RxSwiftExt (3.1.0):
+    - RxSwiftExt/Core (= 3.1.0)
+  - RxSwiftExt/Core (3.1.0):
+    - RxSwift (~> 4.0)
   - SnapKit (4.0.0)
   - SWXMLHash (4.2.5)
 
@@ -14,6 +18,7 @@ DEPENDENCIES:
   - Quick
   - RxCocoa
   - RxSwift
+  - RxSwiftExt
   - SnapKit
   - SWXMLHash
 
@@ -23,9 +28,10 @@ SPEC CHECKSUMS:
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  RxSwiftExt: a9b9c8e94be009146707f9fcb16eaf3cc1f3910c
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SWXMLHash: eb16013c6f654853980822e0a778c9d66e017dde
 
-PODFILE CHECKSUM: 74a1a53aa9b6e439f5439a0931a6b8297c91d570
+PODFILE CHECKSUM: 879cdb926485a0a1e40d9a9132e4c256d724e2db
 
 COCOAPODS: 1.4.0

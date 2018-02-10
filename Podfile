@@ -5,6 +5,7 @@ target 'SubtitlesDownloader' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxSwiftExt'
   pod 'FilesProvider'
   pod 'SWXMLHash'
   pod 'SnapKit'

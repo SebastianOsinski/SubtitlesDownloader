@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
 
-        let fileGateway = LocalFileGateway()
-        //let fileGateway = WebDavFileGateway(baseUrl: URL(string: "http://localhost:1111")!, user: "user", password: "password", monitor: UINetworkTasksMonitor())
+        //let fileGateway = LocalFileGateway()
+        let fileGateway = WebDavFileGateway(baseUrl: URL(string: "http://localhost:1111")!, user: "user", password: "password", monitor: UINetworkTasksMonitor())
         let navigationController = UINavigationController()
         rootConnector = FilesListConnector(
             path: "",

@@ -6,7 +6,13 @@
 //  Copyright © 2017 Sebastian Osiński. All rights reserved.
 //
 
-enum Result<SuccessType> {
+protocol ResultType {
+    associatedtype SuccessType
+
+    var success: SuccessType? { get }
+}
+
+enum Result<SuccessType>: ResultType {
     case success(SuccessType)
     case failure(Error)
 

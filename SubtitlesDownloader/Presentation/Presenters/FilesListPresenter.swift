@@ -7,69 +7,140 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+import RxSwiftExt
+
+extension Observable where Element: ResultType {
+
+    func successes() -> Observable<Element.SuccessType> {
+        return self.map { $0.success }.unwrap()
+    }
+}
+
+extension Driver where Element: ResultType {
+
+    func successes() -> Driver<Element.SuccessType> {
+        return self
+            .map { $0.success }
+            .filter { $0 != nil }
+            .map { $0! }
+            .asDriver { error in
+                return Driver.empty()
+            }
+    }
+}
+
+struct FileCellViewModel {
+
+    let name: String
+
+    init(file: File) {
+        self.name = file.name
+    }
+}
 
 class FilesListPresenter {
+
+    struct Input {
+        let trigger: Driver<Void>
+        let selection: Driver<IndexPath>
+    }
+
+    struct Output {
+        //let fetching: Driver<Bool>
+        let files: Driver<[FileCellViewModel]>
+        //let driver: Driver<Void>
+    }
 
     weak var view: FilesListViewProtocol?
 
     private let connector: FilesListConnector
 
     private let path: String
-    private let useCaseFactory: UseCaseFactory
+    private let useCase: FilesUseCase
 
     private var files = [File]()
 
+    private var disposeBag = DisposeBag()
+
     init(path: String, useCaseFactory: UseCaseFactory, connector: FilesListConnector) {
         self.path = path
-        self.useCaseFactory = useCaseFactory
+        self.useCase = useCaseFactory.filesUseCase()
         self.connector = connector
     }
 
-    var numberOfFiles: Int {
-        return files.count
-    }
-    
-    func viewReady() {
-        let useCase = createShowFilesListUseCase()
-        useCase.execute()
-    }
+    func transform(input: Input) -> Output {
+        disposeBag = DisposeBag()
 
-    func configureCell(_ cell: FileCellProtocol, at index: Int) {
-        cell.displayName(files[index].name)
-    }
-
-    func cellSelected(at index: Int) {
-        let file = files[index]
-
-        switch file.type {
-        case .regular:
-            let useCase = createComputeHashUseCase(file: file)
-            useCase.execute()
-        case .directory:
-            connector.navigateToDirectory(atPath: file.path)
+        let files = input.trigger.flatMapLatest { [unowned self] in
+            self.useCase.files(at: self.path)
+                .asDriver(onErrorJustReturn: .success([]))
         }
-    }
 
-    private func createShowFilesListUseCase() -> UseCase {
-        return useCaseFactory.createUseCase(for: .showFiles(directoryPath: path) { [weak self] result in
-            switch result {
-            case .success(let files):
-                self?.files = files
-                self?.view?.refresh()
-            case .failure(let error):
-                self?.view?.reportError(error.localizedDescription)
-            }
-        })
-    }
+        let successes = files.successes()
 
-    private func createComputeHashUseCase(file: File) -> UseCase {
-        return useCaseFactory.createUseCase(for: .computeHash(file: file) { [weak self] result in
-            switch result {
-            case .success(let hash):
-                self?.connector.showHashAlert(hash: hash.hash)
-            case .failure(let error):
-                self?.view?.reportError(error.localizedDescription)
+        let fileViewModels = successes.map { $0.map(FileCellViewModel.init) }
+
+        let selectionDriver = input.selection
+            .withLatestFrom(successes) { (indexPath, files) in
+                return files[indexPath.row]
             }
-        })
+            .do(onNext: { [connector] file in
+                switch file.type {
+                case .regular:
+                    break
+                case .directory:
+                    connector.navigateToDirectory(atPath: file.path)
+                }
+            })
+
+        selectionDriver
+            .drive()
+            .disposed(by: disposeBag)
+
+        return Output(files: fileViewModels)
     }
+//
+//    var numberOfFiles: Int {
+//        return files.count
+//    }
+//
+//    func viewReady() {
+//        let useCase = createShowFilesListUseCase()
+//        useCase.execute()
+//    }
+//
+//    func configureCell(_ cell: FileCellProtocol, at index: Int) {
+//        cell.displayName(files[index].name)
+//    }
+
+//    func cellSelected(at index: Int) {
+//        let file = files[index]
+//
+
+//    }
+//
+//    private func createShowFilesListUseCase() -> UseCase {
+//        return useCaseFactory.createUseCase(for: .showFiles(directoryPath: path) { [weak self] result in
+//            switch result {
+//            case .success(let files):
+//                self?.files = files
+//                self?.view?.refresh()
+//            case .failure(let error):
+//                self?.view?.reportError(error.localizedDescription)
+//            }
+//        })
+//    }
+//
+//    private func createComputeHashUseCase(file: File) -> UseCase {
+//        return useCaseFactory.createUseCase(for: .computeHash(file: file) { [weak self] result in
+//            switch result {
+//            case .success(let hash):
+//                self?.connector.showHashAlert(hash: hash.hash)
+//            case .failure(let error):
+//                self?.view?.reportError(error.localizedDescription)
+//            }
+//        })
+//    }
 }

@@ -39,7 +39,7 @@ class FileTableViewCell: UITableViewCell {
 
 extension FileTableViewCell: FileCellProtocol {
 
-    func displayName(_ name: String) {
-        nameLabel.text = name
+    func bind(_ viewModel: FileCellViewModel) {
+        nameLabel.text = viewModel.name
     }
 }

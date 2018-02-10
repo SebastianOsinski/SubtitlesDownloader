@@ -10,5 +10,5 @@ import Foundation
 
 protocol FileCellProtocol {
 
-    func displayName(_ name: String)
+    func bind(_ viewModel: FileCellViewModel)
 }
