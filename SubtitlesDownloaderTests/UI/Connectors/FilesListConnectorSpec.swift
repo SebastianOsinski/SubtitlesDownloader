@@ -14,14 +14,14 @@ class FilesListConnectorSpec: QuickSpec {
 
     override func spec() {
 
-        describe("FilesListConnector") {
+        describe("FileListConnector") {
 
-            var sut: FilesListConnector!
+            var sut: FileListConnector!
             var navigationController: UINavigationController!
 
             beforeEach {
                 navigationController = UINavigationController()
-                sut = FilesListConnector(
+                sut = FileListConnector(
                     path: "",
                     fileGateway: DummyFileGateway(),
                     navigationController: navigationController
@@ -32,16 +32,8 @@ class FilesListConnectorSpec: QuickSpec {
                 expect(navigationController.viewControllers).to(beEmpty())
             }
 
-            it("returns FilesListViewController instance") {
-                expect(sut.filesListViewController()).to(beAKindOf(FilesListViewController.self))
-            }
-
-            it("sets up relationships between view and presenter") {
-                let viewController = sut.filesListViewController() as! FilesListViewController
-
-                let presenter = viewController.presenter
-
-                expect(presenter.view) === viewController
+            it("returns FileListViewController instance") {
+                expect(sut.fileListViewController()).to(beAKindOf(FileListViewController.self))
             }
 
             it("pushes controller on navigation controller after navigation to directory") {

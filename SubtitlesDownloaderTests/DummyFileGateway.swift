@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import RxSwift
 @testable import SubtitlesDownloader
 
 class DummyFileGateway: FileGateway {
 
-    func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
-        return nil
+    func contentsOfDirectory(path: String) -> Single<Result<[File], FileError>> {
+        return Single.just(.success([]))
     }
 
-    func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
-        return nil
+    func contents(path: String, offset: Int64, length: Int) -> Single<Result<Data, FileError>> {
+        return Single.just(.success(Data()))
     }
 }

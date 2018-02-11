@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import RxSwift
 @testable import SubtitlesDownloader
 
 class GetBytesOperationSpec: QuickSpec {
@@ -36,13 +37,11 @@ private class MockFileGateway: FileGateway {
         self.data = data
     }
 
-    func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
-        return nil
+    func contentsOfDirectory(path: String) -> Single<Result<[File], FileError>> {
+        return Single.just(.success([]))
     }
-
-    func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
+    func contents(path: String, offset: Int64, length: Int) -> Single<Result<Data, FileError>> {
         let slice = data[Int(offset)..<(Int(offset) + length)]
-        completion(.success(Data(slice)))
-        return nil
+        return Single.just(.success(Data(slice)))
     }
 }

@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import RxSwift
 @testable import SubtitlesDownloader
 
 class HashCalculatorSpec: QuickSpec {
@@ -59,20 +60,17 @@ class HashCalculatorSpec: QuickSpec {
 
 private class TestFileGateway: FileGateway {
 
-    func contentsOfDirectory(path: String, completion: @escaping (Result<[File]>) -> Void) -> OperationHandle? {
-        return nil
+    func contentsOfDirectory(path: String) -> Single<Result<[File], FileError>> {
+        fatalError()
     }
 
-    func contents(path: String, offset: Int64, length: Int, completion: @escaping (Result<Data>) -> Void) -> OperationHandle? {
-
+    func contents(path: String, offset: Int64, length: Int) -> Single<Result<Data, FileError>> {
         let fileHandle = FileHandle(forReadingAtPath: path)!
+        defer { fileHandle.closeFile() }
 
         fileHandle.seek(toFileOffset: UInt64(offset))
         let data = fileHandle.readData(ofLength: length)
 
-        completion(.success(data))
-
-        fileHandle.closeFile()
-        return nil
+        return Single.just(.success(data))
     }
 }
