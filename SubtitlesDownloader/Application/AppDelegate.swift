@@ -8,7 +8,6 @@
 
 import UIKit
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -23,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         gateway = OpenSubtitlesGateway(
             apiClient: XmlRpcApiClient(url: URL(string: "http://api.opensubtitles.org/xml-rpc")!, monitor: monitor)
         )
-
 
         //let fileGateway = LocalFileGateway()
         let fileGateway = WebDavFileGateway(baseUrl: URL(string: "http://localhost:1111")!, user: "user", password: "password", monitor: UINetworkTasksMonitor())
