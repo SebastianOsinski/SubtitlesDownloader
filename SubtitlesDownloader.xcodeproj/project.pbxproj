@@ -64,6 +64,8 @@
 		91C874161E36A018004A3EB6 /* FileListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874151E36A018004A3EB6 /* FileListViewModel.swift */; };
 		91C874181E36A05B004A3EB6 /* FileListConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C874171E36A05B004A3EB6 /* FileListConnector.swift */; };
 		91C8741D1E36A9CE004A3EB6 /* LocalFileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8741C1E36A9CE004A3EB6 /* LocalFileGateway.swift */; };
+		91ED29B220331AF800E6AB7D /* RootConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ED29B120331AF800E6AB7D /* RootConnector.swift */; };
+		91ED29B420331B0200E6AB7D /* MainConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ED29B320331B0200E6AB7D /* MainConnector.swift */; };
 		91F9B3941E3BB64E000E32F2 /* GetBytesOperationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */; };
 		91F9B3971E3BC10D000E32F2 /* HashingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */; };
 		91F9B3BD1E3D558C000E32F2 /* ComputeHashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */; };
@@ -145,6 +147,8 @@
 		91C874151E36A018004A3EB6 /* FileListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileListViewModel.swift; sourceTree = "<group>"; };
 		91C874171E36A05B004A3EB6 /* FileListConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileListConnector.swift; sourceTree = "<group>"; };
 		91C8741C1E36A9CE004A3EB6 /* LocalFileGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileGateway.swift; sourceTree = "<group>"; };
+		91ED29B120331AF800E6AB7D /* RootConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootConnector.swift; sourceTree = "<group>"; };
+		91ED29B320331B0200E6AB7D /* MainConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConnector.swift; sourceTree = "<group>"; };
 		91F9B3931E3BB64E000E32F2 /* GetBytesOperationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBytesOperationSpec.swift; sourceTree = "<group>"; };
 		91F9B3961E3BC10D000E32F2 /* HashingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashingOperation.swift; sourceTree = "<group>"; };
 		91F9B3BC1E3D558C000E32F2 /* ComputeHashUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeHashUseCase.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				91194A38202F828000514E74 /* Scenes */,
 				916E3769202F771300F2A215 /* Extensions */,
 				916E3774202F80E000F2A215 /* Utility */,
+				91ED29B120331AF800E6AB7D /* RootConnector.swift */,
+				91ED29B320331B0200E6AB7D /* MainConnector.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -655,6 +661,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/SWXMLHash/SWXMLHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -664,6 +671,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWXMLHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -767,6 +775,7 @@
 				916E3776202F80EA00F2A215 /* ActivityIndicator.swift in Sources */,
 				91C8740A1E369CC2004A3EB6 /* Result.swift in Sources */,
 				914546DE1E47E9AC0058ABC8 /* XmlResponse.swift in Sources */,
+				91ED29B420331B0200E6AB7D /* MainConnector.swift in Sources */,
 				915360BD1E37DA1000E6F857 /* ReusableView.swift in Sources */,
 				91F9B3971E3BC10D000E32F2 /* HashingOperation.swift in Sources */,
 				91C874181E36A05B004A3EB6 /* FileListConnector.swift in Sources */,
@@ -776,6 +785,7 @@
 				917104121E3FE29E0015CB82 /* OpenSubtitlesGateway.swift in Sources */,
 				914546E41E4911BB0058ABC8 /* XmlRpcDateFormatter.swift in Sources */,
 				91C8741D1E36A9CE004A3EB6 /* LocalFileGateway.swift in Sources */,
+				91ED29B220331AF800E6AB7D /* RootConnector.swift in Sources */,
 				91C873DB1E35487D004A3EB6 /* AppDelegate.swift in Sources */,
 				916E376B202F772400F2A215 /* ObservableType+Extensions.swift in Sources */,
 				91AF42551E3FB5EE005B7216 /* NetworkTasksMonitor.swift in Sources */,
@@ -959,9 +969,10 @@
 				DEVELOPMENT_TEAM = GJF586P7E7;
 				INFOPLIST_FILE = SubtitlesDownloader/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubsDownloader;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubtitlesDownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -973,9 +984,10 @@
 				DEVELOPMENT_TEAM = GJF586P7E7;
 				INFOPLIST_FILE = SubtitlesDownloader/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubsDownloader;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.osinski.SubtitlesDownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

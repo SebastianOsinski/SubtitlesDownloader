@@ -10,6 +10,7 @@ PODS:
   - RxSwiftExt/Core (3.1.0):
     - RxSwift (~> 4.0)
   - SnapKit (4.0.0)
+  - Swinject (2.1.1)
   - SWXMLHash (4.2.5)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - RxSwift
   - RxSwiftExt
   - SnapKit
+  - Swinject
   - SWXMLHash
 
 SPEC CHECKSUMS:
@@ -30,8 +32,9 @@ SPEC CHECKSUMS:
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   RxSwiftExt: a9b9c8e94be009146707f9fcb16eaf3cc1f3910c
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Swinject: afea49fd95f392b41171669f165842879c48fad6
   SWXMLHash: eb16013c6f654853980822e0a778c9d66e017dde
 
-PODFILE CHECKSUM: 879cdb926485a0a1e40d9a9132e4c256d724e2db
+PODFILE CHECKSUM: 81e1bab15cde4d49d8f3e31f7233575675f166bb
 
 COCOAPODS: 1.4.0

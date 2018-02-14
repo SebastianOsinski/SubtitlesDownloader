@@ -7,33 +7,20 @@
 //
 
 import UIKit
+import Swinject
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private var rootConnector: FileListConnector!
+    private var rootConnector: MainConnector!
 
     private var gateway: SubtitlesGateway!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let monitor = UINetworkTasksMonitor()
-
-        gateway = OpenSubtitlesGateway(
-            apiClient: XmlRpcApiClient(url: URL(string: "http://api.opensubtitles.org/xml-rpc")!, monitor: monitor)
-        )
-
-        //let fileGateway = LocalFileGateway()
-        let fileGateway = WebDavFileGateway(baseUrl: URL(string: "http://localhost:1111")!, user: "user", password: "password", monitor: UINetworkTasksMonitor())
-        let navigationController = UINavigationController()
-        rootConnector = FileListConnector(
-            path: "",
-            fileGateway: fileGateway,
-            navigationController: navigationController
-        )
-
-        navigationController.pushViewController(rootConnector.fileListViewController(), animated: false)
-        configureWindow(with: navigationController)
+        rootConnector = MainConnector()
+        rootConnector.connect()
+        configureWindow(with: rootConnector.controller)
 
         return true
     }
@@ -43,4 +30,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = viewController
         window!.makeKeyAndVisible()
     }
+
+    private func createContainer() -> Container {
+        return Container { container in
+            container
+                .register(NetworkTasksMonitor.self, factory: { _ in UINetworkTasksMonitor() })
+                .inObjectScope(.container)
+
+            
+        }
+    }
+}
+
+final class RootConnector {
+
+}
+
+final class LoginConnector {
+
+}
+
+final class SettingsConnector {
+
 }

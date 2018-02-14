@@ -62,7 +62,11 @@ class FileListViewModel {
             .do(onNext: { [connector] file in
                 switch file.type {
                 case .regular:
-                    break
+                    if file.path.hasSuffix("avi") {
+                        connector.navigateToVideoFile(atPath: file.path)
+                    } else {
+                        connector.navigateToOtherFile(atPath: file.path)
+                    }
                 case .directory:
                     connector.navigateToDirectory(atPath: file.path)
                 }

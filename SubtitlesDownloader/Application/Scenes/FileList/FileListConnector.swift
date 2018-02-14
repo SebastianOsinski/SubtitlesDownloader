@@ -8,42 +8,16 @@
 
 import UIKit
 
-class FileListConnector {
+protocol FileListConnector: class {
+    func navigateToDirectory(atPath path: String)
+    func navigateToVideoFile(atPath path: String)
+    func navigateToOtherFile(atPath path: String)
+}
 
-    private let path: String
-    private let fileGateway: FileGateway
+class VideoFileViewController: UIViewController {
 
-    private let navigationController: UINavigationController
-
-    init(path: String, fileGateway: FileGateway, navigationController: UINavigationController) {
-        self.path = path
-        self.fileGateway = fileGateway
-        self.navigationController = navigationController
-    }
-
-    func fileListViewController() -> UIViewController {
-        let useCaseFactory = UseCaseFactory(fileGateway: fileGateway)
-        let viewModel = FileListViewModel(path: path, useCaseFactory: useCaseFactory, connector: self)
-        let viewController = FileListViewController(viewModel: viewModel)
-
-        return viewController
-    }
-
-    func navigateToDirectory(atPath path: String) {
-        let connector = FileListConnector(
-            path: path,
-            fileGateway: fileGateway,
-            navigationController: navigationController
-        )
-
-        let viewController = connector.fileListViewController()
-
-        navigationController.pushViewController(viewController, animated: true)
-    }
-
-    func showHashAlert(hash: String) {
-        let alertController = UIAlertController(title: "Hash", message: hash, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        navigationController.present(alertController, animated: true, completion: nil)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .green
     }
 }

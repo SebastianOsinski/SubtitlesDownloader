@@ -9,6 +9,7 @@ target 'SubtitlesDownloader' do
   pod 'FilesProvider'
   pod 'SWXMLHash'
   pod 'SnapKit'
+  pod 'Swinject'
 
   target 'SubtitlesDownloaderTests' do
     inherit! :search_paths
