@@ -68,6 +68,7 @@ class FileListViewController: UIViewController {
             .disposed(by: disposeBag)
 
         output.fetching
+            .filter { !$0 }
             .drive(tableView.refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
     }
